@@ -1,0 +1,28 @@
+.section {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar {
+  padding: 0 1rem !important;
+  height: 60px !important;
+  -webkit-box-shadow: 0px 3px 7px 4px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 7px -4px rgba(0, 0, 0, 0.16);
+}
+
+.img {
+  height: 45px !important;
+}
+
+@media screen and (max-width: 767px) {
+  .img {
+    height: 35px !important;
+  }
+
+  .navbar {
+    height: 55px !important;
+  }
+}

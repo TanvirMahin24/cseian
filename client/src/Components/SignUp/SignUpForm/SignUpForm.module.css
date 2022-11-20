@@ -1,0 +1,19 @@
+.img {
+  width: 100%;
+  min-height: 130px;
+  margin: 0 auto;
+}
+
+.img__wrapper {
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+}
+
+.submit {
+  background: #d74261 !important;
+}
+
+.submit:hover {
+  background: #a8344b !important;
+}

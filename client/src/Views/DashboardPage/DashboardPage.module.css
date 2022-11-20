@@ -1,0 +1,14 @@
+@media screen and (max-width: 767px) {
+  .md__fix {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .wrapper {
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .wrapper {
+    padding-left: 5% !important;
+  }
+}

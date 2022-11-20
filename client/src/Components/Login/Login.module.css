@@ -1,0 +1,23 @@
+.wrapper {
+  background: url(../../Assets/Login/loginBG.svg);
+  background-position: left;
+  min-height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.title {
+  color: #0f3b5e;
+  font-size: 2rem;
+  font-weight: bolder;
+  font-family: "Poppins";
+}
+
+.form {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #ffffff;
+}

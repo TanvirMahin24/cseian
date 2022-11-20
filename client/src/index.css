@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800;900&display=swap");
+:root {
+  --primary: #4797d9;
+  --color_dark: #0f3b5e;
+  --color_danger: #d74261;
+  --light: #fafafa;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", Arial, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+#hero__slider .swiper-button-next,
+#hero__slider .swiper-button-prev {
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  border: 6px solid var(--color_dark);
+  right: 10px;
+  padding: 50px;
+  color: black !important;
+  fill: black !important;
+  stroke: black !important;
+  transform: scale(0.3) translateY(350px);
+}
+
+.bg-light {
+  background: var(--light) !important;
+}
+
+.dashboard__title {
+  font-size: 22px !important;
+  font-family: "Poppins";
+  color: var(--color_dark) !important;
+}
+
+@media screen and (max-width: 768px) {
+  .order__1 {
+    order: 2;
+  }
+
+  .order__2 {
+    order: 1;
+  }
+}
+
+.kepler__section {
+  height: 200px !important;
+}

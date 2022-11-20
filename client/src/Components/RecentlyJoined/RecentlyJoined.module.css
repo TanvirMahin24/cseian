@@ -1,0 +1,17 @@
+.text__primary {
+  color: #2699fb;
+}
+
+.subheading {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.btn {
+  font-size: 14px;
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+}

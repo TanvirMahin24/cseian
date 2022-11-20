@@ -1,0 +1,25 @@
+.section {
+  min-height: 320px;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 20px !important;
+  border-radius: 10px;
+  margin-top: 10px;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.title {
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 36px;
+}
+
+.description {
+  font-family: "Poppins";
+  font-size: 18px;
+}

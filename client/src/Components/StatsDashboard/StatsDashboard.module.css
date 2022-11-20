@@ -1,0 +1,15 @@
+.text {
+  color: var(--color_dark);
+}
+
+@media screen and (max-width: 900px) {
+  .text {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .text {
+    font-size: 1.2rem !important;
+  }
+}

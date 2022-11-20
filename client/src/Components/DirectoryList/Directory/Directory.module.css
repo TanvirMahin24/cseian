@@ -1,0 +1,25 @@
+.img {
+  width: 100px;
+}
+
+.name {
+  color: #07090d;
+  font-weight: 500;
+  font-family: "Poppins";
+  font-size: 14px;
+}
+
+.link {
+  color: #4797d9;
+  text-decoration: none;
+  font-family: "Poppins";
+  font-size: 12px;
+  font-weight: 500;
+  transition: 0.3s all ease-in-out;
+}
+
+.link:hover {
+  color: var(--color_danger);
+  text-decoration: none;
+  transition: 0.3s all ease-in-out;
+}

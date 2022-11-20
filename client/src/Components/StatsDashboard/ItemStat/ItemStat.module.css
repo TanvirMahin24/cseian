@@ -1,0 +1,35 @@
+.wrapper {
+  border-right: 1px solid #cccccc;
+  margin-bottom: 30px;
+  /* width: 180px; */
+}
+
+.text {
+  color: var(--color_dark);
+  font-size: 16px;
+  font-family: "Poppins";
+}
+
+.count {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Poppins";
+  color: var(--color_dark);
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    width: 30vw;
+  }
+}
+@media screen and (max-width: 450px) {
+  .wrapper {
+    width: 30vw;
+    overflow: hidden;
+  }
+  .text {
+    color: var(--color_dark);
+    font-size: 12px;
+    font-family: "Poppins";
+  }
+}

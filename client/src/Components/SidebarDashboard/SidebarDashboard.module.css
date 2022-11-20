@@ -1,0 +1,46 @@
+.wrapper {
+  position: relative;
+}
+.toogle__icon {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100% !important;
+    z-index: 99999;
+    background: #fff;
+    padding-bottom: 20px;
+    left: 0;
+    top: 0;
+  }
+  .toogle__icon {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: -50px !important;
+    height: 30px;
+    z-index: 999999;
+  }
+  .section {
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    min-width: 100vw;
+    width: 100%;
+    overflow-x: hidden;
+    min-height: 100%;
+    background: #fff;
+    transition: 0.3s all ease-in-out;
+  }
+  .section.active {
+    left: 120vw !important;
+    transition: 0.3s all ease-in-out;
+  }
+}

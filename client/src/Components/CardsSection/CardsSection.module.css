@@ -1,0 +1,29 @@
+.heading {
+  font-size: 36px;
+  font-family: "Poppins" !important;
+  color: var(--color_dark);
+  font-weight: 800;
+}
+
+.card {
+  background: #f1f9ff;
+  color: var(--color_danger) !important;
+  font-family: "Poppins" !important;
+  border: 1px solid var(--color_danger);
+  border-radius: 10px;
+}
+
+.top__text {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .heading {
+    font-size: 28px;
+  }
+}

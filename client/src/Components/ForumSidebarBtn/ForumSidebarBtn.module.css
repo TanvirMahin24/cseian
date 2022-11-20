@@ -1,0 +1,18 @@
+.post__btn {
+  display: none !important;
+}
+
+@media screen and (max-width: 767px) {
+  .post__btn {
+    display: block !important;
+    border-radius: 7px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: "Poppins";
+    outline: none !important;
+    border: none !important;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    background: var(--color_dark) !important;
+  }
+}

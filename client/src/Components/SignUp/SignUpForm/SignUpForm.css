@@ -1,0 +1,42 @@
+#signup__form .form-control {
+  border: 2px solid #bce0fd !important;
+  background: #f1f9ff !important;
+  border-radius: 10px !important;
+}
+
+#signup__form .form-control.is-invalid {
+  border: 2px solid #ff7d7d !important;
+  background: #ffe4e4 !important;
+}
+
+#signup__form .text-primary {
+  color: #2699fb !important;
+}
+
+#signup__form .btn.btn-outline-primary {
+  color: #2699fb !important;
+  border-color: #2699fb !important;
+  border-width: 2px !important;
+}
+
+#signup__form .btn.btn-outline-primary:hover {
+  color: #ffffff !important;
+  background: #2699fb !important;
+}
+
+#signup__form #department_check {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+#signup__form #department_check_label {
+  font-size: 16px;
+  height: 30px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

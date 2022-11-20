@@ -1,0 +1,62 @@
+.card {
+  border: 1px solid #000;
+  border-radius: 10px;
+  color: #707070;
+}
+
+.text__title {
+  font-size: 14px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #707070;
+}
+
+.text__desc {
+  font-size: 18px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #707070;
+}
+
+.course__title {
+  color: #707070;
+  font-size: 40px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.bold__text {
+  font-weight: 700 !important;
+}
+
+.enroll__btn {
+  border: 2px solid #bce0fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none !important;
+  color: #707070 !important;
+  border-radius: 4px;
+  font-family: Arial, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media screen and (max-width: 420px) {
+  .text__desc {
+    font-size: 12px;
+    line-break: auto;
+  }
+  .text__title {
+    font-size: 12px;
+  }
+  .course__title {
+    font-size: 24px;
+  }
+
+  .card {
+    width: 280px;
+  }
+  .item {
+    padding-right: 120px !important;
+  }
+}

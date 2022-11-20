@@ -1,0 +1,18 @@
+.slider {
+  min-height: 500px;
+  width: 100%;
+  display: block;
+  background: #f1f9ff;
+}
+
+.carousel__item {
+  min-width: 400px;
+  background: #f1f9ff;
+  width: 100%;
+}
+
+.carousel__item .inner {
+  width: 100%;
+  min-height: 400px;
+  margin-top: 50px;
+}

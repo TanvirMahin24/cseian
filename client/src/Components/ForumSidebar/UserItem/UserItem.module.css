@@ -1,0 +1,45 @@
+.wrapper {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image {
+  width: 25px;
+}
+
+.name {
+  padding-left: 5px;
+  font-family: "Poppins";
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color_dark);
+  text-decoration: none;
+  transition: 0.3s all ease-in-out;
+}
+
+.name:hover,
+.name:focus {
+  color: var(--color_danger);
+  text-decoration: none;
+  transition: 0.3s all ease-in-out;
+}
+
+.point {
+  font-family: "Poppins";
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--secondary) !important;
+}
+
+.arrow {
+  color: var(--color_dark) !important;
+  transition: 0.3s all ease-in-out;
+}
+
+.arrow:hover {
+  color: var(--color_danger) !important;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}

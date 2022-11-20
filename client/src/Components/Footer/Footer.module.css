@@ -1,0 +1,27 @@
+.footer {
+  background: var(--color_dark);
+  font-family: "Poppins";
+  font-size: 15px;
+}
+
+.icon {
+  height: 20px;
+}
+
+.company__name {
+  color: #4797d9;
+}
+
+.social__section {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+@media screen and (max-width: 991px) {
+  .social__section {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}

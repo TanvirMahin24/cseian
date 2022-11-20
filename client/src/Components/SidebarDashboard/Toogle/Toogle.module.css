@@ -1,0 +1,81 @@
+/* Icon 1 */
+@media screen and (min-width: 768px) {
+  .nav__icon {
+    display: none;
+  }
+}
+.nav__icon {
+  width: 60px;
+  height: 45px;
+  position: absolute;
+  top: 0;
+  right: 5%;
+  z-index: 99999;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg) scale(0.7);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.nav__icon.open {
+  position: fixed;
+  top: 0;
+  right: 5%;
+}
+
+.nav__icon span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: #4797d9;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.nav__icon span:nth-child(1) {
+  top: 0px;
+}
+
+.nav__icon span:nth-child(2) {
+  top: 18px;
+}
+
+.nav__icon span:nth-child(3) {
+  top: 36px;
+}
+
+.nav__icon.open span:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.nav__icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.nav__icon.open span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}

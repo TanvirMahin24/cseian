@@ -1,0 +1,26 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.slider__bg {
+  background: var(--color_dark) !important;
+  height: 750px !important;
+  width: 43%;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: -100px;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .slider__bg {
+    height: 790px !important;
+  }
+}
