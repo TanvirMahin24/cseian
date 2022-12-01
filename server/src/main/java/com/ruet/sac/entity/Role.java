@@ -11,11 +11,12 @@ public class Role {
     @Column(name = "role_id", nullable = false)
     private Integer id;
 
-    @Column(name = "role_name", nullable = false)
-    private Integer roleName;
+    @Column(name = "role_name", nullable = false, length = 50)
+    private String roleName;
 
+    @Lob
     @Column(name = "role_description", nullable = false)
-    private Integer roleDescription;
+    private String roleDescription;
 
     @OneToMany(mappedBy = "userRole")
     private Set<Member> members = new LinkedHashSet<>();
@@ -28,19 +29,19 @@ public class Role {
         this.id = id;
     }
 
-    public Integer getRoleName() {
+    public String getRoleName() {
         return roleName;
     }
 
-    public void setRoleName(Integer roleName) {
+    public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
 
-    public Integer getRoleDescription() {
+    public String getRoleDescription() {
         return roleDescription;
     }
 
-    public void setRoleDescription(Integer roleDescription) {
+    public void setRoleDescription(String roleDescription) {
         this.roleDescription = roleDescription;
     }
 

@@ -11,6 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
@@ -33,7 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     {
         http.csrf().disable().cors().and()
                 .authorizeRequests()
-                .antMatchers("/authenticate","/register","/verifyEmail","/forgotPassword","/resource/images").permitAll()                .anyRequest().authenticated().and().
+                .antMatchers("/authenticate","/register","/verifyEmail","/resendVerifyEmail","/forgotPassword","/resource/images").permitAll()
+                //.antMatchers("/authenticate","/register","/verifyEmail","/forgotPassword","/resource/images").hasAnyRole("USER","ADMIN" )
+                .anyRequest().authenticated().and().
                 exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
@@ -48,6 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder getPasswordEncoder()
     {
-        return NoOpPasswordEncoder.getInstance();
+        return new Pbkdf2PasswordEncoder();
     }
 }

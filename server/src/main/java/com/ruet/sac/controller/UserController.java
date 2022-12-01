@@ -3,7 +3,7 @@ package com.ruet.sac.controller;
 import com.ruet.sac.entity.Member;
 import com.ruet.sac.security.AuthenticationRequest;
 import com.ruet.sac.security.AuthenticationResponse;
-import com.ruet.sac.repository.AlumnusRepository;
+import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.service.UserService;
 import com.ruet.sac.service.VarificationService;
 import com.ruet.sac.util.JwtUtil;
@@ -14,7 +14,10 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 
@@ -31,22 +34,26 @@ public class UserController {
     VarificationService varificationService;
 
     @PostMapping("/register")
-    public HashMap<String,Object> registration(@RequestParam("name") String name ,
-                                           @RequestParam("studentId") Integer studentId ,
-                                           @RequestParam(name ="jobField" ,required=false)String jobField ,
-                                           @RequestParam(name ="jobTitle" ,required=false)String jobTitle ,
-                                           @RequestParam(name ="jobOrganization" ,required=false)String jobOrganization ,
-                                           @RequestParam(name ="jobBrunch" ,required=false)String jobBrunch ,
-                                           @RequestParam(name ="email")String email ,
-                                           @RequestParam(name ="contactNo")String contactNo ,
-                                           @RequestParam(name ="linkedin" ,required=false)String linkedin ,
-                                           @RequestParam(name ="availableTimeToContact")String availableTimeToContact,
-                                           @RequestParam(name ="password")String password )
+    public HashMap<String,Object> registration(@RequestParam("firstName") String firstName ,
+                                               @RequestParam("lastName") String lastName ,
+                                               @RequestParam("studentId") Integer studentId ,
+                                               @RequestParam(name ="email")String email ,
+                                               @RequestParam(name ="contactNo")String contactNo ,
+                                               @RequestParam(name ="country" ,required=false)String country ,
+                                               @RequestParam(name ="city" ,required=false)String city ,
+                                               @RequestParam(name ="linkedin" ,required=false)String linkedin ,
+                                               @RequestParam(name ="availableTimeToContact")String availableTimeToContact,
+                                               @RequestParam(name ="jobField" ,required=false)String jobField ,
+                                               @RequestParam(name ="jobTitle" ,required=false)String jobTitle ,
+                                               @RequestParam(name ="jobOrganization" ,required=false)String jobOrganization ,
+                                               @RequestParam(name ="jobBrunch" ,required=false)String jobBrunch ,
+                                               @RequestParam(name ="password")String password ,
+                                               @RequestPart (name="image", required = false) MultipartFile image)
     {
         HashMap<String,Object> returnObj = new HashMap<>();
         try
         {
-            userService.registration(name,studentId,jobField,jobTitle,jobOrganization,jobBrunch,email,contactNo,linkedin,availableTimeToContact,password);
+            userService.registration(firstName+lastName,studentId,email,contactNo,linkedin,country,city,availableTimeToContact,jobField,jobTitle,jobOrganization,jobBrunch,password,image);
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
             returnObj.put("ResponseData", "Registered Successfully");
@@ -60,12 +67,12 @@ public class UserController {
     }
 
     @PostMapping("/verifyEmail")
-    public HashMap<String,Object> verifyEmail(@RequestParam("varificationCode") String varificationCode)
+    public HashMap<String,Object> verifyEmail(@RequestParam("varificationCode") String varificationCode,@RequestParam("userId") Integer userId)
     {
         HashMap<String,Object> returnObj = new HashMap<>();
         try
         {
-            Integer status = varificationService.checkCode(varificationCode);
+            Integer status = varificationService.checkCode(varificationCode,userId);
             if(status==1)
             {
                 returnObj.put("ResponseCode", "1");
@@ -82,6 +89,25 @@ public class UserController {
                 returnObj.put("ResponseData", "Code is not valid");
             }
 
+        } catch (Exception e)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Failed");
+            returnObj.put("ResponseData", "Something Went Wrong");
+        }
+        return returnObj;
+    }
+
+    @PostMapping("/resendVerifyEmail")
+    public HashMap<String,Object> resendVerifyEmail(@RequestParam("studentId") Integer studentId)
+    {
+        HashMap<String,Object> returnObj = new HashMap<>();
+        try
+        {
+            String email = userService.resendVerifyEmail(studentId);
+            returnObj.put("ResponseCode", "1");
+            returnObj.put("Response", "Successfull");
+            returnObj.put("ResponseData", "Email has sent to "+email+" \n Please check your Inbox or Spam");
         } catch (Exception e)
         {
             returnObj.put("ResponseCode", "0");
@@ -120,36 +146,51 @@ public class UserController {
     UserDetailsService userDetailsService;
 
     @Autowired
-    AlumnusRepository alumnusRepository;
+    MemberRepository alumnusRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
 
         HashMap<String,Object> returnObj = new HashMap<>();
-
-        Integer userStatus = alumnusRepository.findStatusByStudentId(parseInt(authenticationRequest.getUsername()));
-
-        if(userStatus==0)
-        {
-            returnObj.put("ResponseCode", "0");
-            returnObj.put("Response", "Feiled ");
-            returnObj.put("ResponseData", "Your Account isn't Active");
-            return ResponseEntity.ok(returnObj);
-        }
-
         try
         {
-            authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
-            );
-        }
-        catch (BadCredentialsException e) {
+            Integer userStatus = (alumnusRepository.findStatusByStudentId(parseInt(authenticationRequest.getUsername()))==null) ? 0 :  alumnusRepository.findStatusByStudentId(parseInt(authenticationRequest.getUsername()));
+
+            if(userStatus==0)
+            {
+                returnObj.put("ResponseCode", "0");
+                returnObj.put("Response", "Feiled ");
+                returnObj.put("ResponseData", "Your Account isn't Active");
+                return ResponseEntity.ok(returnObj);
+            }
+
+            System.out.println(passwordEncoder.encode(authenticationRequest.getPassword()));
+            try
+            {
+
+                authenticationManager.authenticate(
+                        new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),authenticationRequest.getPassword()));
+
+            }
+            catch (BadCredentialsException e) {
+
+                returnObj.put("ResponseCode", "0");
+                returnObj.put("Response", "Feiled ");
+                returnObj.put("ResponseData", "Incorrect username or password");
+                return ResponseEntity.ok(returnObj);
+            }
+        }catch (Exception e)
+        {
 
             returnObj.put("ResponseCode", "0");
             returnObj.put("Response", "Feiled ");
-            returnObj.put("ResponseData", "Incorrect username or password");
+            returnObj.put("ResponseData", "Check parametername or is it null parameter or not");
             return ResponseEntity.ok(returnObj);
         }
+
 
         final UserDetails userDetails = userDetailsService
                 .loadUserByUsername(authenticationRequest.getUsername());

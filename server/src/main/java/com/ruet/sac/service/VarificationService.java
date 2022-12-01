@@ -2,7 +2,7 @@ package com.ruet.sac.service;
 
 import com.ruet.sac.entity.Member;
 import com.ruet.sac.entity.VarficationCode;
-import com.ruet.sac.repository.AlumnusRepository;
+import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.RoleRepository;
 import com.ruet.sac.repository.VarficationCodeRepository;
 import net.bytebuddy.utility.RandomString;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.time.Instant;
 
 @Service
@@ -19,7 +20,7 @@ public class VarificationService {
     VarficationCodeRepository varficationCodeRepository;
 
     @Autowired
-    AlumnusRepository alumnusRepository;
+    MemberRepository alumnusRepository;
 
     @Autowired
     RoleRepository roleRepository;
@@ -36,9 +37,9 @@ public class VarificationService {
     }
 
     @Transactional
-    public Integer checkCode(String code)
+    public Integer checkCode(String code, Integer userId)
     {
-        VarficationCode varficationCode = varficationCodeRepository.getVarficationCodeInf(code);
+        VarficationCode varficationCode = varficationCodeRepository.getVarficationCodeInf(code,userId);
 
         Instant timeToDetete = Instant.now().minusSeconds(18000);
         try{

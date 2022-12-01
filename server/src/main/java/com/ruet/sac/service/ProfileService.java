@@ -3,7 +3,7 @@ package com.ruet.sac.service;
 import com.ruet.sac.entity.Jobhistory;
 import com.ruet.sac.entity.Member;
 import com.ruet.sac.entity.TableRegistry;
-import com.ruet.sac.repository.AlumnusRepository;
+import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.JobhistoryRepository;
 import com.ruet.sac.repository.TableRegistryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class ProfileService {
     JobhistoryRepository jobhistoryRepository;
 
     @Autowired
-    AlumnusRepository alumnusRepository;
+    MemberRepository alumnusRepository;
 
     @Autowired
     TableRegistryRepository tableRegistryRepository;

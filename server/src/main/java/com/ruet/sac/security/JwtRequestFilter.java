@@ -39,7 +39,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         final String authorizationHeader = request.getHeader("Authorization");
 
-        if(URL.equals("/authenticate")|| URL.equals("/resource/images") || URL.equals("/register") || URL.equals("/verifyEmail") || URL.equals("/forgotPassword"))
+        if(URL.equals("/authenticate") || URL.equals("/resendVerifyEmail")|| URL.equals("/resource/images") || URL.equals("/register") || URL.equals("/verifyEmail") || URL.equals("/forgotPassword"))
         {
             chain.doFilter(request, response);
             return;
@@ -63,8 +63,21 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                     response.getWriter().close();
                     return;
                 }
+                try{
+                    username = jwtUtil.extractUsername(jwt);
+                }
+                catch (Exception e)
+                {
+                    returnObj.put("ResponseCode", "3");
+                    returnObj.put("Response", "Failed");
+                    returnObj.put("ResponseData", "Invalid JWT Token");
+                    JSONObject json = new JSONObject(returnObj);
+                    response.setContentType("application/json");
+                    response.getWriter().write(json.toString());
+                    response.getWriter().close();
+                    return;
+                }
 
-                username = jwtUtil.extractUsername(jwt);
                 logger.warn(username);
             }catch (ExpiredJwtException e) {
                 returnObj.put("ResponseCode", "2");

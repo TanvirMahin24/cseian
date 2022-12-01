@@ -2,13 +2,15 @@ package com.ruet.sac.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "options")
 public class Option {
+    @Id
     @Column(name = "option_id", nullable = false)
-    private Integer optionId;
+    private Integer id;
 
     @Column(name = "option_name", nullable = false)
     private Integer optionName;
@@ -19,12 +21,12 @@ public class Option {
     @Column(name = "option_description", nullable = false)
     private Integer optionDescription;
 
-    public Integer getOptionId() {
-        return optionId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setOptionId(Integer optionId) {
-        this.optionId = optionId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getOptionName() {

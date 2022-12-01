@@ -3,7 +3,7 @@ package com.ruet.sac.service;
 import com.ruet.sac.entity.Member;
 import com.ruet.sac.entity.Post;
 import com.ruet.sac.entity.TableRegistry;
-import com.ruet.sac.repository.AlumnusRepository;
+import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.PostRepository;
 import com.ruet.sac.repository.TableRegistryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class PostService {
         PostRepository postRepository;
 
         @Autowired
-        AlumnusRepository alumnusRepository;
+        MemberRepository alumnusRepository;
 
         @Autowired
         FileUploadService fileUploadService;
@@ -79,7 +79,7 @@ public class PostService {
     }
 
     @Transactional
-    public void savePost( Integer postWonerId,String postDescription , MultipartFile image )
+    public void savePost( Integer postWonerId,String postDescription , MultipartFile postImage )
     {
         Post post = new Post();
         Member postWoner = alumnusRepository.getReferenceById(postWonerId);
@@ -93,9 +93,9 @@ public class PostService {
         post.setId(id);
         post.setPostWoner(postWoner);
         post.setPostDescription(postDescription);
-        if(image!=null)
+        if(postImage!=null)
         {
-            String imageName = fileUploadService.saveFile(image ,"postImage"+"69");
+            String imageName = fileUploadService.saveFile(postImage ,"postImage"+id);
             post.setPostImage(deployUrl+imagePath+"?imageName="+imageName);
         }
         LocalDate postDate =LocalDate.now();

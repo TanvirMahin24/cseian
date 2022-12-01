@@ -21,6 +21,13 @@ public class Member {
     @Column(name = "picture")
     private String picture;
 
+    @Column(name = "country", length = 100)
+    private String country;
+
+    @Lob
+    @Column(name = "city")
+    private String city;
+
     @Column(name = "linkedin", length = 150)
     private String linkedin;
 
@@ -33,7 +40,7 @@ public class Member {
     @Column(name = "available_time_to_contact", nullable = false, length = 300)
     private String availableTimeToContact;
 
-    @Column(name = "password", nullable = false, length = 30)
+    @Column(name = "password", nullable = false, length = 300)
     private String password;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -82,6 +89,22 @@ public class Member {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getLinkedin() {

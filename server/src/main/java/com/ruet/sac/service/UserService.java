@@ -1,18 +1,20 @@
 package com.ruet.sac.service;
 
 import com.ruet.sac.entity.*;
-import com.ruet.sac.repository.AlumnusRepository;
+import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.JobhistoryRepository;
 import com.ruet.sac.repository.RoleRepository;
 import com.ruet.sac.repository.TableRegistryRepository;
 import com.ruet.sac.util.EmailDetailsUtil;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,8 +22,13 @@ import java.util.Map;
 public class UserService {
 
 
+    @Value("${deploy.url}") String deployUrl ;
+    @Value("${imageResourse.path}") String imagePath ;
+
     @Autowired
-    AlumnusRepository alumnusRepository;
+    FileUploadService fileUploadService;
+    @Autowired
+    MemberRepository alumnusRepository;
 
     @Autowired
     OgranizationService ogranizationService;
@@ -41,9 +48,14 @@ public class UserService {
     @Autowired
     VarificationService varificationService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Transactional
-    public void registration(String name , Integer studentId , String jobField, String jobTitle , String jobOrganization ,String jobBrunch ,
-                             String email , String contactNo,String linkedin , String availableTimeToContact,String password)
+    public void registration(String name , Integer studentId , String email , String contactNo,
+                             String linkedin , String country , String city , String availableTimeToContact,
+                             String jobField, String jobTitle , String jobOrganization , String jobBrunch ,
+                             String password , MultipartFile memberPhoto)
     {
             Member member = new Member();
 
@@ -59,12 +71,20 @@ public class UserService {
         member.setEmail(email);
         member.setContactNo(contactNo);
         member.setLinkedin(linkedin);
+        member.setCountry(country);
+        member.setCity(city);
         member.setAvailableTimeToContact(availableTimeToContact);
-        member.setPassword(password);
-        member.setUserRole(roleRepository.getReferenceById(1));
+        member.setPassword(passwordEncoder.encode(password));
+        if(memberPhoto!=null)
+        {
+            String imageName = fileUploadService.saveFile(memberPhoto ,"memberImage"+studentId);
+            member.setPicture(deployUrl+imagePath+"?imageName="+imageName);
+        }
 
         alumnusRepository.save(member);
 
+        if(jobField.length()!=0 && jobTitle.length()!=0 && jobOrganization.length()!=0 )
+        {
             // get Primary key of jobhistory table
             TableRegistry r = tableRegistryRepository.getReferenceById(4);
             Integer id = r.getRegistryKey() + 1;
@@ -81,10 +101,9 @@ public class UserService {
             jobhistory.setJobStatus(1);
 
             jobhistoryRepository.save(jobhistory);
+        }
 
-
-
-            Map<String, Object> properties = new HashMap<>();
+        Map<String, Object> properties = new HashMap<>();
             properties.put("code", varificationService.generateCode(studentId));
 
             EmailDetailsUtil emailDetails = new EmailDetailsUtil();
@@ -116,5 +135,24 @@ public class UserService {
         emailService.sendConfirmationMessage(emailDetails);
 
         return alumni.getEmail();
+    }
+
+    @Transactional
+    public String resendVerifyEmail(Integer studentId)
+    {
+        Member member = alumnusRepository.getReferenceById(studentId);
+
+
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("code", varificationService.generateCode(studentId));
+
+        EmailDetailsUtil emailDetails = new EmailDetailsUtil();
+        emailDetails.setRecipient(member.getEmail());
+        emailDetails.setSubject("Email Verification for RUET CSE Alumni");
+        emailDetails.setTemplate("emailVarificationTemplate.html");
+        emailDetails.setProperties(properties);
+        emailService.sendConfirmationMessage(emailDetails);
+
+        return member.getEmail();
     }
 }

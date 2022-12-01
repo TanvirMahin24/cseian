@@ -1,5 +1,6 @@
 package com.ruet.sac.controller;
 
+import com.ruet.sac.repository.FlagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -16,6 +17,10 @@ import java.nio.file.Files;
 public class ResourceController {
     @Autowired
     ResourceLoader resourceLoader;
+
+    @Autowired
+    FlagRepository flagRepository;
+
     @GetMapping(
             value = "/images",
             produces = MediaType.IMAGE_JPEG_VALUE)
@@ -27,5 +32,10 @@ public class ResourceController {
 
 
         return  Files.readAllBytes(file.toPath());
+    }
+
+    @PostMapping(value = "flags/lastGraduatedSeries")
+    public Integer getLastGraduatedSeries() throws IOException {
+        return  flagRepository.getReferenceById(1).getFlagValue();
     }
 }

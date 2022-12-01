@@ -1,7 +1,7 @@
 package com.ruet.sac.security;
 
 import com.ruet.sac.entity.Member;
-import com.ruet.sac.repository.AlumnusRepository;
+import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +16,7 @@ import static java.lang.Integer.parseInt;
 public class UserAuthService implements UserDetailsService {
 
     @Autowired
-    private AlumnusRepository userRepository;
+    private MemberRepository userRepository;
 
     @Autowired
     RoleRepository roleRepository;
@@ -33,9 +33,9 @@ public class UserAuthService implements UserDetailsService {
         return org.springframework.security.core.userdetails.User.builder()
                 .username(username)
                 .password(user.getPassword())
-                .authorities("USER")
+                .authorities(user.getUserRole().getRoleName())
                 .accountLocked(lockStatus)
-                .roles("USER")
+                .roles(user.getUserRole().getRoleName())
                 .build();
     }
 }
