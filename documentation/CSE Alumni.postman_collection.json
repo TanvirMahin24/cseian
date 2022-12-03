@@ -1,0 +1,2171 @@
+{
+	"info": {
+		"_postman_id": "9c3bf53d-7bc7-4592-ac22-fe31263bf4ce",
+		"name": "CSE Alumni",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803034,\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 07:03:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": {\n        \"authToken\": {\n            \"jwt\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjY5OTE0MTkzLCJpYXQiOjE2Njk4NzgxOTN9.Vjy0KE8_erTV6cMqnqJdfGimm34s1h8nH-KrRIrUKTc\"\n        },\n        \"memberName\": \"Khan Mohammad Barkat Ullah Shammo\",\n        \"memberId\": 1803015\n    }\n}"
+						},
+						{
+							"name": "login-parameter name wrong or null parameter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userndgame\" : 1803015,\r\n    \"password\" : \"1345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:50:01 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Check parametername or is it null parameter or not\"\n}"
+						},
+						{
+							"name": "login- incorrect password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803015,\r\n    \"password\" : \"1345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:46:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Incorrect username or password\"\n}"
+						},
+						{
+							"name": "login- account not active",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803017,\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:45:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account isn't Active\"\n}"
+						}
+					]
+				},
+				{
+					"name": "resend verification code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/resendVerifyEmail?studentId=1803034",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"resendVerifyEmail"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "1803034"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "resend verification code- if user already active",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/resendVerifyEmail?studentId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"resendVerifyEmail"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 04:44:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account is already Active\"\n}"
+						}
+					]
+				},
+				{
+					"name": "verify email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/verifyEmail?varificationCode=1hq6hb&userId=1803034",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"verifyEmail"
+							],
+							"query": [
+								{
+									"key": "varificationCode",
+									"value": "1hq6hb"
+								},
+								{
+									"key": "userId",
+									"value": "1803034"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "verify email-invalid code",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/verifyEmail?varificationCode=Vblfnc&userId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"verifyEmail"
+									],
+									"query": [
+										{
+											"key": "varificationCode",
+											"value": "Vblfnc"
+										},
+										{
+											"key": "userId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 18:28:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Code is not valid\"\n}"
+						},
+						{
+							"name": "verify email-if already verified",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/verifyEmail?varificationCode=1hq6hb&userId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"verifyEmail"
+									],
+									"query": [
+										{
+											"key": "varificationCode",
+											"value": "1hq6hb"
+										},
+										{
+											"key": "userId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 04:45:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account is already Active\"\n}"
+						},
+						{
+							"name": "verify email-success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/verifyEmail?varificationCode=gmsgTo&userId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"verifyEmail"
+									],
+									"query": [
+										{
+											"key": "varificationCode",
+											"value": "gmsgTo"
+										},
+										{
+											"key": "userId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 18:57:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": \"Your account is activated!!\"\n}"
+						},
+						{
+							"name": "verify email-code expired",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/verifyEmail?varificationCode=VbIfnz&userId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"verifyEmail"
+									],
+									"query": [
+										{
+											"key": "varificationCode",
+											"value": "VbIfnz"
+										},
+										{
+											"key": "userId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 18:43:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Code is Expired\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"description": "optional",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/register?firstName=Nazmul Hossain&lastName=Nahid&studentId=1803034&email=nazm.nahid@gmail.com&contactNo=01797975508&country=Bangladesh&city=Rajshahi&linkedin&availableTimeToContact=7 am to 11 pm&jobField&jobTitle&jobOrganization&jobBrunch&password=12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Nazmul Hossain"
+								},
+								{
+									"key": "lastName",
+									"value": "Nahid"
+								},
+								{
+									"key": "studentId",
+									"value": "1803034"
+								},
+								{
+									"key": "email",
+									"value": "nazm.nahid@gmail.com"
+								},
+								{
+									"key": "contactNo",
+									"value": "01797975508"
+								},
+								{
+									"key": "country",
+									"value": "Bangladesh",
+									"description": "optional"
+								},
+								{
+									"key": "city",
+									"value": "Rajshahi",
+									"description": "optional"
+								},
+								{
+									"key": "linkedin",
+									"value": null,
+									"description": "optional"
+								},
+								{
+									"key": "availableTimeToContact",
+									"value": "7 am to 11 pm"
+								},
+								{
+									"key": "jobField",
+									"value": null,
+									"description": "optional"
+								},
+								{
+									"key": "jobTitle",
+									"value": null,
+									"description": "optional"
+								},
+								{
+									"key": "jobOrganization",
+									"value": null,
+									"description": "optional"
+								},
+								{
+									"key": "jobBrunch",
+									"value": null,
+									"description": "optional"
+								},
+								{
+									"key": "password",
+									"value": "12345"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Registration",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"description": "optional",
+											"type": "file",
+											"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/register?firstName=Nazmul Hossain&lastName=Nahid&studentId=1803034&email=nazm.nahid@gmail.com&contactNo=01797975508&country=Bangladesh&city=Rajshahi&linkedin&availableTimeToContact=7 am to 11 pm&jobField&jobTitle&jobOrganization&jobBrunch&password=12345",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"register"
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "Nazmul Hossain"
+										},
+										{
+											"key": "lastName",
+											"value": "Nahid"
+										},
+										{
+											"key": "studentId",
+											"value": "1803034"
+										},
+										{
+											"key": "email",
+											"value": "nazm.nahid@gmail.com"
+										},
+										{
+											"key": "contactNo",
+											"value": "01797975508"
+										},
+										{
+											"key": "country",
+											"value": "Bangladesh",
+											"description": "optional"
+										},
+										{
+											"key": "city",
+											"value": "Rajshahi",
+											"description": "optional"
+										},
+										{
+											"key": "linkedin",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "availableTimeToContact",
+											"value": "7 am to 11 pm"
+										},
+										{
+											"key": "jobField",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "jobTitle",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "jobOrganization",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "jobBrunch",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "password",
+											"value": "12345"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 18:19:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": \"Registered Successfully\"\n}"
+						},
+						{
+							"name": "login-parameter name wrong or null parameter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userndgame\" : 1803015,\r\n    \"password\" : \"1345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:50:01 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Check parametername or is it null parameter or not\"\n}"
+						},
+						{
+							"name": "login- account not active",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803017,\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:45:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account isn't Active\"\n}"
+						},
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803015,\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 07:03:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": {\n        \"authToken\": {\n            \"jwt\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjY5OTE0MTkzLCJpYXQiOjE2Njk4NzgxOTN9.Vjy0KE8_erTV6cMqnqJdfGimm34s1h8nH-KrRIrUKTc\"\n        },\n        \"memberName\": \"Khan Mohammad Barkat Ullah Shammo\",\n        \"memberId\": 1803015\n    }\n}"
+						},
+						{
+							"name": "login- incorrect password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803015,\r\n    \"password\" : \"1345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:46:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Incorrect username or password\"\n}"
+						}
+					]
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjY5OTkyOTAzLCJpYXQiOjE2Njk5NTY5MDN9.wQvloCdGVDCnGjsvofIk-gbtUrnoWhDzWs3uWcfQKGI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/changePassword?oldPassword=12345&newPassword=asdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"changePassword"
+							],
+							"query": [
+								{
+									"key": "oldPassword",
+									"value": "12345"
+								},
+								{
+									"key": "newPassword",
+									"value": "asdf"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "changePassword-successfull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/changePassword?oldPassword=12345&newPassword=asdf",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"changePassword"
+									],
+									"query": [
+										{
+											"key": "oldPassword",
+											"value": "12345"
+										},
+										{
+											"key": "newPassword",
+											"value": "asdf"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 04:58:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull \",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": \"Your Password is changed!\"\n}"
+						},
+						{
+							"name": "changePassword-wrong password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/changePassword?oldPassword=1234&newPassword=asdf",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"changePassword"
+									],
+									"query": [
+										{
+											"key": "oldPassword",
+											"value": "1234"
+										},
+										{
+											"key": "newPassword",
+											"value": "asdf"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 04:55:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Wrong Password\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOrgdDAzMDE1IiwiZXhwIjoxNjY5OTE0MTkzLCJpYXQiOjE2Njk4NzgxOTN9.Vjy0KE8_erTV6cMqnqJdfGimm34s1h8nH-KrRIrUKTc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Posts-successfull ",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:59:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": [\n        {\n            \"postWonerPicture\": null,\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage69.png\",\n            \"postDate\": \"2022-11-26\",\n            \"postTitle\": null,\n            \"postId\": 75,\n            \"postWonerId\": 1803060,\n            \"postWonerName\": \"Ruhan Kabir\",\n            \"postDescription\": \"sdfuqwbtepyqcwpecufqcwp89ey\"\n        },\n        {\n            \"postWonerPicture\": null,\n            \"postImage\": null,\n            \"postDate\": \"2022-10-29\",\n            \"postTitle\": null,\n            \"postId\": 72,\n            \"postWonerId\": 1803034,\n            \"postWonerName\": \"Nazmul Hossain Nahid\",\n            \"postDescription\": \"TUETRIQWOYE98D\"\n        },\n        {\n            \"postWonerPicture\": null,\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage69.png\",\n            \"postDate\": \"2022-10-29\",\n            \"postTitle\": null,\n            \"postId\": 71,\n            \"postWonerId\": 1803034,\n            \"postWonerName\": \"Nazmul Hossain Nahid\",\n            \"postDescription\": \"FEIUAYSPEUFYASOEF\"\n        },\n        {\n            \"postWonerPicture\": \"http://localhost:8080/resource/images?imageName=nazmul.jpg\",\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage68.png\",\n            \"postDate\": \"2022-10-20\",\n            \"postTitle\": null,\n            \"postId\": 68,\n            \"postWonerId\": 1803029,\n            \"postWonerName\": \"Nazmul Islam\",\n            \"postDescription\": \"Md Akhter-Uz-Zaman Ashik is currently working at Pathao as a Software Test Engineer I. He has completed his Bachelorâ€™s degree in Computer Science \"\n        },\n        {\n            \"postWonerPicture\": \"http://localhost:8080/resource/images?imageName=esmay.jpg\",\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage65.PNG\",\n            \"postDate\": \"2022-10-20\",\n            \"postTitle\": null,\n            \"postId\": 65,\n            \"postWonerId\": 1803017,\n            \"postWonerName\": \"Esmay Hasan\",\n            \"postDescription\": \"à¦®à¦¾à¦‡à¦•à§\\u008dà¦°à§‹à¦¸à¦«à¦Ÿà§‡à¦° à¦¸à¦«à¦Ÿà¦“à§Ÿà§\\u008dà¦¯à¦¾à¦° à¦‡à¦žà§\\u008dà¦œà¦¿à¦¨à¦¿à§Ÿà¦¾à¦° à¦¹à¦²à§‡à¦¨ à¦–à§\\u0081à¦¬à¦¿à¦° à¦¸à¦¾à¦¬à§‡à¦• à¦¶à¦¿à¦•à§\\u008dà¦·à¦¾à¦°à§\\u008dà¦¥à§€à¦¬à¦¿à¦¶à§\\u008dà¦¬à§‡à¦° à¦…à¦¨à§\\u008dà¦¯à¦¤à¦® à¦Ÿà§‡à¦• à¦œà¦¾à§Ÿà¦¾à¦¨à§\\u008dà¦Ÿ à¦ªà§\\u008dà¦°à¦¤à¦¿à¦·à§\\u008dà¦ à¦¾à¦¨ à¦®à¦¾à¦‡à¦•à§\\u008dà¦°à§‹à¦¸à¦«à¦Ÿà§‡ à¦šà¦¾à¦•à¦°à¦¿ à¦ªà§‡à§Ÿà§‡à¦›à§‡à¦¨ à¦–à§\\u0081à¦²à¦¨à¦¾ à¦¬à¦¿à¦¶à§\\u008dà¦¬à¦¬à¦¿à¦¦à§\\u008dà¦¯à¦¾à¦²à§Ÿà§‡à¦° (à¦–à§\\u0081à¦¬à¦¿) à¦¸à¦¾à¦¬à§‡à¦• à¦¶à¦¿à¦•à§\\u008dà¦·à¦¾à¦°à§\\u008dà¦¥à§€ à¦¸à¦¿ à¦\\u008fà¦® à¦–à¦¾à¦²à§‡à¦¦ à¦¸à¦¾à¦‡à¦«à§\\u0081à¦²à§\\u008dà¦²à¦¾à¦¹à¥¤ à¦¸à§‹à¦®à¦¬à¦¾à¦° (à§§à§\\u00ad à¦…à¦•à§\\u008dà¦Ÿà§‹à¦¬à¦°) à¦¤à¦¿à¦¨à¦¿ à¦¸à¦«à¦Ÿà¦“à¦¯à¦¼à§\\u008dà¦¯à¦¾à¦° à¦‡à¦žà§\\u008dà¦œà¦¿à¦¨à¦¿à¦¯à¦¼à¦¾à¦° à¦¹à¦¿à¦¸à§‡à¦¬à§‡ à¦®à¦¾à¦‡à¦•à§\\u008dà¦°à§‹à¦¸à¦«à¦Ÿà§‡ à¦¯à§‹à¦—à¦¦à¦¾à¦¨ à¦•à¦°à§‡à¦¨à¥¤ à¦¸à¦¿ à¦\\u008fà¦® à¦–à¦¾à¦²à§‡à¦¦ à¦¸à¦¾à¦‡à¦«à§\\u0081à¦²à§\\u008dà¦²à¦¾à¦¹ à¦–à§\\u0081à¦²à¦¨à¦¾ à¦¬à¦¿à¦¶à§\\u008dà¦¬à¦¬à¦¿à¦¦à§\\u008dà¦¯à¦¾à¦²à¦¯à¦¼à§‡à¦° à¦•à¦®à§\\u008dà¦ªà¦¿à¦‰à¦Ÿà¦¾à¦° à¦¬à¦¿à¦œà§\\u008dà¦žà¦¾à¦¨ à¦“ à¦ªà§\\u008dà¦°à¦•à§Œà¦¶à¦² à¦¡à¦¿à¦¸à¦¿à¦ªà§\\u008dà¦²à¦¿à¦¨à§‡à¦° à§¨à§¦à§§à§§ à¦¬à§\\u008dà¦¯à¦¾à¦šà§‡à¦° à¦¶à¦¿à¦•à§\\u008dà¦·à¦¾à¦°à§\\u008dà¦¥à§€ à¦›à¦¿à¦²à§‡à¦¨à¥¤\"\n        },\n        {\n            \"postWonerPicture\": \"http://localhost:8080/resource/images?imageName=esmay.jpg\",\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage64.png\",\n            \"postDate\": \"2022-10-20\",\n            \"postTitle\": null,\n            \"postId\": 64,\n            \"postWonerId\": 1803017,\n            \"postWonerName\": \"Esmay Hasan\",\n            \"postDescription\": \"à¦¹à¦¾à¦¤à§‡à¦° à¦²à§‡à¦–à¦¾à¦° à¦—à¦¤à¦¿ à¦…à¦¨à§‡à¦• à¦•à¦® à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦°à§‡à¦“ à¦¨à¦¿à§Ÿà¦®à§‡à¦° à¦—à§\\u008dà¦¯à¦¾à¦\\u0081à§œà¦¾à¦•à¦²à§‡ à¦ªà¦¾à¦¹à¦¾à§œà¦¸à¦® à¦²à§‡à¦–à¦¾à¦° à¦šà¦¿à¦¨à§\\u008dà¦¤à¦¾à§Ÿ à¦¬à¦¾à¦‚à¦²à¦¾ à¦ªà¦°à§€à¦•à§\\u008dà¦·à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦¯à¦¤à¦Ÿà¦¾ à¦…à¦ªà¦›à¦¨à§\\u008dà¦¦ à¦•à¦°à§‡à¦›à¦¿, à¦\\u00adà§Ÿ à¦ªà§‡à§Ÿà§‡à¦›à¦¿, à¦ à¦¿à¦• à¦¤à¦¤à¦Ÿà¦¾à¦‡ à¦¬à¦¾à¦‚à¦²à¦¾ à¦¬à¦‡à¦—à§\\u0081à¦²à§‹à¦•à§‡, à¦¬à¦‡à§Ÿà§‡à¦° à¦²à§‡à¦–à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦\\u00adà¦¾à¦²à¦¬à§‡à¦¸à§‡à¦›à¦¿ à¦\\u008fà¦¬à¦‚ à¦\\u00adà¦¬à¦¿à¦·à§\\u008dà¦¯à¦¤à§‡ à¦¯à§‡ à¦\\u008fà¦—à§\\u0081à¦²à§‹à¦° à¦•à¦¥à¦¾ à¦†à¦®à¦¾à¦° à¦®à¦¨à§‡ à¦ªà¦°à¦¬à§‡, à¦¸à§‡à¦Ÿà¦¾ à¦¤à¦–à¦¨à¦‡ à¦†à¦¨à§\\u008dà¦¦à¦¾à¦œ à¦•à¦°à§‡à¦›à¦¿à¦²à¦¾à¦®à¥¤à¦¹à¦¾à¦¤à§‡à¦° à¦²à§‡à¦–à¦¾à¦° à¦—à¦¤à¦¿ à¦…à¦¨à§‡à¦• à¦•à¦® à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦°à§‡à¦“ à¦¨à¦¿à§Ÿà¦®à§‡à¦° à¦—à§\\u008dà¦¯à¦¾à¦\\u0081à§œà¦¾à¦•à¦²à§‡ à¦ªà¦¾à¦¹à¦¾à§œà¦¸à¦® à¦²à§‡à¦–à¦¾à¦° à¦šà¦¿à¦¨à§\\u008dà¦¤à¦¾à§Ÿ à¦¬à¦¾à¦‚à¦²à¦¾ à¦ªà¦°à§€à¦•à§\\u008dà¦·à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦¯à¦¤à¦Ÿà¦¾ à¦…à¦ªà¦›à¦¨à§\\u008dà¦¦ à¦•à¦°à§‡à¦›à¦¿, à¦\\u00adà§Ÿ à¦ªà§‡à§Ÿà§‡à¦›à¦¿, à¦ à¦¿à¦• à¦¤à¦¤à¦Ÿà¦¾à¦‡ à¦¬à¦¾à¦‚à¦²à¦¾ à¦¬à¦‡à¦—à§\\u0081à¦²à§‹à¦•à§‡, à¦¬à¦‡à§Ÿà§‡à¦° à¦²à§‡à¦–à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦\\u00adà¦¾à¦²à¦¬à§‡à¦¸à§‡à¦›à¦¿ à¦\\u008fà¦¬à¦‚ à¦\\u00adà¦¬à¦¿à¦·à§\\u008dà¦¯à¦¤à§‡ à¦¯à§‡ à¦\\u008fà¦—à§\\u0081à¦²à§‹à¦° à¦•à¦¥à¦¾ à¦†à¦®à¦¾à¦° à¦®à¦¨à§‡ à¦ªà¦°à¦¬à§‡, à¦¸à§‡à¦Ÿà¦¾ à¦¤à¦–à¦¨à¦‡ à¦†à¦¨à§\\u008dà¦¦à¦¾à¦œ à¦•à¦°à§‡à¦›à¦¿à¦²à¦¾à¦®à¥¤\"\n        },\n        {\n            \"postWonerPicture\": \"http://localhost:8080/resource/images?imageName=shammo.jpg\",\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage63.png\",\n            \"postDate\": \"2022-10-20\",\n            \"postTitle\": null,\n            \"postId\": 63,\n            \"postWonerId\": 1803015,\n            \"postWonerName\": \"Khan Mohammad Barkat Ullah Shammo\",\n            \"postDescription\": \"à¦¹à¦¾à¦¤à§‡à¦° à¦²à§‡à¦–à¦¾à¦° à¦—à¦¤à¦¿ à¦…à¦¨à§‡à¦• à¦•à¦® à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦°à§‡à¦“ à¦¨à¦¿à§Ÿà¦®à§‡à¦° à¦—à§\\u008dà¦¯à¦¾à¦\\u0081à§œà¦¾à¦•à¦²à§‡ à¦ªà¦¾à¦¹à¦¾à§œà¦¸à¦® à¦²à§‡à¦–à¦¾à¦° à¦šà¦¿à¦¨à§\\u008dà¦¤à¦¾à§Ÿ à¦¬à¦¾à¦‚à¦²à¦¾ à¦ªà¦°à§€à¦•à§\\u008dà¦·à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦¯à¦¤à¦Ÿà¦¾ à¦…à¦ªà¦›à¦¨à§\\u008dà¦¦ à¦•à¦°à§‡à¦›à¦¿, à¦\\u00adà§Ÿ à¦ªà§‡à§Ÿà§‡à¦›à¦¿, à¦ à¦¿à¦• à¦¤à¦¤à¦Ÿà¦¾à¦‡ à¦¬à¦¾à¦‚à¦²à¦¾ à¦¬à¦‡à¦—à§\\u0081à¦²à§‹à¦•à§‡, à¦¬à¦‡à§Ÿà§‡à¦° à¦²à§‡à¦–à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦\\u00adà¦¾à¦²à¦¬à§‡à¦¸à§‡à¦›à¦¿ à¦\\u008fà¦¬à¦‚ à¦\\u00adà¦¬à¦¿à¦·à§\\u008dà¦¯à¦¤à§‡ à¦¯à§‡ à¦\\u008fà¦—à§\\u0081à¦²à§‹à¦° à¦•à¦¥à¦¾ à¦†à¦®à¦¾à¦° à¦®à¦¨à§‡ à¦ªà¦°à¦¬à§‡, à¦¸à§‡à¦Ÿà¦¾ à¦¤à¦–à¦¨à¦‡ à¦†à¦¨à§\\u008dà¦¦à¦¾à¦œ à¦•à¦°à§‡à¦›à¦¿à¦²à¦¾à¦®à¥¤\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Posts-without bareer tocken",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:56:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"JWT Token does not begin with Bearer String \"\n}"
+						},
+						{
+							"name": "Posts-invalid jwt",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 14:47:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"3\",\n    \"ResponseData\": \"Invalid JWT Token\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "directories",
+			"item": [
+				{
+					"name": "get Series Wise List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMDk4MTg5LCJpYXQiOjE2NzAwNjIxODl9.a0N8tbQ7DDfJorqhTyVrxh-pnf0so34ZlE5zpnbEj9c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/seriesWiseList?series=18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"seriesWiseList"
+							],
+							"query": [
+								{
+									"key": "series",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search in series wise list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMDk4MTg5LCJpYXQiOjE2NzAwNjIxODl9.a0N8tbQ7DDfJorqhTyVrxh-pnf0so34ZlE5zpnbEj9c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/searchSeriesInfo?searchText=nahid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"searchSeriesInfo"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": "nahid"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
