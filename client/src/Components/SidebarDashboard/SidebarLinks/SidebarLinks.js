@@ -94,7 +94,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         </Link>
 
         {/* FORUM LINK */}
-        <Link
+        {/* <Link
           to="/dashboard/forum"
           className={`${styles.link} ${
             selected === "Forum" ? styles.active : ""
@@ -102,7 +102,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         >
           <Forum active={selected === "Forum" ? true : false} />
           FORUM
-        </Link>
+        </Link> */}
 
         {/* DIRECTORY LINK */}
         <Link
@@ -117,7 +117,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
 
         {/* JOB LINK */}
         <Link
-          to="/dashboard/job"
+          to="/dashboard/jobs"
           className={`${styles.link} ${
             selected === "Job" ? styles.active : ""
           } pt-3`}
@@ -125,9 +125,18 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
           <Job active={selected === "Job" ? true : false} />
           JOB PORTAL
         </Link>
+        {/* <Link
+          to="/dashboard/job"
+          className={`${styles.link} ${
+            selected === "Job" ? styles.active : ""
+          } pt-3`}
+        >
+          <Job active={selected === "Job" ? true : false} />
+          JOB PORTAL
+        </Link> */}
 
         {/* MENTORING LINK */}
-        <Link
+        {/* <Link
           to="/dashboard/mentoring"
           className={`${styles.link} ${
             selected === "Mentoring" ? styles.active : ""
@@ -135,7 +144,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         >
           <Mentoring active={selected === "Mentoring" ? true : false} />
           MENTORING
-        </Link>
+        </Link> */}
 
         {/* RESEARCH ARCHIVE LINK */}
         <Link
@@ -149,7 +158,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         </Link>
 
         {/*THESIS ARCHIVE LINK */}
-        <Link
+        {/* <Link
           to="/dashboard/thesis"
           className={`${styles.link} ${
             selected === "Thesis" ? styles.active : ""
@@ -157,7 +166,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         >
           <Thesis active={selected === "Thesis" ? true : false} />
           THESIS ARCHIVE
-        </Link>
+        </Link> */}
 
         {/* NEWS LINK */}
         <Link

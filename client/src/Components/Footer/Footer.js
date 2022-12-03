@@ -73,10 +73,7 @@ const Footer = () => {
             <div className="text-center font-weight-normal d-block lead  text-light pt-4">
               <span>
                 Powered By :{" "}
-                <span className={styles.company__name}>
-                  {" "}
-                  Qubitech Solutions
-                </span>
+                <span className={styles.company__name}> Tanvir Mahin</span>
               </span>
             </div>
           </Col>

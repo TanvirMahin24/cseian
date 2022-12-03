@@ -14,7 +14,7 @@ const ForumSidebar = () => {
           className={`${styles.post__btn} btn btn-block btn-dark mb-5`}
           onClick={() => setCreatePost(true)}
         >
-          Post IN forum
+          Post In forum
         </button>
         <div className={styles.wrapper}>
           <span className={`${styles.title} d-block`}>Top Users</span>
