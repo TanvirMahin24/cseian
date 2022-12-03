@@ -14,7 +14,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -50,10 +49,19 @@ public class UserController {
                                                @RequestParam(name ="password")String password ,
                                                @RequestPart (name="image", required = false) MultipartFile image)
     {
+        Integer userStatus = (alumnusRepository.findStatusByStudentId(studentId)==null) ? 0 :  alumnusRepository.findStatusByStudentId(studentId);
+
         HashMap<String,Object> returnObj = new HashMap<>();
+        if(userStatus==1)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Feiled ");
+            returnObj.put("ResponseData", "You already have an account");
+            return returnObj;
+        }
         try
         {
-            userService.registration(firstName+lastName,studentId,email,contactNo,linkedin,country,city,availableTimeToContact,jobField,jobTitle,jobOrganization,jobBrunch,password,image);
+            userService.registration(firstName+" "+lastName,studentId,email,contactNo,linkedin,country,city,availableTimeToContact,jobField,jobTitle,jobOrganization,jobBrunch,password,image);
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
             returnObj.put("ResponseData", "Registered Successfully");
@@ -61,7 +69,7 @@ public class UserController {
         {
             returnObj.put("ResponseCode", "0");
             returnObj.put("Response", "Failed");
-            returnObj.put("ResponseData", "Something Went Wrong. Email may be incorrect!!");
+            returnObj.put("ResponseData", "Check Your email please !! It's not acceptable!!");
         }
         return returnObj;
     }
@@ -69,7 +77,17 @@ public class UserController {
     @PostMapping("/verifyEmail")
     public HashMap<String,Object> verifyEmail(@RequestParam("varificationCode") String varificationCode,@RequestParam("userId") Integer userId)
     {
+        Integer userStatus = (alumnusRepository.findStatusByStudentId(userId)==null) ? 0 :  alumnusRepository.findStatusByStudentId(userId);
+
         HashMap<String,Object> returnObj = new HashMap<>();
+        if(userStatus==1)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Feiled ");
+            returnObj.put("ResponseData", "Your Account is already Active");
+            return returnObj;
+        }
+
         try
         {
             Integer status = varificationService.checkCode(varificationCode,userId);
@@ -93,7 +111,7 @@ public class UserController {
         {
             returnObj.put("ResponseCode", "0");
             returnObj.put("Response", "Failed");
-            returnObj.put("ResponseData", "Something Went Wrong");
+            returnObj.put("ResponseData", "Please Give Correct Code!");
         }
         return returnObj;
     }
@@ -101,7 +119,17 @@ public class UserController {
     @PostMapping("/resendVerifyEmail")
     public HashMap<String,Object> resendVerifyEmail(@RequestParam("studentId") Integer studentId)
     {
+        Integer userStatus = (alumnusRepository.findStatusByStudentId(studentId)==null) ? 0 :  alumnusRepository.findStatusByStudentId(studentId);
+
         HashMap<String,Object> returnObj = new HashMap<>();
+        if(userStatus==1)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Feiled ");
+            returnObj.put("ResponseData", "Your Account is already Active");
+            return returnObj;
+        }
+
         try
         {
             String email = userService.resendVerifyEmail(studentId);
@@ -120,7 +148,18 @@ public class UserController {
     @PostMapping("/forgotPassword")
     public HashMap<String,Object> recoverPassword(@RequestParam("studentId") Integer studentId)
     {
+        Integer userStatus = (alumnusRepository.findStatusByStudentId(studentId)==null) ? 0 :  alumnusRepository.findStatusByStudentId(studentId);
+
         HashMap<String,Object> returnObj = new HashMap<>();
+        if(userStatus==0)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Feiled ");
+            returnObj.put("ResponseData", "Your Account isn't Active");
+            return returnObj;
+        }
+
+
         try
         {
             String email = userService.forgotPassword(studentId);
@@ -208,5 +247,26 @@ public class UserController {
         returnObj.put("ResponseData", resultObj);
 
         return ResponseEntity.ok(returnObj);
+    }
+
+    @PostMapping("/changePassword")
+    public HashMap<String,Object> changePassword(@RequestHeader("Authorization") String bearerToken,@RequestParam("oldPassword") String oldPassword,@RequestParam("newPassword") String newPassword)
+    {
+        String jwt = bearerToken.substring(7);
+
+        HashMap<String,Object> returnObj = new HashMap<>();
+        if(userService.changePassword(jwt,oldPassword,newPassword))
+        {
+            returnObj.put("ResponseCode", "1");
+            returnObj.put("Response", "Successfull ");
+            returnObj.put("ResponseData", "Your Password is changed!");
+            return returnObj;
+        }else
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Failed");
+            returnObj.put("ResponseData", "Wrong Password");
+        }
+        return returnObj;
     }
 }

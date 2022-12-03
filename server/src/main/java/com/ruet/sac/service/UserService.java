@@ -6,10 +6,10 @@ import com.ruet.sac.repository.JobhistoryRepository;
 import com.ruet.sac.repository.RoleRepository;
 import com.ruet.sac.repository.TableRegistryRepository;
 import com.ruet.sac.util.EmailDetailsUtil;
+import com.ruet.sac.util.JwtUtil;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static java.lang.Integer.parseInt;
 
 @Service
 public class UserService {
@@ -51,6 +53,9 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    public JwtUtil jwtUtil;
+
     @Transactional
     public void registration(String name , Integer studentId , String email , String contactNo,
                              String linkedin , String country , String city , String availableTimeToContact,
@@ -82,8 +87,8 @@ public class UserService {
         }
 
         alumnusRepository.save(member);
-
-        if(jobField.length()!=0 && jobTitle.length()!=0 && jobOrganization.length()!=0 )
+        //System.out.println("Check nahid : "+jobField.length()+" "+jobTitle.length()+" "+jobTitle.length());
+        if((jobField!=null && jobTitle!=null && jobOrganization!=null) || (jobOrganization.length()!=0 && jobTitle.length()!=0 && jobField.length()!=0))
         {
             // get Primary key of jobhistory table
             TableRegistry r = tableRegistryRepository.getReferenceById(4);
@@ -154,5 +159,22 @@ public class UserService {
         emailService.sendConfirmationMessage(emailDetails);
 
         return member.getEmail();
+    }
+
+    @Transactional
+    public boolean changePassword(String jwt, String oldPassword,String newPassword)
+    {
+        Integer studentId = parseInt(jwtUtil.extractUsername(jwt));
+        Member member = alumnusRepository.getReferenceById(studentId);
+        CharSequence password = oldPassword;
+        if(passwordEncoder.matches(password,member.getPassword()))
+        {
+            member.setPassword(passwordEncoder.encode(newPassword));
+
+            alumnusRepository.save(member);
+            return true;
+        }
+
+        return false;
     }
 }

@@ -6,6 +6,7 @@ import com.ruet.sac.entity.TableRegistry;
 import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.JobhistoryRepository;
 import com.ruet.sac.repository.TableRegistryRepository;
+import com.ruet.sac.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 @Service
 public class ProfileService {
@@ -28,33 +31,11 @@ public class ProfileService {
     @Autowired
     OgranizationService ogranizationService;
 
-    public void leftJob(Integer jobId)
-    {
-        Jobhistory jobhistory = jobhistoryRepository.getReferenceById(jobId);
-        jobhistory.setJobStatus(0);
-        jobhistoryRepository.save(jobhistory);
-    }
+    @Autowired
+    public JwtUtil jwtUtil;
 
-    @Transactional
-    public void addJob(Integer studentId,String jobField, String jobTitle , String jobOrganization ,String jobBrunch)
-    {
-        // get Primary key of jobhistory table
-        TableRegistry r = tableRegistryRepository.getReferenceById(4);
-        Integer id = r.getRegistryKey() + 1;
-        r.setRegistryKey(id);
-        tableRegistryRepository.save(r);
 
-        Jobhistory jobhistory = new Jobhistory();
-        jobhistory.setId(id);
-        jobhistory.setJobField(jobField);
-        jobhistory.setJobTitle(jobTitle);
-        jobhistory.setAlumniStudent(alumnusRepository.getReferenceById(studentId));
-        jobhistory.setJobOrganization(ogranizationService.getOrganizationByName(jobOrganization));
-        jobhistory.setJobOrganizationBrunch(ogranizationService.getBrunchByNameAndOrganizationName(jobBrunch,jobOrganization));
-        jobhistory.setJobStatus(1);
 
-        jobhistoryRepository.save(jobhistory);
-    }
 
     public HashMap<String,Object> getProfileInfo(Integer studentId) {
 
@@ -81,24 +62,65 @@ public class ProfileService {
         for (Object[] ob : list) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
-            resultsObj.put("alumniJobField",(String) ob[0]);
-            resultsObj.put("alumniJobTitle",(String) ob[1]);
-            resultsObj.put("alumniJobOrganization",(String) ob[2]);
-            resultsObj.put("alumniJobOrganizationBrunch",(String) ob[3]);
+            resultsObj.put("memberJobField",(String) ob[0]);
+            resultsObj.put("memberJobTitle",(String) ob[1]);
+            resultsObj.put("memberJobOrganization",(String) ob[2]);
+            resultsObj.put("memberJobOrganizationBrunch",(String) ob[3]);
 
             previousJobs.add(resultsObj);
         }
         HashMap<String,Object> returnObj = new HashMap<>();
-        returnObj.put("alumniStudentId",member.getId());
-        returnObj.put("alumniName",member.getName());
-        returnObj.put("alumniPicture",member.getPicture());
-        returnObj.put("alumniEmail",member.getEmail());
-        returnObj.put("alumniLinkedin",member.getLinkedin());
-        returnObj.put("alumniContact",member.getContactNo());
-        returnObj.put("alumniAvailableContactHour",member.getAvailableTimeToContact());
-        returnObj.put("alumniCurrentJobs",currentJobs);
-        returnObj.put("alumniPreviousJobs",previousJobs);
+        returnObj.put("memberStudentId",member.getId());
+        returnObj.put("memberName",member.getName());
+        returnObj.put("memberPictureLink",member.getPicture());
+        returnObj.put("memberEmail",member.getEmail());
+        returnObj.put("memberLinkedin",member.getLinkedin());
+        returnObj.put("memberContact",member.getContactNo());
+        returnObj.put("memberCountry",member.getCountry());
+        returnObj.put("memberCity",member.getCity());
+        returnObj.put("memberAvailableContactHour",member.getAvailableTimeToContact());
+        returnObj.put("memberCurrentJobs",currentJobs);
+        returnObj.put("memberPreviousJobs",previousJobs);
 
         return returnObj;
     }
+
+    @Transactional
+    public void addJob(String jwt,String jobField, String jobTitle , String jobOrganization ,String jobBrunch)
+    {
+
+        Integer studentId = parseInt(jwtUtil.extractUsername(jwt));
+
+        // get Primary key of jobhistory table
+        TableRegistry r = tableRegistryRepository.getReferenceById(4);
+        Integer id = r.getRegistryKey() + 1;
+        r.setRegistryKey(id);
+        tableRegistryRepository.save(r);
+
+        Jobhistory jobhistory = new Jobhistory();
+        jobhistory.setId(id);
+        jobhistory.setJobField(jobField);
+        jobhistory.setJobTitle(jobTitle);
+        jobhistory.setAlumniStudent(alumnusRepository.getReferenceById(studentId));
+        jobhistory.setJobOrganization(ogranizationService.getOrganizationByName(jobOrganization));
+        jobhistory.setJobOrganizationBrunch(ogranizationService.getBrunchByNameAndOrganizationName(jobBrunch,jobOrganization));
+        jobhistory.setJobStatus(1);
+
+        jobhistoryRepository.save(jobhistory);
+    }
+
+    public boolean leftJob(String jwt,Integer jobId)
+    {
+        Integer studentId = parseInt(jwtUtil.extractUsername(jwt));
+        Jobhistory jobhistory = jobhistoryRepository.getReferenceById(jobId);
+        if(jobhistory.getAlumniStudent().getId()==studentId)
+        {
+            jobhistory.setJobStatus(0);
+            jobhistoryRepository.save(jobhistory);
+            return true;
+        }
+        else return false;
+
+    }
+
 }
