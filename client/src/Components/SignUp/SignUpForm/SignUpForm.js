@@ -2,26 +2,24 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Form as BootstrapForm, Row, Col, InputGroup } from "react-bootstrap";
 import * as Yup from "yup";
-import defaultImg from "../../../Assets/SignUpForm/defaultImg.png";
 import "./SignUpForm.css";
-import CountryData from "./countryData/CountryData";
 import styles from "./SignUpForm.module.css";
-import { FormSelectField } from "./FormSelectField";
-import { ImageDropZone } from "./ImageDropZone";
 import { signupAction } from "../../../Actions/AuthActions";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import { useHistory } from "react-router";
+import ImageDropZone from "./ImageDropZone/ImageDropZone";
+import defaultImg from "../../../Assets/SignUpForm/defaultImg.png";
 
 const SignUpForm = ({ signupAction }) => {
   const history = useHistory();
-  const [files, setFiles] = useState(defaultImg);
   const [selectedFile, setSelectedFile] = useState();
-  const onSubmitHandeler = (values) => {
+  const [files, setFiles] = useState(defaultImg);
+  const onSubmitHandeler = async (values) => {
     //LOGIN POST ACTION CALL
-    let check = signupAction(values, selectedFile);
+    let check = await signupAction(values, selectedFile);
     console.log(check);
-    if (check) {
+    if (check === true) {
       history.push("/login");
     }
     //console.log(files);
@@ -45,41 +43,40 @@ const SignUpForm = ({ signupAction }) => {
   };
 
   const initVals = {
-    files: defaultImg,
+    image: defaultImg,
     first_name: "",
     last_name: "",
     email: "",
     password: "",
     confirmPassword: "",
     phone: "",
-    mobile_country: "+880",
+    country: "",
     city: "",
-    series: "series",
-    section: "section",
-    program: "program",
+    availableTimeToContact: "",
+    linkedin: "",
     id: "",
     department_check: "",
+    jobTitle: "",
+    jobOrganization: "",
+    jobBrunch: "",
   };
 
   const SignupSchema = Yup.object().shape({
+    first_name: Yup.string().required("First Name is required!"),
+    last_name: Yup.string().required("Last Name is required!"),
+    id: Yup.number().required("Student ID is required!"),
+    email: Yup.string().email("Invalid email").required("Email is required!"),
+    phone: Yup.string().required("Phone Number is required!"),
+    country: Yup.string().required("Country is required!"),
+    city: Yup.string().required("City is required!"),
     password: Yup.string().required("Password is required!"),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords do not match!")
       .required("Password is required!"),
-    email: Yup.string().email("Invalid email").required("Email is required!"),
-    first_name: Yup.string().required("First Name is required!"),
-    last_name: Yup.string().required("Last Name is required!"),
-    city: Yup.string().required("City is required!"),
-    series: Yup.string().notOneOf(["series"]).required("Series is required!"),
-    section: Yup.string()
-      .notOneOf(["section"])
-      .required("Section is required!"),
-    program: Yup.string()
-      .notOneOf(["program"])
-      .required("Section is required!"),
-    id: Yup.number().required("Student ID is required!"),
-    mobile_country: Yup.number().required("Country code is required!"),
-    phone: Yup.number().required("Phone Number is required!"),
+    linkedin: Yup.string().required("Linkedin is required!"),
+    availableTimeToContact: Yup.string().required(
+      "Available time to contact is required!"
+    ),
   });
   return (
     <Formik
@@ -177,21 +174,20 @@ const SignUpForm = ({ signupAction }) => {
             </Col>
           </Row>
           <Row>
-            <FormSelectField
-              as={Col}
-              md="3"
-              controlId="mobile_country"
-              type="select"
-              name="mobile_country"
-              className={`${errors.series && touched.series ? "error" : " "}`}
-            >
-              {CountryData.map((data) => (
-                <option value={data.dial_code} key={data.code}>
-                  {data.code} {data.dial_code}
-                </option>
-              ))}
-            </FormSelectField>
-            <Col>
+            <Col className="mb-3">
+              <Field
+                as={BootstrapForm.Control}
+                placeholder="Country"
+                name="country"
+                type="text"
+                isValid={!errors.country && touched.country}
+                isInvalid={errors.country && touched.country}
+              />
+              {errors.country && touched.country ? (
+                <small className="text-danger">{errors.country}</small>
+              ) : null}
+            </Col>
+            <Col className="mb-3">
               <Field
                 as={BootstrapForm.Control}
                 placeholder="Phone Number"
@@ -225,54 +221,44 @@ const SignUpForm = ({ signupAction }) => {
             More Information
           </span>
           <Row className="mb-3">
-            <FormSelectField
-              as={Col}
-              sm="4"
-              controlId="seriesId"
-              type="select"
-              name="series"
-              className={`${errors.series && touched.series ? "error" : " "}`}
-            >
-              <option value="series" disabled>
-                Series*
-              </option>
-              <option>20</option>
-              <option>19</option>
-              <option>18</option>
-              <option>17</option>
-              <option>16</option>
-              <option>15</option>
-              <option>14</option>
-            </FormSelectField>
-
-            <FormSelectField
-              as={Col}
-              sm="4"
-              controlId="sectionId"
-              type="select"
-              name="section"
-            >
-              <option value="section" disabled>
-                Section*
-              </option>
-              <option>A</option>
-              <option>B</option>
-              <option>C</option>
-            </FormSelectField>
+            <Col>
+              <Field
+                as={BootstrapForm.Control}
+                placeholder="Linkedin url"
+                name="linkedin"
+                type="text"
+                isValid={!errors.linkedin && touched.linkedin}
+                isInvalid={errors.linkedin && touched.linkedin}
+              />
+              {errors.linkedin && touched.linkedin ? (
+                <small className="text-danger">{errors.linkedin}</small>
+              ) : null}
+            </Col>
           </Row>
-          <FormSelectField
-            controlId="program"
-            type="select"
-            name="program"
-            className={`${errors.program && touched.program ? "error" : " "}`}
-          >
-            <option value="program" disabled>
-              Program*
-            </option>
-            <option>Web Development</option>
-            <option>Game Development</option>
-            <option>App Development</option>
-          </FormSelectField>
+          <Row className="mb-3">
+            <Col>
+              <Field
+                as={BootstrapForm.Control}
+                placeholder="Available Time To Contact"
+                name="availableTimeToContact"
+                type="text"
+                isValid={
+                  !errors.availableTimeToContact &&
+                  touched.availableTimeToContact
+                }
+                isInvalid={
+                  errors.availableTimeToContact &&
+                  touched.availableTimeToContact
+                }
+              />
+              {errors.availableTimeToContact &&
+              touched.availableTimeToContact ? (
+                <small className="text-danger">
+                  {errors.availableTimeToContact}
+                </small>
+              ) : null}
+            </Col>
+          </Row>
 
           <InputGroup className="mb-3">
             <Field
@@ -286,6 +272,50 @@ const SignUpForm = ({ signupAction }) => {
             />
             {errors.id && touched.id ? (
               <small className="text-danger col-12">{errors.id}</small>
+            ) : null}
+          </InputGroup>
+          <InputGroup className="mb-3">
+            <Field
+              as={BootstrapForm.Control}
+              name="jobTitle"
+              type="text"
+              placeholder="Job Title"
+              className="col-12"
+              isValid={!errors.jobTitle && touched.jobTitle}
+              isInvalid={errors.jobTitle && touched.jobTitle}
+            />
+            {errors.jobTitle && touched.jobTitle ? (
+              <small className="text-danger col-12">{errors.jobTitle}</small>
+            ) : null}
+          </InputGroup>
+          <InputGroup className="mb-3">
+            <Field
+              as={BootstrapForm.Control}
+              name="jobOrganization"
+              type="text"
+              placeholder="Job Organization"
+              className="col-12"
+              isValid={!errors.jobOrganization && touched.jobOrganization}
+              isInvalid={errors.jobOrganization && touched.jobOrganization}
+            />
+            {errors.jobOrganization && touched.jobOrganization ? (
+              <small className="text-danger col-12">
+                {errors.jobOrganization}
+              </small>
+            ) : null}
+          </InputGroup>
+          <InputGroup className="mb-3">
+            <Field
+              as={BootstrapForm.Control}
+              name="jobBrunch"
+              type="text"
+              placeholder="Job Branch"
+              className="col-12"
+              isValid={!errors.jobBrunch && touched.jobBrunch}
+              isInvalid={errors.jobBrunch && touched.jobBrunch}
+            />
+            {errors.jobBrunch && touched.jobBrunch ? (
+              <small className="text-danger col-12">{errors.jobBrunch}</small>
             ) : null}
           </InputGroup>
           <InputGroup className="mb-3">

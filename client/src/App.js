@@ -1,5 +1,10 @@
 import { RouteWithSubRoutes } from "./Routes/RouteWithSubRoutes";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import routes from "./Routes/routes";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/swiper.min.css";
@@ -30,15 +35,15 @@ function App({ isAuthenticated }) {
                 editor={route.editor && route.editor}
               />
             ))}
-          <Route path="*" component={CommingSoonPage} />
+          <Route path="*" component={() => <Redirect to="/" />} />
         </Switch>
       </Router>
       <ReduxToastr
-        timeOut={4000}
+        timeOut={6000}
         newestOnTop={false}
         preventDuplicates
         position="top-right"
-        getState={(state) => state.toastr} // This is the default
+        getState={(state) => state.toastr}
         transitionIn="fadeIn"
         transitionOut="fadeOut"
         progressBar

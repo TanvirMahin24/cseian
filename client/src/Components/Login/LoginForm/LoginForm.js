@@ -12,8 +12,8 @@ const LoginForm = ({ login }) => {
   const history = useHistory();
   const onSubmitHandeler = (values) => {
     //LOGIN POST ACTION CALL
-    let check = login(values.email, values.password);
-    if (check) {
+    let check = login(values.username, values.password);
+    if (check === true) {
       setTimeout(() => {
         history.push("/dashboard");
       }, 1000);
@@ -22,14 +22,14 @@ const LoginForm = ({ login }) => {
   };
 
   const initVals = {
-    email: "",
+    username: "",
     password: "",
     //department_check: "",
   };
 
   const LoginSchema = Yup.object().shape({
     password: Yup.string().required("Password is required!"),
-    email: Yup.string().email("Invalid email").required("Email is required!"),
+    username: Yup.string().required("Username is required!"),
   });
   return (
     <Formik
@@ -43,14 +43,14 @@ const LoginForm = ({ login }) => {
             <Field
               as={BootstrapForm.Control}
               className="col-12"
-              name="email"
-              type="email"
-              placeholder="Email Address*"
-              isValid={!errors.email && touched.email}
-              isInvalid={errors.email && touched.email}
+              name="username"
+              type="text"
+              placeholder="Username"
+              isValid={!errors.username && touched.username}
+              isInvalid={errors.username && touched.username}
             />
-            {errors.email && touched.email ? (
-              <small className="text-danger col-12">{errors.email}</small>
+            {errors.username && touched.username ? (
+              <small className="text-danger col-12">{errors.username}</small>
             ) : null}
           </InputGroup>
           <Row className="mb-3">

@@ -8,7 +8,7 @@ import {
 const initialState = {
   token: "",
   user: {},
-  isAuthenticated: true,
+  isAuthenticated: false,
   loading: true,
 };
 
