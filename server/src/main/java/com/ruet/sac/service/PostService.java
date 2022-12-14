@@ -3,9 +3,11 @@ package com.ruet.sac.service;
 import com.ruet.sac.entity.Member;
 import com.ruet.sac.entity.Post;
 import com.ruet.sac.entity.TableRegistry;
+import com.ruet.sac.repository.CommentRepository;
 import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.PostRepository;
 import com.ruet.sac.repository.TableRegistryRepository;
+import com.ruet.sac.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 @Service
 public class PostService {
 
@@ -27,13 +31,19 @@ public class PostService {
         PostRepository postRepository;
 
         @Autowired
-        MemberRepository alumnusRepository;
+        CommentRepository commentRepository;
+
+        @Autowired
+        MemberRepository memberRepository;
 
         @Autowired
         FileUploadService fileUploadService;
 
         @Autowired
         TableRegistryRepository tableRegistryRepository;
+
+        @Autowired
+        public JwtUtil jwtUtil;
 
         public List<HashMap<String,Object>> getAllPosts(Integer pageNumber) {
 
@@ -79,10 +89,11 @@ public class PostService {
     }
 
     @Transactional
-    public void savePost( Integer postWonerId,String postDescription , MultipartFile postImage )
+    public void savePost( String jwt,String postDescription , MultipartFile postImage )
     {
+        Integer postWonerId = parseInt(jwtUtil.extractUsername(jwt));
         Post post = new Post();
-        Member postWoner = alumnusRepository.getReferenceById(postWonerId);
+        Member postWoner = memberRepository.getReferenceById(postWonerId);
 
         // get Primary key of posts table
         TableRegistry r = tableRegistryRepository.getReferenceById(5);
@@ -102,6 +113,37 @@ public class PostService {
         post.setPostDate(postDate);
 
         postRepository.save(post);
+
+    }
+
+    @Transactional
+    public boolean editPost(String jwt,Integer postId,String postDescription , MultipartFile postImage )
+    {
+        Integer postWonerId = parseInt(jwtUtil.extractUsername(jwt));
+        Post post = postRepository.getReferenceById(postId);
+        if(post.getPostWoner().getId()!=postWonerId) return false;
+        if(postDescription!=null && postDescription.length()!=0) post.setPostDescription(postDescription);
+        if(postImage!=null)
+        {
+            String imageName = fileUploadService.saveFile(postImage ,"postImage"+postId);
+            post.setPostImage(deployUrl+imagePath+"?imageName="+imageName);
+        }
+
+        postRepository.save(post);
+        return true;
+
+    }
+
+    @Transactional
+    public boolean deletePost(String  jwt, Integer postId){
+        Integer postWonerId = parseInt(jwtUtil.extractUsername(jwt));
+        Post post = postRepository.getReferenceById(postId);
+
+        if(post.getPostWoner().getId()!=postWonerId) return false;
+
+        commentRepository.deleteCommentByPostId(postId);
+        postRepository.deleteById(postId);
+        return true;
 
     }
 }

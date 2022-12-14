@@ -13,6 +13,10 @@ public class Faq {
     @Column(name = "question")
     private String question;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "question_woner", nullable = false)
+    private Member questionWoner;
+
     @Lob
     @Column(name = "answer")
     private String answer;
@@ -20,6 +24,26 @@ public class Faq {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "replyer_id")
     private Member replyer;
+
+    @Column(name = "status", nullable = false)
+    private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+
+    public Member getQuestionWoner() {
+        return questionWoner;
+    }
+
+    public void setQuestionWoner(Member questionWoner) {
+        this.questionWoner = questionWoner;
+    }
 
     public Integer getId() {
         return id;

@@ -4,6 +4,7 @@ import com.ruet.sac.entity.Member;
 import com.ruet.sac.security.AuthenticationRequest;
 import com.ruet.sac.security.AuthenticationResponse;
 import com.ruet.sac.repository.MemberRepository;
+import com.ruet.sac.service.EmailService;
 import com.ruet.sac.service.UserService;
 import com.ruet.sac.service.VarificationService;
 import com.ruet.sac.util.JwtUtil;
@@ -32,6 +33,9 @@ public class UserController {
     @Autowired
     VarificationService varificationService;
 
+    @Autowired
+    EmailService emailService;
+
     @PostMapping("/register")
     public HashMap<String,Object> registration(@RequestParam("firstName") String firstName ,
                                                @RequestParam("lastName") String lastName ,
@@ -49,14 +53,24 @@ public class UserController {
                                                @RequestParam(name ="password")String password ,
                                                @RequestPart (name="image", required = false) MultipartFile image)
     {
+
+
         Integer userStatus = (alumnusRepository.findStatusByStudentId(studentId)==null) ? 0 :  alumnusRepository.findStatusByStudentId(studentId);
 
         HashMap<String,Object> returnObj = new HashMap<>();
+
         if(userStatus==1)
         {
             returnObj.put("ResponseCode", "0");
             returnObj.put("Response", "Feiled ");
             returnObj.put("ResponseData", "You already have an account");
+            return returnObj;
+        }
+        if(emailService.isAddressValid(email)==false)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Feiled ");
+            returnObj.put("ResponseData", "Wrong email address or Email is not acceptable!! ");
             return returnObj;
         }
         try
@@ -69,7 +83,7 @@ public class UserController {
         {
             returnObj.put("ResponseCode", "0");
             returnObj.put("Response", "Failed");
-            returnObj.put("ResponseData", "Check Your email please !! It's not acceptable!!");
+            returnObj.put("ResponseData", e.getMessage());
         }
         return returnObj;
     }

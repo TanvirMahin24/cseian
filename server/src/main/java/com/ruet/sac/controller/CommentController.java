@@ -1,5 +1,7 @@
 package com.ruet.sac.controller;
 
+import com.ruet.sac.repository.CommentRepository;
+import com.ruet.sac.service.CommentService;
 import com.ruet.sac.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,17 +12,16 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class PostController {
-
+public class CommentController {
     @Autowired
-    PostService postService;
+    CommentService commentService;
 
-    @PostMapping("/posts")
-    public HashMap<String,Object> getPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
+    @PostMapping("/comments")
+    public HashMap<String,Object> getPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,@RequestParam(name ="postId") Integer postId){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
-            List<HashMap<String,Object>> resultsArray = postService.getAllPosts(pageNumber);
+            List<HashMap<String,Object>> resultsArray = commentService.getCommentsByPostId(pageNumber,postId);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
@@ -34,29 +35,11 @@ public class PostController {
         return returnObj;
     }
 
-    @PostMapping("/searchPosts")
-    public HashMap<String,Object> getFilteredPosts(@RequestParam(name ="searchText" ) String searchText){
-        HashMap<String,Object> returnObj = new HashMap<>();
 
-        try {
-            List<HashMap<String,Object>> resultsArray = postService.getFilteredPosts(searchText);
-
-            returnObj.put("ResponseCode", "1");
-            returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
-        } catch (Exception e)
-        {
-            returnObj.put("ResponseCode", "0");
-            returnObj.put("Response", "Failed");
-            returnObj.put("ResponseData", "Something Went Wrong");
-        }
-        return returnObj;
-    }
-
-    @PostMapping("/addPost")
-    public HashMap<String,Object> savePost(@RequestHeader("Authorization") String bearerToken ,                                           @RequestParam(name ="description" ,required=false)String description ,
-                                           @RequestPart (name="image", required = false) MultipartFile image,
-                                           @RequestParam(name ="postDescription")String postDescription )
+    @PostMapping("/addComment")
+    public HashMap<String,Object> savePost(@RequestHeader("Authorization") String bearerToken ,
+                                           @RequestParam(name ="postId")Integer postId,
+                                           @RequestParam(name ="commentDescription")String commentDescription )
     {
         String jwt = bearerToken.substring(7);
         HashMap<String,Object> returnObj = new HashMap<>();
@@ -64,10 +47,10 @@ public class PostController {
 
         try
         {
-            postService.savePost(jwt,postDescription,image);
+            commentService.saveComment(jwt,postId,commentDescription);
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", "Successfully Added Your Post");
+            returnObj.put("ResponseData", "Successfully Added Your Comment");
         } catch (Exception e)
         {
             returnObj.put("ResponseCode", "0");
@@ -77,11 +60,10 @@ public class PostController {
         return returnObj;
     }
 
-    @PostMapping("/editPost")
+    @PostMapping("/editComment")
     public HashMap<String,Object> editPost(@RequestHeader("Authorization") String bearerToken ,
-                                           @RequestParam(name ="postId" ,required=true)Integer postId ,
-                                           @RequestPart (name="image", required = false) MultipartFile image,
-                                           @RequestParam(name ="postDescription" , required = false)String postDescription )
+                                           @RequestPart (name="commentId", required = false) Integer commentId,
+                                           @RequestParam(name ="commentDescription" , required = false)String commentDescription )
     {
         String jwt = bearerToken.substring(7);
         HashMap<String,Object> returnObj = new HashMap<>();
@@ -89,11 +71,11 @@ public class PostController {
 
         try
         {
-            if(postService.editPost(jwt,postId,postDescription,image))
+            if(commentService.editComment(jwt,commentId,commentDescription))
             {
                 returnObj.put("ResponseCode", "1");
                 returnObj.put("Response", "Successfull");
-                returnObj.put("ResponseData", "Successfully Updated Your Post");
+                returnObj.put("ResponseData", "Successfully Updated Your Comment");
             }
             else
             {
@@ -111,9 +93,9 @@ public class PostController {
         return returnObj;
     }
 
-    @PostMapping("/deletePost")
+    @PostMapping("/deleteComment")
     public HashMap<String,Object> deletePost(@RequestHeader("Authorization") String bearerToken ,
-                                           @RequestParam(name ="postId" ,required=true)Integer postId)
+                                             @RequestParam(name ="commentId" ,required=true)Integer commentId)
     {
         String jwt = bearerToken.substring(7);
         HashMap<String,Object> returnObj = new HashMap<>();
@@ -121,11 +103,11 @@ public class PostController {
 
         try
         {
-            if(postService.deletePost(jwt,postId))
+            if(commentService.deleteComment(jwt,commentId))
             {
                 returnObj.put("ResponseCode", "1");
                 returnObj.put("Response", "Successfull");
-                returnObj.put("ResponseData", "Successfully Deleted Your Post");
+                returnObj.put("ResponseData", "Successfully Deleted Your Comment");
             }
             else
             {
@@ -143,3 +125,4 @@ public class PostController {
         return returnObj;
     }
 }
+
