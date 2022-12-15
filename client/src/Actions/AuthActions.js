@@ -20,7 +20,7 @@ export const signupAction = (values, selectedFile) => async (dispatch) => {
   };
   try {
     const res = await axios.post(
-      `${BASE_URL}/register?firstName=${values.first_name}&lastName=${values.last_name}&studentId=${values.id}&email=${values.email}&contactNo=${values.phone}&country=${values.country}&city=${values.city}&linkedin=${values.linkedin}&availableTimeToContact=${values.availableTimeToContact}&jobTitle=${values.jobTitle}&jobOrganization=${values.jobOrganization}&jobBrunch=${values.jobBrunch}&password=${values.password}`,
+      `${BASE_URL}/register?firstName=${values.first_name}&lastName=${values.last_name}&studentId=${values.id}&email=${values.email}&contactNo=${values.phone}&country=${values.country}&city=${values.city}&linkedin=${values.linkedin}&availableTimeToContact=${values.availableTimeToContact}&jobTitle=${values.jobTitle}&jobOrganization=${values.jobOrganization}&jobField=${values.jobBrunch}&password=${values.password}`,
       formData,
       config
     );
