@@ -107,7 +107,7 @@ public class PostService {
         if(postImage!=null)
         {
             String imageName = fileUploadService.saveFile(postImage ,"postImage"+id);
-            post.setPostImage(deployUrl+imagePath+"?imageName="+imageName);
+            post.setPostAtachmentLink(deployUrl+imagePath+"?imageName="+imageName);
         }
         LocalDate postDate =LocalDate.now();
         post.setPostDate(postDate);
@@ -126,7 +126,7 @@ public class PostService {
         if(postImage!=null)
         {
             String imageName = fileUploadService.saveFile(postImage ,"postImage"+postId);
-            post.setPostImage(deployUrl+imagePath+"?imageName="+imageName);
+            post.setPostAtachmentLink(deployUrl+imagePath+"?imageName="+imageName);
         }
 
         postRepository.save(post);
@@ -147,3 +147,12 @@ public class PostService {
 
     }
 }
+//title
+//company name
+//location
+//date
+//deaddeline
+//type
+//remote
+//description
+//applicationlink

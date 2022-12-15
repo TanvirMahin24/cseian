@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post, Integer> {
 
-    @Query("Select p.id,p.postTitle,p.postDescription,p.postImage,pw.id,pw.name,pw.picture,p.postDate from Post p join p.postWoner pw order by p.id desc")
+    @Query("Select p.id,p.postTitle,p.postDescription,p.postAtachmentLink,pw.id,pw.name,pw.picture,p.postDate from Post p join p.postWoner pw order by p.id desc")
     List<Object[]> getAllPost( );
 
-    @Query("Select p.id,p.postTitle,p.postDescription,p.postImage,pw.id,pw.name,pw.picture,p.postDate from Post p join p.postWoner pw where pw.name like %:searchText% or p.postDescription like %:searchText% order by p.id desc")
+    @Query("Select p.id,p.postTitle,p.postDescription,p.postAtachmentLink,pw.id,pw.name,pw.picture,p.postDate from Post p join p.postWoner pw where pw.name like %:searchText% or p.postDescription like %:searchText% order by p.id desc")
     List<Object[]> getFilteredPost(String searchText);
 }
