@@ -21,8 +21,8 @@ public class Post {
     private String postDescription;
 
     @Lob
-    @Column(name = "post_image")
-    private String postImage;
+    @Column(name = "post_atachment_link")
+    private String postAtachmentLink;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_woner_id")
@@ -30,6 +30,9 @@ public class Post {
 
     @Column(name = "post_date")
     private LocalDate postDate;
+
+    @Column(name = "post_type", nullable = false)
+    private Integer postType;
 
     @OneToMany(mappedBy = "post")
     private Set<Comment> comments = new LinkedHashSet<>();
@@ -58,12 +61,12 @@ public class Post {
         this.postDescription = postDescription;
     }
 
-    public String getPostImage() {
-        return postImage;
+    public String getPostAtachmentLink() {
+        return postAtachmentLink;
     }
 
-    public void setPostImage(String postImage) {
-        this.postImage = postImage;
+    public void setPostAtachmentLink(String postAtachmentLink) {
+        this.postAtachmentLink = postAtachmentLink;
     }
 
     public Member getPostWoner() {
@@ -80,6 +83,14 @@ public class Post {
 
     public void setPostDate(LocalDate postDate) {
         this.postDate = postDate;
+    }
+
+    public Integer getPostType() {
+        return postType;
+    }
+
+    public void setPostType(Integer postType) {
+        this.postType = postType;
     }
 
     public Set<Comment> getComments() {

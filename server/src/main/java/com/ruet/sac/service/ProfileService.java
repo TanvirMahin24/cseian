@@ -6,19 +6,29 @@ import com.ruet.sac.entity.TableRegistry;
 import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.JobhistoryRepository;
 import com.ruet.sac.repository.TableRegistryRepository;
+import com.ruet.sac.util.EmailDetailsUtil;
 import com.ruet.sac.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.lang.Integer.parseInt;
 
 @Service
 public class ProfileService {
+
+    @Value("${deploy.url}") String deployUrl ;
+    @Value("${imageResourse.path}") String imagePath ;
+
+    @Autowired
+    FileUploadService fileUploadService;
     @Autowired
     JobhistoryRepository jobhistoryRepository;
 
@@ -84,6 +94,31 @@ public class ProfileService {
 
         return returnObj;
     }
+
+
+    @Transactional
+    public void editProfileInfo(String jwt , String name  , String contactNo,
+                             String linkedin , String country , String city , String availableTimeToContact, MultipartFile memberPhoto)
+    {
+        Integer studentId = parseInt(jwtUtil.extractUsername(jwt));
+        Member member = alumnusRepository.getReferenceById(studentId);
+
+        if(name!=null && name.length()!=0)  member.setName(name);
+        if(contactNo!=null && contactNo.length()!=0) member.setContactNo(contactNo);
+        if(linkedin!=null && linkedin.length()!=0) member.setLinkedin(linkedin);
+        if(country!=null && country.length()!=0) member.setCountry(country);
+        if(city!=null && city.length()!=0) member.setCity(city);
+        if(availableTimeToContact!=null && availableTimeToContact.length()!=0) member.setAvailableTimeToContact(availableTimeToContact);
+        if(memberPhoto!=null)
+        {
+            String imageName = fileUploadService.saveFile(memberPhoto ,"memberImage"+studentId);
+            member.setPicture(deployUrl+imagePath+"?imageName="+imageName);
+        }
+
+        alumnusRepository.save(member);
+
+    }
+
 
     @Transactional
     public void addJob(String jwt,String jobField, String jobTitle , String jobOrganization ,String jobBrunch)

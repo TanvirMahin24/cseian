@@ -62,6 +62,7 @@ public class UserService {
                              String jobField, String jobTitle , String jobOrganization , String jobBrunch ,
                              String password , MultipartFile memberPhoto)
     {
+
             Member member = new Member();
 
         member.setId(studentId);
@@ -87,26 +88,32 @@ public class UserService {
         }
 
         alumnusRepository.save(member);
-        //System.out.println("Check nahid : "+jobField.length()+" "+jobTitle.length()+" "+jobTitle.length());
-        if((jobField!=null && jobTitle!=null && jobOrganization!=null) || (jobOrganization.length()!=0 && jobTitle.length()!=0 && jobField.length()!=0))
-        {
-            // get Primary key of jobhistory table
-            TableRegistry r = tableRegistryRepository.getReferenceById(4);
-            Integer id = r.getRegistryKey() + 1;
-            r.setRegistryKey(id);
-            tableRegistryRepository.save(r);
 
-            Jobhistory jobhistory = new Jobhistory();
-            jobhistory.setId(id);
-            jobhistory.setJobField(jobField);
-            jobhistory.setJobTitle(jobTitle);
-            jobhistory.setAlumniStudent(member);
-            jobhistory.setJobOrganization(ogranizationService.getOrganizationByName(jobOrganization));
-            jobhistory.setJobOrganizationBrunch(ogranizationService.getBrunchByNameAndOrganizationName(jobBrunch,jobOrganization));
-            jobhistory.setJobStatus(1);
 
-            jobhistoryRepository.save(jobhistory);
-        }
+        try {
+            if((jobField!=null && jobTitle!=null && jobOrganization!=null) || (jobOrganization.length()!=0 && jobTitle.length()!=0 && jobField.length()!=0))
+            {
+                System.out.println("jobField1 : "+ (jobField!=null) +" jobTitle1: "+jobTitle);
+                // get Primary key of jobhistory table
+                TableRegistry r = tableRegistryRepository.getReferenceById(4);
+                Integer id = r.getRegistryKey() + 1;
+                r.setRegistryKey(id);
+                tableRegistryRepository.save(r);
+
+                Jobhistory jobhistory = new Jobhistory();
+                jobhistory.setId(id);
+                jobhistory.setJobField(jobField);
+                jobhistory.setJobTitle(jobTitle);
+                jobhistory.setAlumniStudent(member);
+                jobhistory.setJobOrganization(ogranizationService.getOrganizationByName(jobOrganization));
+                jobhistory.setJobOrganizationBrunch(ogranizationService.getBrunchByNameAndOrganizationName(jobBrunch,jobOrganization));
+                jobhistory.setJobStatus(1);
+
+                jobhistoryRepository.save(jobhistory);
+            }
+        }catch (Exception e){}
+
+
 
         Map<String, Object> properties = new HashMap<>();
             properties.put("code", varificationService.generateCode(studentId));
