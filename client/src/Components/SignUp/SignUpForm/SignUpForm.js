@@ -14,13 +14,18 @@ import defaultImg from "../../../Assets/SignUpForm/defaultImg.png";
 const SignUpForm = ({ signupAction }) => {
   const history = useHistory();
   const [selectedFile, setSelectedFile] = useState();
+  const [loading, setLoading] = useState(false);
   const [files, setFiles] = useState(defaultImg);
   const onSubmitHandeler = async (values) => {
+    setLoading(true);
     //LOGIN POST ACTION CALL
     let check = await signupAction(values, selectedFile);
     console.log(check);
     if (check === true) {
+      setLoading(false);
       history.push("/login");
+    } else {
+      setLoading(false);
     }
     //console.log(files);
   };
@@ -73,7 +78,7 @@ const SignUpForm = ({ signupAction }) => {
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords do not match!")
       .required("Password is required!"),
-    linkedin: Yup.string().required("Linkedin is required!"),
+    linkedin: Yup.string().notRequired(),
     availableTimeToContact: Yup.string().required(
       "Available time to contact is required!"
     ),
@@ -274,7 +279,7 @@ const SignUpForm = ({ signupAction }) => {
               <small className="text-danger col-12">{errors.id}</small>
             ) : null}
           </InputGroup>
-          <InputGroup className="mb-3">
+          {/* <InputGroup className="mb-3">
             <Field
               as={BootstrapForm.Control}
               name="jobTitle"
@@ -317,8 +322,8 @@ const SignUpForm = ({ signupAction }) => {
             {errors.jobBrunch && touched.jobBrunch ? (
               <small className="text-danger col-12">{errors.jobBrunch}</small>
             ) : null}
-          </InputGroup>
-          <InputGroup className="mb-3">
+          </InputGroup> */}
+          {/* <InputGroup className="mb-3">
             <Col xs={12} className="d-flex px-0">
               <Field
                 as={BootstrapForm.Control}
@@ -340,13 +345,14 @@ const SignUpForm = ({ signupAction }) => {
                 {errors.department_check}
               </small>
             ) : null}
-          </InputGroup>
+          </InputGroup> */}
 
           <button
             className={`btn btn-danger px-5 mt-3 ${styles.submit}`}
             type="submit"
+            disabled={loading}
           >
-            SIGN UP
+            {loading ? "Loading" : "SIGN UP"}
           </button>
         </Form>
       )}

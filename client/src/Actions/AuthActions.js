@@ -57,6 +57,10 @@ export const login = (email, password) => async (dispatch) => {
     console.log(res);
     //console.log(res.data);
     if (res.data.Response !== "Successfull") {
+      if (res.data.ResponseData === "Your Account isn't Active") {
+        toastr.error("Please verify the OTP you recived via Email!");
+        return -1;
+      }
       toastr.error("Login Fail", res.data.ResponseData);
       dispatch({
         type: LOGIN_ERROR,

@@ -1,0 +1,38 @@
+#login__form .form-control {
+  border: 2px solid #bce0fd !important;
+  background: #f1f9ff !important;
+  border-radius: 10px !important;
+  min-width: 400px;
+}
+
+#login__form .form-control.is-invalid {
+  border: 1px solid #ff7d7d !important;
+  background: #ffe4e4 !important;
+}
+
+#login__form .text-primary {
+  color: #2699fb !important;
+}
+
+#login__form #department_check {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+#login__form #department_check_label {
+  font-size: 16px;
+  height: 25px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  #login__form .form-control {
+    min-width: 300px;
+  }
+}
