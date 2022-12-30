@@ -1,6 +1,5 @@
 package com.ruet.sac.user.service;
 
-import com.ruet.sac.entity.Member;
 import com.ruet.sac.repository.JobhistoryRepository;
 import com.ruet.sac.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
