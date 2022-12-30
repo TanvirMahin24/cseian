@@ -6,9 +6,7 @@ import { BASE_URL } from "../Constants/url";
 //Sign up
 export const searchDirectory = (text) => async (dispatch) => {
   try {
-    const res = await axios.post(
-      `${BASE_URL}/searchSeriesInfo?searchText=${text}`
-    );
+    const res = await axios.get(`${BASE_URL}/users?searchText=${text}`);
 
     if (res.data.Response !== "Successfull") {
       toastr.error("Error", res.data.ResponseData);

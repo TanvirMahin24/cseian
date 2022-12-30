@@ -1,15 +1,15 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { PublishForm } from "./PublishForm";
+import JobPostForm from "./JobPostForm/JobPostForm";
 
 const PublishJob = ({ show, setShow }) => {
   return (
-    <Modal show={show} onHide={setShow} backdrop="static" centered>
+    <Modal show={show} onHide={setShow} backdrop="static" centered size="lg">
       <Modal.Header closeButton>
         <Modal.Title>New Topic</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <PublishForm />
+        <JobPostForm />
       </Modal.Body>
     </Modal>
   );
