@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.List;
-
 @CrossOrigin(origins = "*")
 @RestController
 public class JobPostController {
@@ -15,57 +14,38 @@ public class JobPostController {
     @Autowired
     JobPostService jobPostService;
 
+
+    @GetMapping("/jobPosts")
+    public HashMap<String,Object> getJobPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,@RequestParam(name ="searchText" ,required = false, defaultValue = "") String searchText){
+        HashMap<String,Object> returnObj = new HashMap<>();
+
+        try {
+            HashMap<String,Object> results = jobPostService.getJobPosts(pageNumber,searchText);
+
+            returnObj.put("ResponseCode", "1");
+            returnObj.put("Response", "Successfull");
+            returnObj.put("ResponseData", results);
+        } catch (Exception e)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Failed");
+            returnObj.put("ResponseData", "Something Went Wrong");
+        }
+        return returnObj;
+    }
+
     @PostMapping("/jobPosts")
-    public HashMap<String,Object> getPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
-        HashMap<String,Object> returnObj = new HashMap<>();
-
-        try {
-            List<HashMap<String,Object>> resultsArray = jobPostService.getAllJobPosts(pageNumber);
-
-            returnObj.put("ResponseCode", "1");
-            returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
-        } catch (Exception e)
-        {
-            returnObj.put("ResponseCode", "0");
-            returnObj.put("Response", "Failed");
-            returnObj.put("ResponseData", "Something Went Wrong");
-        }
-        return returnObj;
-    }
-
-    @PostMapping("/searchJobPosts")
-    public HashMap<String,Object> getFilteredPosts(@RequestParam(name ="searchText" ) String searchText){
-        HashMap<String,Object> returnObj = new HashMap<>();
-
-        try {
-            List<HashMap<String,Object>> resultsArray = jobPostService.getFilteredJobPosts(searchText);
-
-            returnObj.put("ResponseCode", "1");
-            returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
-        } catch (Exception e)
-        {
-            returnObj.put("ResponseCode", "0");
-            returnObj.put("Response", "Failed");
-            returnObj.put("ResponseData", "Something Went Wrong");
-        }
-        return returnObj;
-    }
-
-    @PostMapping("/addJobPost")
     public HashMap<String,Object> savePost(@RequestHeader("Authorization") String bearerToken ,
                                            @RequestParam(name ="postTitle" )String postTitle ,
                                            @RequestParam(name ="companyName" )String companyName ,
                                            @RequestParam(name ="location" )String location ,
-                                           @RequestParam(name ="deadline" ) LocalDate deadline ,
+                                           @RequestParam(name ="deadline" ) String deadline ,
                                            @RequestParam(name ="durationType" )String durationType ,
                                            @RequestParam(name ="placementType" )String placementType ,
-                                           @RequestParam(name ="description" )String description ,
-                                           @RequestParam(name ="applicationlink" )String applicationlink )
+                                           @RequestParam(name ="description" ,required = false )String description ,
+                                           @RequestParam(name ="applicationlink" ,required = false )String applicationlink )
     {
-        //String jwt,String postTitle , String companyName, String location,
-        // LocalDate deadline, String durationType,String placementType, String description,String applicationlink
+
         String jwt = bearerToken.substring(7);
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -86,7 +66,7 @@ public class JobPostController {
     }
 
 
-    @PostMapping("/deleteJobPost")
+    @DeleteMapping("/jobPosts")
     public HashMap<String,Object> deletePost(@RequestHeader("Authorization") String bearerToken ,
                                              @RequestParam(name ="jobPostId" ,required=true)Integer jobPostId)
     {

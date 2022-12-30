@@ -2,17 +2,16 @@ package com.ruet.sac.user.service;
 
 import com.ruet.sac.entity.JobPost;
 import com.ruet.sac.entity.Member;
-import com.ruet.sac.entity.Post;
 import com.ruet.sac.entity.TableRegistry;
 import com.ruet.sac.repository.JobPostRepository;
 import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.TableRegistryRepository;
 import com.ruet.sac.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,12 +34,13 @@ public class JobPostService {
     @Autowired
     public JwtUtil jwtUtil;
 
-    public List<HashMap<String,Object>> getAllJobPosts(Integer pageNumber) {
+    public HashMap<String,Object> getJobPosts(Integer pageNumber,String searchText) {
 
+        Integer pageLimit=10;
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
 
-        List<Object[]> list= jobPostRepository.getAllJobPost(); //PageRequest.of(pageNumber,10)
-        for (Object[] ob : list) {
+        Page<Object[]> jobPosts= jobPostRepository.getJobPosts(PageRequest.of(pageNumber,pageLimit),searchText);
+        for (Object[] ob : jobPosts) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
             resultsObj.put("postId",(Integer) ob[0]);
@@ -48,7 +48,7 @@ public class JobPostService {
             resultsObj.put("companyName",(String) ob[2]);
             resultsObj.put("location",(String) ob[3]);
             resultsObj.put("postDate",(LocalDate) ob[4]);
-            resultsObj.put("deadline",(LocalDate) ob[5]);
+            resultsObj.put("deadline",(String) ob[5]);
             resultsObj.put("durationType",(String) ob[6]);
             resultsObj.put("placementType",(String) ob[7]);
             resultsObj.put("description",(String) ob[8]);
@@ -58,38 +58,17 @@ public class JobPostService {
             resultsObj.put("postWonerPicture",(String) ob[12]);
             resultsArray.add(resultsObj);
         }
-        return resultsArray;
-    }
 
-
-    public List<HashMap<String,Object>> getFilteredJobPosts(String searchText) {
-
-        List<HashMap<String,Object>> resultsArray = new ArrayList<>();
-
-        List<Object[]> list= jobPostRepository.getFilteredJobPost(searchText);
-        for (Object[] ob : list) {
-
-            HashMap<String,Object> resultsObj = new HashMap<>();
-            resultsObj.put("postId",(Integer) ob[0]);
-            resultsObj.put("postTitle",(String) ob[1]);
-            resultsObj.put("companyName",(String) ob[2]);
-            resultsObj.put("location",(String) ob[3]);
-            resultsObj.put("postDate",(LocalDate) ob[4]);
-            resultsObj.put("deadline",(LocalDate) ob[5]);
-            resultsObj.put("durationType",(String) ob[6]);
-            resultsObj.put("placementType",(String) ob[7]);
-            resultsObj.put("description",(String) ob[8]);
-            resultsObj.put("applicationlink",(String) ob[9]);
-            resultsObj.put("postWonerId",(Integer) ob[10]);
-            resultsObj.put("postWonerName",(String) ob[11]);
-            resultsObj.put("postWonerPicture",(String) ob[12]);
-            resultsArray.add(resultsObj);
-        }
-        return resultsArray;
+        HashMap<String,Object> results = new HashMap();
+        Integer pageCount = jobPosts.getTotalPages();//jobPostRepository.getPageCountOfJobPosts(pageLimit,searchText);
+        results.put("pageCount",pageCount);
+        results.put("pageNumber",pageNumber);
+        results.put("pageContent",resultsArray);
+        return results;
     }
 
     @Transactional
-    public void saveJobPost( String jwt,String postTitle , String companyName, String location, LocalDate deadline, String durationType,String placementType, String description,String applicationlink )
+    public void saveJobPost( String jwt,String postTitle , String companyName, String location, String deadline, String durationType,String placementType, String description,String applicationlink )
     {
         Integer postWonerId = parseInt(jwtUtil.extractUsername(jwt));
         JobPost jobPost = new JobPost();

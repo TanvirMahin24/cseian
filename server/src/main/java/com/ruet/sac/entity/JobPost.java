@@ -25,7 +25,7 @@ public class JobPost {
     private LocalDate date;
 
     @Column(name = "deadline", nullable = false)
-    private LocalDate deadline;
+    private String deadline;
 
     @Column(name = "duration_type", nullable = false, length = 100)
     private String durationType;
@@ -34,11 +34,11 @@ public class JobPost {
     private String placementType;
 
     @Lob
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = true)
     private String description;
 
     @Lob
-    @Column(name = "applicationlink", nullable = false)
+    @Column(name = "applicationlink", nullable = true)
     private String applicationlink;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -85,11 +85,11 @@ public class JobPost {
         this.date = date;
     }
 
-    public LocalDate getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(LocalDate deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
 
