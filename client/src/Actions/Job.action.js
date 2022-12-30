@@ -46,6 +46,7 @@ export const jobCreate = (values) => async (dispatch) => {
       return false;
     }
     toastr.success("Success", "You have added a job!");
+    dispatch(searchJob("", 0, "", ""));
     dispatch({
       type: CREATE_JOB,
     });
