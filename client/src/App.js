@@ -18,8 +18,15 @@ import { connect } from "react-redux";
 import ProtectedRoute from "./Routes/ProtectedRoute/ProtectedRoute";
 //import ErrorPage from "./Views/ErrorPage/ErrorPage";
 import { CommingSoonPage } from "./Views/CommingSoonPage";
+import { useEffect } from "react";
+import setAuthToken from "./Utils/setAuthToken";
 
 function App({ isAuthenticated }) {
+  useEffect(() => {
+    if (localStorage.getItem("token_cseian")) {
+      setAuthToken(localStorage.getItem("token_cseian"));
+    }
+  }, []);
   return (
     <>
       <Router>

@@ -63,6 +63,7 @@ const SignUpForm = ({ signupAction }) => {
     department_check: "",
     jobTitle: "",
     jobOrganization: "",
+    jobField: "",
     jobBrunch: "",
   };
 
@@ -279,73 +280,83 @@ const SignUpForm = ({ signupAction }) => {
               <small className="text-danger col-12">{errors.id}</small>
             ) : null}
           </InputGroup>
-          {/* <InputGroup className="mb-3">
-            <Field
-              as={BootstrapForm.Control}
-              name="jobTitle"
-              type="text"
-              placeholder="Job Title"
-              className="col-12"
-              isValid={!errors.jobTitle && touched.jobTitle}
-              isInvalid={errors.jobTitle && touched.jobTitle}
-            />
-            {errors.jobTitle && touched.jobTitle ? (
-              <small className="text-danger col-12">{errors.jobTitle}</small>
-            ) : null}
-          </InputGroup>
-          <InputGroup className="mb-3">
-            <Field
-              as={BootstrapForm.Control}
-              name="jobOrganization"
-              type="text"
-              placeholder="Job Organization"
-              className="col-12"
-              isValid={!errors.jobOrganization && touched.jobOrganization}
-              isInvalid={errors.jobOrganization && touched.jobOrganization}
-            />
-            {errors.jobOrganization && touched.jobOrganization ? (
-              <small className="text-danger col-12">
-                {errors.jobOrganization}
-              </small>
-            ) : null}
-          </InputGroup>
-          <InputGroup className="mb-3">
-            <Field
-              as={BootstrapForm.Control}
-              name="jobBrunch"
-              type="text"
-              placeholder="Job Branch"
-              className="col-12"
-              isValid={!errors.jobBrunch && touched.jobBrunch}
-              isInvalid={errors.jobBrunch && touched.jobBrunch}
-            />
-            {errors.jobBrunch && touched.jobBrunch ? (
-              <small className="text-danger col-12">{errors.jobBrunch}</small>
-            ) : null}
-          </InputGroup> */}
-          {/* <InputGroup className="mb-3">
-            <Col xs={12} className="d-flex px-0">
-              <Field
-                as={BootstrapForm.Control}
-                id="department_check"
-                name="department_check"
-                type="checkbox"
-              />
-              <label
-                className="pl-2"
-                id="department_check_label"
-                htmlFor="department_check"
-              >
-                {" "}
-                Select if are a faculty at Dept. of CSE, RUET
-              </label>
+          <Row>
+            <Col md={6}>
+              {" "}
+              <InputGroup className="mb-3">
+                <Field
+                  as={BootstrapForm.Control}
+                  name="jobTitle"
+                  type="text"
+                  placeholder="Job Title"
+                  className="col-12"
+                  isValid={!errors.jobTitle && touched.jobTitle}
+                  isInvalid={errors.jobTitle && touched.jobTitle}
+                />
+                {errors.jobTitle && touched.jobTitle ? (
+                  <small className="text-danger col-12">
+                    {errors.jobTitle}
+                  </small>
+                ) : null}
+              </InputGroup>
             </Col>
-            {errors.department_check && touched.department_check ? (
-              <small className="text-danger col-12">
-                {errors.department_check}
-              </small>
-            ) : null}
-          </InputGroup> */}
+            <Col md={6}>
+              <InputGroup className="mb-3">
+                <Field
+                  as={BootstrapForm.Control}
+                  name="jobOrganization"
+                  type="text"
+                  placeholder="Job Organization"
+                  className="col-12"
+                  isValid={!errors.jobOrganization && touched.jobOrganization}
+                  isInvalid={errors.jobOrganization && touched.jobOrganization}
+                />
+                {errors.jobOrganization && touched.jobOrganization ? (
+                  <small className="text-danger col-12">
+                    {errors.jobOrganization}
+                  </small>
+                ) : null}
+              </InputGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6}>
+              <InputGroup className="mb-3">
+                <Field
+                  as={BootstrapForm.Control}
+                  name="jobBrunch"
+                  type="text"
+                  placeholder="Job Branch"
+                  className="col-12"
+                  isValid={!errors.jobBrunch && touched.jobBrunch}
+                  isInvalid={errors.jobBrunch && touched.jobBrunch}
+                />
+                {errors.jobBrunch && touched.jobBrunch ? (
+                  <small className="text-danger col-12">
+                    {errors.jobBrunch}
+                  </small>
+                ) : null}
+              </InputGroup>
+            </Col>
+            <Col md={6}>
+              <InputGroup className="mb-3">
+                <Field
+                  as={BootstrapForm.Control}
+                  name="jobField"
+                  type="text"
+                  placeholder="Job Field"
+                  className="col-12"
+                  isValid={!errors.jobField && touched.jobField}
+                  isInvalid={errors.jobField && touched.jobField}
+                />
+                {errors.jobField && touched.jobField ? (
+                  <small className="text-danger col-12">
+                    {errors.jobField}
+                  </small>
+                ) : null}
+              </InputGroup>
+            </Col>
+          </Row>
 
           <button
             className={`btn btn-danger px-5 mt-3 ${styles.submit}`}

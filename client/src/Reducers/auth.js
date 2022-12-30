@@ -32,7 +32,7 @@ const Pages = (state = initialState, action) => {
       };
 
     case LOGIN_SUCCESS:
-      localStorage.setItem("token", payload.token);
+      localStorage.setItem("token_cseian", payload.token);
       return {
         ...state,
         token: payload.token,
@@ -44,6 +44,7 @@ const Pages = (state = initialState, action) => {
     case LOGIN_ERROR:
     case LOGOUT_ADMIN:
       //console.log("Token Remove");
+      localStorage.removeItem("token_cseian");
       return {
         ...state,
         token: "",
