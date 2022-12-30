@@ -4,3 +4,13 @@ export const SIGN_UP_ERROR = "SIGN_UP_ERROR";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 export const LOGOUT_ADMIN = "LOGOUT_ADMIN";
+
+// DIRECTORY
+export const GET_SEARCH_RESULT_DIRECTORY = "GET_SEARCH_RESULT_DIRECTORY";
+
+// JOB
+export const CREATE_JOB = "CREATE_JOB";
+export const GET_JOB = "GET_JOB";
+export const GET_JOB_LIST = "GET_JOB_LIST";
+export const EDIT_JOB = "EDIT_JOB";
+export const DELETE_JOB = "DELETE_JOB";

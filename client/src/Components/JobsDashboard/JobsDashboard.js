@@ -7,15 +7,33 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { JobItem } from "./JobItem";
 import JobSearch from "./JobSearch/JobSearch";
-import data from "./JobsData/JobsData";
+import { useEffect } from "react";
+import { searchJob } from "../../Actions/Job.action";
+import { connect } from "react-redux";
 
-const JobsDashboard = () => {
+const JobsDashboard = ({ data, searchJob }) => {
+  const [page, setPage] = useState(0);
+  useEffect(() => {
+    if (!data) {
+      searchJob("", 0, "", "");
+    }
+  }, []);
   const [create, setCreate] = useState(false);
+  const [searchText, setSearchText] = useState("");
+
+  const loadData = () => {
+    searchJob(searchText, page + 1, "", "");
+    setPage(page + 1);
+  };
 
   return (
     <>
       {create && <PublishJob show={create} setShow={setCreate} />}
-      <JobSearch />
+      <JobSearch
+        search={searchText}
+        setSearch={setSearchText}
+        searchJob={searchJob}
+      />
       <PageHeader
         title="Jobs"
         bg={`url(${jobsBg})`}
@@ -43,16 +61,26 @@ const JobsDashboard = () => {
           </button>
         </div>
       </div>
-      {data.map((item) => (
-        <JobItem key={item.id} {...item} />
-      ))}
-      <div className={styles.more}>
-        <span>
-          <AiOutlinePlus /> SHOW MORE
-        </span>
-      </div>
+      {data === null ? (
+        <>Loading...</>
+      ) : (
+        data.pageContent.map((item) => <JobItem key={item.id} {...item} />)
+      )}
+      {data && page < data.pageCount ? (
+        <div className={styles.more} onClick={loadData}>
+          <span>
+            <AiOutlinePlus /> SHOW MORE
+          </span>
+        </div>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
 
-export default JobsDashboard;
+const mapStateToProps = (state) => ({
+  data: state.job.job,
+});
+
+export default connect(mapStateToProps, { searchJob })(JobsDashboard);

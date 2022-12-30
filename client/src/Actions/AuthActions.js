@@ -12,20 +12,7 @@ import { toastr } from "react-redux-toastr";
 //Sign up
 export const signupAction = (values, selectedFile) => async (dispatch) => {
   let formData = new FormData();
-  formData.append("fname", values.first_name);
-  formData.append("lname", values.last_name);
-  formData.append("email", values.email);
-  formData.append("password", values.password);
-  formData.append("phone", values.phone);
-  formData.append("city", values.city);
-  formData.append("section", values.section);
-  formData.append("program", values.program);
-  formData.append("studentid", values.id);
-  formData.append("userImage", selectedFile);
-  for (var pair of formData.entries()) {
-    console.log(pair[0] + ", " + pair[1]);
-  }
-
+  formData.append("image", selectedFile);
   const config = {
     headers: {
       "Content-Type": "multipart/form-data",
@@ -33,10 +20,14 @@ export const signupAction = (values, selectedFile) => async (dispatch) => {
   };
   try {
     const res = await axios.post(
-      `${BASE_URL}/api/user/signup/`,
+      `${BASE_URL}/register?firstName=${values.first_name}&lastName=${values.last_name}&studentId=${values.id}&email=${values.email}&contactNo=${values.phone}&country=${values.country}&city=${values.city}&linkedin=${values.linkedin}&availableTimeToContact=${values.availableTimeToContact}&jobTitle=${values.jobTitle}&jobOrganization=${values.jobOrganization}&jobField=${values.jobField}&jobBrunch=${values.jobBrunch}&password=${values.password}`,
       formData,
       config
     );
+    if (res.data.Response !== "Successfull") {
+      toastr.error("Register Failed", res.data.ResponseData);
+      return false;
+    }
     toastr.success("Register Success", "You have registered successfully");
     dispatch({
       type: SIGN_UP_SUCCESS,
@@ -60,12 +51,17 @@ export const login = (email, password) => async (dispatch) => {
       "Content-Type": "application/json",
     },
   };
-  const body = JSON.stringify({ email, password });
+  const body = JSON.stringify({ username: parseInt(email), password });
   try {
-    const res = await axios.post(`${BASE_URL}/api/user/signin`, body, config);
+    const res = await axios.post(`${BASE_URL}/authenticate`, body, config);
+    console.log(res);
     //console.log(res.data);
-    if (res.data.message) {
-      toastr.error("Login Fail", res.data.message);
+    if (res.data.Response !== "Successfull") {
+      if (res.data.ResponseData === "Your Account isn't Active") {
+        toastr.error("Please verify the OTP you recived via Email!");
+        return -1;
+      }
+      toastr.error("Login Fail", res.data.ResponseData);
       dispatch({
         type: LOGIN_ERROR,
       });
@@ -74,7 +70,10 @@ export const login = (email, password) => async (dispatch) => {
     toastr.success("Login Success", "You have been logged in successfully");
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: { token: res.data.token, admin: res.data.currentUser },
+      payload: {
+        token: res.data.ResponseData.authToken.jwt,
+        admin: { memberName: res.data.memberName, memberId: res.data.memberId },
+      },
     });
     return true;
   } catch (err) {
@@ -94,7 +93,7 @@ export const logout = () => (dispatch) => {
   // });
 
   toastr.success("Logout Success", "You have been logged out");
-  localStorage.removeItem("token");
+  localStorage.removeItem("token_cseian");
   dispatch({
     type: LOGOUT_ADMIN,
   });

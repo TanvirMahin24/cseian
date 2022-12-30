@@ -1,14 +1,13 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { Directory } from "./Directory";
-import data from "./DirectoryData/DirectoryData";
 
-const DirectoryList = () => {
+const DirectoryList = ({ data }) => {
   return (
     <Container>
       <Row className="py-5">
-        {data.map((item) => (
-          <Directory key={item.id} {...item} />
+        {data.map((item, i) => (
+          <Directory key={i} data={item} />
         ))}
       </Row>
     </Container>

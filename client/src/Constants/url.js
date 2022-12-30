@@ -1,2 +1,2 @@
-export const BASE_URL = "https://api.ruetcseian.com";
-// export const BASE_URL = "http://localhost:4000";
+export const PROD = false;
+export const BASE_URL = PROD ? "" : "http://localhost:8080";

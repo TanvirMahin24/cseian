@@ -94,7 +94,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         </Link>
 
         {/* FORUM LINK */}
-        {/* <Link
+        <Link
           to="/dashboard/forum"
           className={`${styles.link} ${
             selected === "Forum" ? styles.active : ""
@@ -102,7 +102,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         >
           <Forum active={selected === "Forum" ? true : false} />
           FORUM
-        </Link> */}
+        </Link>
 
         {/* DIRECTORY LINK */}
         <Link
@@ -116,16 +116,8 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         </Link>
 
         {/* JOB LINK */}
+
         <Link
-          to="/dashboard/jobs"
-          className={`${styles.link} ${
-            selected === "Job" ? styles.active : ""
-          } pt-3`}
-        >
-          <Job active={selected === "Job" ? true : false} />
-          JOB PORTAL
-        </Link>
-        {/* <Link
           to="/dashboard/job"
           className={`${styles.link} ${
             selected === "Job" ? styles.active : ""
@@ -133,7 +125,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         >
           <Job active={selected === "Job" ? true : false} />
           JOB PORTAL
-        </Link> */}
+        </Link>
 
         {/* MENTORING LINK */}
         {/* <Link
@@ -158,7 +150,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         </Link>
 
         {/*THESIS ARCHIVE LINK */}
-        {/* <Link
+        <Link
           to="/dashboard/thesis"
           className={`${styles.link} ${
             selected === "Thesis" ? styles.active : ""
@@ -166,7 +158,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         >
           <Thesis active={selected === "Thesis" ? true : false} />
           THESIS ARCHIVE
-        </Link> */}
+        </Link>
 
         {/* NEWS LINK */}
         <Link

@@ -12,6 +12,7 @@
   font-size: 18px;
   font-weight: bold;
   color: #333333;
+  text-transform: capitalize;
 }
 
 .company {
@@ -19,6 +20,7 @@
   font-size: 14px;
   font-weight: 600;
   color: #666666;
+  text-transform: capitalize;
 }
 
 .location {
@@ -26,6 +28,7 @@
   font-size: 14px;
   font-weight: 600;
   color: #333333;
+  text-transform: capitalize;
 }
 
 .date {
@@ -42,6 +45,7 @@
   font-weight: 600;
   color: var(--color_danger);
   border-radius: 5px;
+  text-transform: capitalize;
   border: 1px solid var(--color_danger);
 }
 

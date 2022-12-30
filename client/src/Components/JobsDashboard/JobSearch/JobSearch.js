@@ -3,15 +3,13 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 import styles from "./JobSearch.module.css";
 
-const JobSearch = () => {
-  const [search, setSearch] = useState("");
-  const [type, setType] = useState("all");
-  const [company, setCompany] = useState("all");
+const JobSearch = ({ search, setSearch, searchJob }) => {
+  const [type, setType] = useState("");
+  const [placement, setPlacement] = useState("");
 
   const submitHandeler = (e) => {
     e.preventDefault();
-    const data = { search, type, company };
-    console.log(data);
+    searchJob(search, 0, type, placement);
   };
 
   return (
@@ -31,18 +29,18 @@ const JobSearch = () => {
           onChange={(e) => setType(e.target.value)}
           className={`form-control mr-3 ${styles.type} ${styles.type__fix}`}
         >
-          <option value="all">All Type</option>
-          <option value="fulltime">Full Time</option>
-          <option value="parttime">Part Time</option>
+          <option value="">All Job Type</option>
+          <option value="Full time">Full time</option>
+          <option value="Part time">Part time</option>
         </select>
         <select
           name="type"
-          onChange={(e) => setCompany(e.target.value)}
+          onChange={(e) => setPlacement(e.target.value)}
           className={`form-control ${styles.type} mr-3`}
         >
-          <option value="all">All Company</option>
-          <option value="quebitech">Quebitech</option>
-          <option value="robi">Robi</option>
+          <option value="">All Placement Type</option>
+          <option value="Office">Office</option>
+          <option value="Remote">Remote</option>
         </select>
 
         <button
