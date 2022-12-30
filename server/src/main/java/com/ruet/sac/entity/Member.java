@@ -59,6 +59,18 @@ public class Member {
     @OneToMany(mappedBy = "commentWoner")
     private Set<Comment> comments = new LinkedHashSet<>();
 
+    @Lob
+    @Column(name = "document", nullable = false)
+    private String document;
+
+    public String getDocument() {
+        return document;
+    }
+
+    public void setDocument(String document) {
+        this.document = document;
+    }
+
     public Integer getId() {
         return id;
     }
