@@ -22,8 +22,10 @@ public class JobPostController {
             @RequestParam(name ="deadline" ,required = false, defaultValue = "") String deadline){
         HashMap<String,Object> returnObj = new HashMap<>();
 
+        //System.out.println(durationType);
+
         try {
-            HashMap<String,Object> results = jobPostService.getJobPosts(pageNumber,searchText,placementType,durationType,deadline);
+            HashMap<String,Object> results = jobPostService.getJobPosts(pageNumber,searchText,durationType,placementType,deadline);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");

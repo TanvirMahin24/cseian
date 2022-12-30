@@ -1,6 +1,7 @@
 package com.ruet.sac.entity;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.time.LocalDate;
 
 @Entity
@@ -25,7 +26,7 @@ public class JobPost {
     private LocalDate date;
 
     @Column(name = "deadline", nullable = false)
-    private String deadline;
+    private Instant deadline;
 
     @Column(name = "duration_type", nullable = false, length = 100)
     private String durationType;
@@ -34,11 +35,11 @@ public class JobPost {
     private String placementType;
 
     @Lob
-    @Column(name = "description", nullable = true)
+    @Column(name = "description")
     private String description;
 
     @Lob
-    @Column(name = "applicationlink", nullable = true)
+    @Column(name = "applicationlink")
     private String applicationlink;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -85,11 +86,11 @@ public class JobPost {
         this.date = date;
     }
 
-    public String getDeadline() {
+    public Instant getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(String deadline) {
+    public void setDeadline(Instant deadline) {
         this.deadline = deadline;
     }
 

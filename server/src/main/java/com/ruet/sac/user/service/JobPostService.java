@@ -12,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,12 +36,12 @@ public class JobPostService {
     @Autowired
     public JwtUtil jwtUtil;
 
-    public HashMap<String,Object> getJobPosts(Integer pageNumber,String searchText,String placementType,String durationType,String deadline) {
+    public HashMap<String,Object> getJobPosts(Integer pageNumber,String searchText,String durationType,String placementType,String deadline) {
 
         Integer pageLimit=10;
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
 
-        Page<Object[]> jobPosts= jobPostRepository.getJobPosts(PageRequest.of(pageNumber,pageLimit),searchText,placementType,durationType,deadline);
+        Page<Object[]> jobPosts= jobPostRepository.getJobPosts(PageRequest.of(pageNumber,pageLimit),searchText,durationType,placementType,deadline);
         for (Object[] ob : jobPosts) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
@@ -87,7 +89,7 @@ public class JobPostService {
         jobPost.setLocation(location);
         LocalDate postDate =LocalDate.now();
         jobPost.setDate(postDate);
-        jobPost.setDeadline(deadline);
+        jobPost.setDeadline(Instant.parse(deadline));
         jobPost.setDurationType(durationType);
         jobPost.setPlacementType(placementType);
         jobPost.setDescription(description);
