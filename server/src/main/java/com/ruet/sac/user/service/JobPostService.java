@@ -34,12 +34,12 @@ public class JobPostService {
     @Autowired
     public JwtUtil jwtUtil;
 
-    public HashMap<String,Object> getJobPosts(Integer pageNumber,String searchText) {
+    public HashMap<String,Object> getJobPosts(Integer pageNumber,String searchText,String placementType,String durationType,String deadline) {
 
         Integer pageLimit=10;
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
 
-        Page<Object[]> jobPosts= jobPostRepository.getJobPosts(PageRequest.of(pageNumber,pageLimit),searchText);
+        Page<Object[]> jobPosts= jobPostRepository.getJobPosts(PageRequest.of(pageNumber,pageLimit),searchText,placementType,durationType,deadline);
         for (Object[] ob : jobPosts) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();

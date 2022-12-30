@@ -1,11 +1,14 @@
 package com.ruet.sac.user.controller;
 
 import com.ruet.sac.user.service.ProfileService;
+import com.ruet.sac.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
+
+import static java.lang.Integer.parseInt;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -14,10 +17,16 @@ public class ProfileController {
     @Autowired
     ProfileService profileService;
 
-    @GetMapping("/profileInfo")
-    public HashMap<String,Object> getProfileInfo(@RequestParam(name ="studentId" ,required = true) Integer studentId){
-        HashMap<String,Object> returnObj = new HashMap<>();
+    @Autowired
+    public JwtUtil jwtUtil;
 
+
+    @GetMapping("/profileInfo")
+    public HashMap<String,Object> getProfileInfo(@RequestHeader("Authorization") String bearerToken ,@RequestParam(name ="studentId" ,required = false) Integer studentId){
+        HashMap<String,Object> returnObj = new HashMap<>();
+        String jwt = bearerToken.substring(7);
+        if(studentId == null)
+            studentId = parseInt(jwtUtil.extractUsername(jwt));
         try {
             HashMap<String,Object> resultsArray = profileService.getProfileInfo(studentId);
 

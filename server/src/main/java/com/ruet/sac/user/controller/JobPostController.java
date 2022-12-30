@@ -4,8 +4,6 @@ import com.ruet.sac.user.service.JobPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 @CrossOrigin(origins = "*")
 @RestController
@@ -16,11 +14,16 @@ public class JobPostController {
 
 
     @GetMapping("/jobPosts")
-    public HashMap<String,Object> getJobPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,@RequestParam(name ="searchText" ,required = false, defaultValue = "") String searchText){
+    public HashMap<String,Object> getJobPosts(
+            @RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,
+            @RequestParam(name ="searchText" ,required = false, defaultValue = "") String searchText,
+            @RequestParam(name ="placementType" ,required = false, defaultValue = "") String placementType,
+            @RequestParam(name ="durationType" ,required = false, defaultValue = "") String durationType,
+            @RequestParam(name ="deadline" ,required = false, defaultValue = "") String deadline){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
-            HashMap<String,Object> results = jobPostService.getJobPosts(pageNumber,searchText);
+            HashMap<String,Object> results = jobPostService.getJobPosts(pageNumber,searchText,placementType,durationType,deadline);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
