@@ -2,10 +2,7 @@ package com.ruet.sac.user.controller;
 
 import com.ruet.sac.user.service.SeriesInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,12 +13,12 @@ public class SeriesInfoController {
     @Autowired
     SeriesInfoService seriesInfoService;
 
-    @PostMapping("/seriesWiseList")
-    public HashMap<String,Object> getPosts(@RequestParam(name ="series" ,required = true) Integer series){
+    @GetMapping("/users")
+    public HashMap<String,Object> getUsers(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
-            List<HashMap<String,Object>> resultsArray = seriesInfoService.getSeriesWiseAlumniList(series);
+            List<HashMap<String,Object>> resultsArray = seriesInfoService.getUsers(pageNumber);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
@@ -35,12 +32,12 @@ public class SeriesInfoController {
         return returnObj;
     }
 
-    @PostMapping("/searchSeriesInfo")
-    public HashMap<String,Object> getPosts(@RequestParam(name ="searchText" ,required = true) String searchText){
+    @GetMapping("/searchUsers")
+    public HashMap<String,Object> searchUsers(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,@RequestParam(name ="searchText" ,required = true) String searchText){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
-            List<HashMap<String,Object>> resultsArray = seriesInfoService.searchSeriesInfo(searchText);
+            List<HashMap<String,Object>> resultsArray = seriesInfoService.searchUsers(pageNumber,searchText);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");

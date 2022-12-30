@@ -15,7 +15,7 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @PostMapping("/posts")
+    @GetMapping("/posts")
     public HashMap<String,Object> getPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -34,12 +34,12 @@ public class PostController {
         return returnObj;
     }
 
-    @PostMapping("/searchPosts")
-    public HashMap<String,Object> getFilteredPosts(@RequestParam(name ="searchText" ) String searchText){
+    @GetMapping("/searchPosts")
+    public HashMap<String,Object> getFilteredPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,@RequestParam(name ="searchText" ) String searchText){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
-            List<HashMap<String,Object>> resultsArray = postService.getFilteredPosts(searchText);
+            List<HashMap<String,Object>> resultsArray = postService.getFilteredPosts(pageNumber,searchText);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
@@ -77,7 +77,7 @@ public class PostController {
         return returnObj;
     }
 
-    @PostMapping("/editPost")
+    @PatchMapping("/editPost")
     public HashMap<String,Object> editPost(@RequestHeader("Authorization") String bearerToken ,
                                            @RequestParam(name ="postId" ,required=true)Integer postId ,
                                            @RequestPart (name="image", required = false) MultipartFile image,
@@ -111,7 +111,7 @@ public class PostController {
         return returnObj;
     }
 
-    @PostMapping("/deletePost")
+    @DeleteMapping("/deletePost")
     public HashMap<String,Object> deletePost(@RequestHeader("Authorization") String bearerToken ,
                                            @RequestParam(name ="postId" ,required=true)Integer postId)
     {
