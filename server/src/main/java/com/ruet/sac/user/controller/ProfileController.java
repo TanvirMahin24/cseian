@@ -14,7 +14,7 @@ public class ProfileController {
     @Autowired
     ProfileService profileService;
 
-    @PostMapping("/profileInfo")
+    @GetMapping("/profileInfo")
     public HashMap<String,Object> getProfileInfo(@RequestParam(name ="studentId" ,required = true) Integer studentId){
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -33,7 +33,7 @@ public class ProfileController {
         return returnObj;
     }
 
-    @PostMapping("/editProfileInfo")
+    @PatchMapping("/editProfileInfo")
     public HashMap<String,Object> editProfileInfo(@RequestHeader("Authorization") String bearerToken,
                                                   @RequestParam(name ="firstName" ,required=false) String firstName ,
                                                   @RequestParam(name = "lastName" ,required=false) String lastName ,

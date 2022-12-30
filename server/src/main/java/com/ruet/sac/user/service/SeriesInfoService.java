@@ -4,6 +4,7 @@ import com.ruet.sac.entity.Member;
 import com.ruet.sac.repository.JobhistoryRepository;
 import com.ruet.sac.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,10 +21,10 @@ public class SeriesInfoService {
     MemberRepository memberRepository;
 
 
-    public List<HashMap<String,Object>> getSeriesWiseAlumniList(Integer series) {
+    public List<HashMap<String,Object>> getUsers(Integer pageNumber) {
 
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
-        List<Object[]> list= memberRepository.getSeriesInfo(series);
+        List<Object[]> list= memberRepository.getUsers(PageRequest.of(pageNumber,12));
         for (Object[] ob : list) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
@@ -54,11 +55,11 @@ public class SeriesInfoService {
         return resultsArray;
     }
 
-    public List<HashMap<String,Object>> searchSeriesInfo(String searchText) {
+    public List<HashMap<String,Object>> searchUsers(Integer pageNumber, String searchText) {
 
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
 
-        List<Object[]> list= memberRepository.searchSeriesInfo(searchText);
+        List<Object[]> list= memberRepository.searchUsers(PageRequest.of(pageNumber,12),searchText);
         for (Object[] ob : list) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();

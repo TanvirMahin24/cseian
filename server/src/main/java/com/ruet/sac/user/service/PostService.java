@@ -10,6 +10,7 @@ import com.ruet.sac.repository.TableRegistryRepository;
 import com.ruet.sac.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -49,7 +50,7 @@ public class PostService {
 
             List<HashMap<String,Object>> resultsArray = new ArrayList<>();
 
-            List<Object[]> list= postRepository.getAllPost(); //PageRequest.of(pageNumber,10)
+            List<Object[]> list= postRepository.getAllPost(PageRequest.of(pageNumber,10)); //
             for (Object[] ob : list) {
 
                 HashMap<String,Object> resultsObj = new HashMap<>();
@@ -67,11 +68,11 @@ public class PostService {
     }
 
 
-    public List<HashMap<String,Object>> getFilteredPosts(String searchText) {
+    public List<HashMap<String,Object>> getFilteredPosts(Integer pageNumber,String searchText) {
 
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
 
-        List<Object[]> list= postRepository.getFilteredPost(searchText);
+        List<Object[]> list= postRepository.getFilteredPost(PageRequest.of(pageNumber,10),searchText);
         for (Object[] ob : list) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
