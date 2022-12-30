@@ -35,7 +35,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().cors().and()
                 .authorizeRequests()
                 .antMatchers("/authenticate","/register","/verifyEmail","/resendVerifyEmail","/forgotPassword","/resource/images").permitAll()
-                //.antMatchers("/authenticate","/register","/verifyEmail","/forgotPassword","/resource/images").hasAnyRole("USER","ADMIN" )
+                .antMatchers("/getAllPendingAlumniRegistration","/getAllFilteredPendingAlumniRegistration",
+                        "/getPendingAlumniRegistrationById","/approveAlumniRegistrationTransaction","/getAllPendingEventsRegistration",
+                        "/getAllFilteredPendingEventsRegistration","/getPendingEventRegistrationById","/approveTransaction",
+                        "/pendingMemberList","/filteredPendingMemberList","/pendingMember","/activePendingMember",
+                        "/memberList","/filteredMemberList","/getMember","/banMember","/assignRoleToMember").hasAnyRole("FACULTY","ADMIN" )
                 .anyRequest().authenticated().and().
                 exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
