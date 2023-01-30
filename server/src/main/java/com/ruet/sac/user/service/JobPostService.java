@@ -36,12 +36,12 @@ public class JobPostService {
     @Autowired
     public JwtUtil jwtUtil;
 
-    public HashMap<String,Object> getJobPosts(Integer pageNumber,String searchText,String durationType,String placementType,String deadline) {
+    public HashMap<String,Object> getJobPosts(Integer pageNumber,String searchText,String durationType,String placementType) {
 
         Integer pageLimit=10;
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
 
-        Page<Object[]> jobPosts= jobPostRepository.getJobPosts(PageRequest.of(pageNumber,pageLimit),searchText,durationType,placementType,deadline);
+        Page<Object[]> jobPosts= jobPostRepository.getJobPosts(PageRequest.of(pageNumber,pageLimit),searchText,durationType,placementType);
         for (Object[] ob : jobPosts) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
@@ -50,7 +50,7 @@ public class JobPostService {
             resultsObj.put("companyName",(String) ob[2]);
             resultsObj.put("location",(String) ob[3]);
             resultsObj.put("postDate",(LocalDate) ob[4]);
-            resultsObj.put("deadline",(String) ob[5]);
+            resultsObj.put("deadline",(Instant) ob[5]);
             resultsObj.put("durationType",(String) ob[6]);
             resultsObj.put("placementType",(String) ob[7]);
             resultsObj.put("description",(String) ob[8]);
