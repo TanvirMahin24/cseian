@@ -45,7 +45,7 @@ public class ProfileService {
 
 
 
-    public HashMap<String,Object> getProfileInfo(Integer studentId) {
+    public HashMap<String,Object> getProfileInfo(Integer studentId, boolean wonerFlag) {
 
         Member member = alumnusRepository.getReferenceById(studentId);
 
@@ -89,6 +89,10 @@ public class ProfileService {
         returnObj.put("memberAvailableContactHour",member.getAvailableTimeToContact());
         returnObj.put("memberCurrentJobs",currentJobs);
         returnObj.put("memberPreviousJobs",previousJobs);
+        if(wonerFlag)
+        {
+            returnObj.put("memberRole",member.getUserRole().getRoleName());
+        }
 
         return returnObj;
     }

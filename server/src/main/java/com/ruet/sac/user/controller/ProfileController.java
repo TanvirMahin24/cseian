@@ -25,10 +25,16 @@ public class ProfileController {
     public HashMap<String,Object> getProfileInfo(@RequestHeader("Authorization") String bearerToken ,@RequestParam(name ="studentId" ,required = false) Integer studentId){
         HashMap<String,Object> returnObj = new HashMap<>();
         String jwt = bearerToken.substring(7);
+        boolean wonerFlag=false;
         if(studentId == null)
+        {
             studentId = parseInt(jwtUtil.extractUsername(jwt));
+            wonerFlag = true;
+        }
+
+
         try {
-            HashMap<String,Object> resultsArray = profileService.getProfileInfo(studentId);
+            HashMap<String,Object> resultsArray = profileService.getProfileInfo(studentId,wonerFlag);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");

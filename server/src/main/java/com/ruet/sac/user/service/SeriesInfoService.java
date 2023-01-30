@@ -20,48 +20,13 @@ public class SeriesInfoService {
     @Autowired
     MemberRepository memberRepository;
 
-
-    public List<HashMap<String,Object>> getUsers(Integer pageNumber) {
-
-        List<HashMap<String,Object>> resultsArray = new ArrayList<>();
-        List<Object[]> list= memberRepository.getUsers(PageRequest.of(pageNumber,12));
-        for (Object[] ob : list) {
-
-            HashMap<String,Object> resultsObj = new HashMap<>();
-            resultsObj.put("alumniStudentId",(Integer) ob[0]);
-            resultsObj.put("alumniName",(String) ob[1]);
-            resultsObj.put("alumniPicture",(String) ob[2]);
-            resultsObj.put("country",(String) ob[3]);
-            resultsObj.put("city",(String) ob[4]);
-
-            List<HashMap<String,Object>> currentJobs = new ArrayList<>();
-            List<Object[]> jobList= jobhistoryRepository.getCurrentJobs((Integer) ob[0]);
-            for (Object[] job : jobList) {
-
-                HashMap<String,Object> jobs = new HashMap<>();
-                jobs.put("alumniJobId",(Integer) job[0]);
-                jobs.put("alumniJobField",(String) job[1]);
-                jobs.put("alumniJobTitle",(String) job[2]);
-                jobs.put("alumniJobOrganization",(String) job[3]);
-                jobs.put("alumniJobOrganizationBrunch",(String) job[4]);
-
-                currentJobs.add(jobs);
-            }
-
-            resultsObj.put("memberCurrentJobs",currentJobs);
-
-            resultsArray.add(resultsObj);
-        }
-        return resultsArray;
-    }
-
-    public HashMap<String,Object> searchUsers(Integer pageNumber, String searchText) {
+    public HashMap<String,Object> users(Integer pageNumber, String searchText) {
 
         Integer pageLimit=12;
 
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
 
-        Page<Object[]> list= memberRepository.searchUsers(PageRequest.of(pageNumber,pageLimit),searchText);
+        Page<Object[]> list= memberRepository.users(PageRequest.of(pageNumber,pageLimit),searchText);
         for (Object[] ob : list) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
