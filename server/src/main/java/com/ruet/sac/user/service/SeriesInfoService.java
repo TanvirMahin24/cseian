@@ -3,6 +3,7 @@ package com.ruet.sac.user.service;
 import com.ruet.sac.repository.JobhistoryRepository;
 import com.ruet.sac.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -54,11 +55,13 @@ public class SeriesInfoService {
         return resultsArray;
     }
 
-    public List<HashMap<String,Object>> searchUsers(Integer pageNumber, String searchText) {
+    public HashMap<String,Object> searchUsers(Integer pageNumber, String searchText) {
+
+        Integer pageLimit=12;
 
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
 
-        List<Object[]> list= memberRepository.searchUsers(PageRequest.of(pageNumber,12),searchText);
+        Page<Object[]> list= memberRepository.searchUsers(PageRequest.of(pageNumber,pageLimit),searchText);
         for (Object[] ob : list) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
@@ -86,6 +89,11 @@ public class SeriesInfoService {
 
             resultsArray.add(resultsObj);
         }
-        return resultsArray;
+        HashMap<String,Object> results = new HashMap();
+        Integer pageCount = list.getTotalPages();
+        results.put("pageCount",pageCount);
+        results.put("pageNumber",pageNumber);
+        results.put("pageContent",resultsArray);
+        return results;
     }
 }

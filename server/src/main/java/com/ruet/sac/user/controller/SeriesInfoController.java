@@ -37,11 +37,11 @@ public class SeriesInfoController {
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
-            List<HashMap<String,Object>> resultsArray = seriesInfoService.searchUsers(pageNumber,searchText);
+            HashMap<String,Object> results = seriesInfoService.searchUsers(pageNumber,searchText);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
+            returnObj.put("ResponseData", results);
         } catch (Exception e)
         {
             returnObj.put("ResponseCode", "0");
