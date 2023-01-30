@@ -9,7 +9,7 @@ const JobSearch = ({ search, setSearch, searchJob }) => {
 
   const submitHandeler = (e) => {
     e.preventDefault();
-    searchJob(search, 0, type, placement);
+    searchJob(search, 0, type, placement, true);
   };
 
   return (

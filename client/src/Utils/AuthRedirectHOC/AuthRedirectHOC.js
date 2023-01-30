@@ -9,7 +9,7 @@ const AuthRedirectHOC = ({ isAuthenticated, children }) => {
     if (isAuthenticated) {
       history.push("/dashboard");
     }
-  }, []);
+  }, [isAuthenticated]);
   return <>{children}</>;
 };
 const mapStateToProps = (state) => ({

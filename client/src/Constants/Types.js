@@ -13,5 +13,6 @@ export const GET_SEARCH_RESULT_DIRECTORY = "GET_SEARCH_RESULT_DIRECTORY";
 export const CREATE_JOB = "CREATE_JOB";
 export const GET_JOB = "GET_JOB";
 export const GET_JOB_LIST = "GET_JOB_LIST";
+export const SEARCH_JOB_LIST = "SEARCH_JOB_LIST";
 export const EDIT_JOB = "EDIT_JOB";
 export const DELETE_JOB = "DELETE_JOB";
