@@ -1,30 +1,31 @@
-import { RouteWithSubRoutes } from "./Routes/RouteWithSubRoutes";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { connect } from "react-redux";
+import ReduxToastr from "react-redux-toastr";
+import "react-redux-toastr/lib/css/react-redux-toastr.min.css";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Redirect,
+  Route,
+  Switch,
 } from "react-router-dom";
-import routes from "./Routes/routes";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import "react-redux-toastr/lib/css/react-redux-toastr.min.css";
-import ReduxToastr from "react-redux-toastr";
-import protectedRoutes from "./Routes/protectedRoutes";
-import { connect } from "react-redux";
+import "swiper/components/pagination/pagination.min.css";
+import "swiper/swiper.min.css";
 import ProtectedRoute from "./Routes/ProtectedRoute/ProtectedRoute";
+import protectedRoutes from "./Routes/protectedRoutes";
+import routes from "./Routes/routes";
+import { RouteWithSubRoutes } from "./Routes/RouteWithSubRoutes";
 //import ErrorPage from "./Views/ErrorPage/ErrorPage";
-import { CommingSoonPage } from "./Views/CommingSoonPage";
 import { useEffect } from "react";
 import setAuthToken from "./Utils/setAuthToken";
+import { loginToken } from "./Actions/AuthActions";
 
-function App({ isAuthenticated }) {
+function App({ isAuthenticated, loginToken }) {
   useEffect(() => {
     if (localStorage.getItem("token_cseian")) {
       setAuthToken(localStorage.getItem("token_cseian"));
+      loginToken();
     }
   }, []);
   return (
@@ -64,4 +65,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, { loginToken })(App);

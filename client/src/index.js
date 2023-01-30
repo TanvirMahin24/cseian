@@ -5,11 +5,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./Store/Store";
+import { MantineProvider } from "@mantine/core";
+import { ModalsProvider } from "@mantine/modals";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        <ModalsProvider>
+          <App />
+        </ModalsProvider>
+      </MantineProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

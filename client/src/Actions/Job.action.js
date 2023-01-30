@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toastr } from "react-redux-toastr";
-import { CREATE_JOB, GET_JOB_LIST } from "../Constants/Types";
+import { CREATE_JOB, GET_JOB_LIST, SEARCH_JOB_LIST } from "../Constants/Types";
 import { BASE_URL } from "../Constants/url";
 
 //Login User
@@ -21,7 +21,7 @@ export const jobCreate = (values) => async (dispatch) => {
     data.append("location", values.location);
   }
   if (values.deadline) {
-    data.append("deadline", values.deadline);
+    data.append("deadline", new Date(values.deadline).toISOString());
   }
   if (values.placementType) {
     data.append("placementType", values.placementType);
@@ -46,10 +46,10 @@ export const jobCreate = (values) => async (dispatch) => {
       return false;
     }
     toastr.success("Success", "You have added a job!");
-    dispatch(searchJob("", 0, "", ""));
     dispatch({
       type: CREATE_JOB,
     });
+    dispatch(searchJob("", 0, "", "", true));
     return true;
   } catch (err) {
     console.log(err);
@@ -61,7 +61,7 @@ export const jobCreate = (values) => async (dispatch) => {
 
 //Sign up
 export const searchJob =
-  (text, page, durationType, placementType) => async (dispatch) => {
+  (text, page, durationType, placementType, clear) => async (dispatch) => {
     try {
       const res = await axios.get(
         `${BASE_URL}/jobPosts?searchText=${text}&pageNumber=${page}&durationType=${durationType}&placementType=${placementType}`
@@ -70,6 +70,14 @@ export const searchJob =
       if (res.data.Response !== "Successfull") {
         toastr.error("Error", res.data.ResponseData);
         return false;
+      }
+      if (clear === true) {
+        dispatch({
+          type: SEARCH_JOB_LIST,
+          payload: res.data.ResponseData,
+        });
+
+        return true;
       }
       dispatch({
         type: GET_JOB_LIST,

@@ -7,6 +7,10 @@
   border-radius: 8px !important;
 }
 
+.card.over {
+  background: #f67d6d50;
+}
+
 .title {
   font-family: "Poppins";
   font-size: 18px;

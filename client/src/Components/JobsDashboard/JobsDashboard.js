@@ -64,9 +64,9 @@ const JobsDashboard = ({ data, searchJob }) => {
       {data === null ? (
         <>Loading...</>
       ) : (
-        data.pageContent.map((item) => <JobItem key={item.id} {...item} />)
+        data.pageContent.map((item) => <JobItem key={item.postId} {...item} />)
       )}
-      {data && page < data.pageCount ? (
+      {data && page < data.pageCount - 1 ? (
         <div className={styles.more} onClick={loadData}>
           <span>
             <AiOutlinePlus /> SHOW MORE
