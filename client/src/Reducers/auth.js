@@ -3,6 +3,7 @@ import {
   LOGOUT_ADMIN,
   SIGN_UP_SUCCESS,
   LOGIN_SUCCESS,
+  GET_AUTH_USER,
 } from "../Constants/Types";
 
 const initialState = {
@@ -30,7 +31,7 @@ const Pages = (state = initialState, action) => {
         isAuthenticated: false,
         token: "",
       };
-
+    case GET_AUTH_USER:
     case LOGIN_SUCCESS:
       localStorage.setItem("token_cseian", payload.token);
       return {

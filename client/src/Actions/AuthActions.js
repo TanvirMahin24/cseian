@@ -1,4 +1,5 @@
 import {
+  GET_AUTH_USER,
   LOGIN_ERROR,
   LOGIN_SUCCESS,
   LOGOUT_ADMIN,
@@ -8,6 +9,7 @@ import {
 import { BASE_URL } from "../Constants/url";
 import axios from "axios";
 import { toastr } from "react-redux-toastr";
+import setAuthToken from "../Utils/setAuthToken";
 
 //Sign up
 export const signupAction = (values, selectedFile) => async (dispatch) => {
@@ -68,6 +70,7 @@ export const login = (email, password) => async (dispatch) => {
       return false;
     }
     toastr.success("Login Success", "You have been logged in successfully");
+    setAuthToken(res.data.ResponseData.authToken.jwt);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: {
@@ -94,6 +97,7 @@ export const logout = () => (dispatch) => {
 
   toastr.success("Logout Success", "You have been logged out");
   localStorage.removeItem("token_cseian");
+  setAuthToken(null);
   dispatch({
     type: LOGOUT_ADMIN,
   });
@@ -102,30 +106,20 @@ export const logout = () => (dispatch) => {
 // TOKEN LOGIN
 export const loginToken = (token) => async (dispatch) => {
   //console.log("Token login");
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  const body = JSON.stringify({ token });
+
   try {
-    const res = await axios.post(
-      `${BASE_URL}/api/user/verify-user-token`,
-      body,
-      config
-    );
+    const res = await axios.get(`${BASE_URL}/profileInfo`);
     console.log(res);
 
-    if (res.data.verified === true) {
+    if (res.data.Response === "Successfull") {
       dispatch({
-        type: LOGIN_SUCCESS,
-        payload: { token: token, admin: res.data.user[0] },
+        type: GET_AUTH_USER,
+        payload: {
+          token: localStorage.getItem("token_cseian"),
+          admin: res.data.ResponseData,
+        },
       });
       return true;
-    } else {
-      dispatch({
-        type: LOGOUT_ADMIN,
-      });
     }
   } catch (err) {
     console.log(err);

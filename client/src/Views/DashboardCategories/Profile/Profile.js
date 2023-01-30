@@ -1,8 +1,13 @@
 import React from "react";
+import SettingsForm from "../../../Components/SettingsForm/SettingsForm";
 import { DashboardPage } from "../../DashboardPage";
 
 const Profile = () => {
-  return <DashboardPage>Profile PAGE</DashboardPage>;
+  return (
+    <DashboardPage>
+      <SettingsForm />
+    </DashboardPage>
+  );
 };
 
 export default Profile;

@@ -1,0 +1,25 @@
+.form {
+  padding-top: 30px;
+}
+.input {
+  background: var(--light) !important;
+  color: var(--dark) !important;
+  border: 2px solid #e4ecf2 !important;
+  padding: 12px 15px !important;
+  border-radius: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    width: 100%;
+    font-size: 14px !important;
+  }
+
+  .input {
+    font-size: 12px !important;
+  }
+
+  .link__page {
+    font-size: 14px !important;
+  }
+}

@@ -6,10 +6,11 @@ import { CustomersSection } from "../../Components/CustomersSection";
 import { Footer } from "../../Components/Footer";
 import { Hero } from "../../Components/Hero";
 import { Navbar } from "../../Components/Navbar";
+import AuthRedirectHOC from "../../Utils/AuthRedirectHOC/AuthRedirectHOC";
 
 const LandingPageMain = () => {
   return (
-    <>
+    <AuthRedirectHOC>
       <div className={styles.wrapper}>
         <div className={styles.slider__bg}></div>
       </div>
@@ -20,7 +21,7 @@ const LandingPageMain = () => {
         <CardsSection />
       </Container>
       <Footer />
-    </>
+    </AuthRedirectHOC>
   );
 };
 

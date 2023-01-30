@@ -15,9 +15,12 @@ const Directory = ({ searchDirectory, data }) => {
   return (
     <>
       <DashboardPage>
+        <SearchComponent
+          placeholder="Search by Names, Series, Country"
+          action={searchDirectory}
+        />
         {data ? (
           <>
-            <SearchComponent placeholder="Search by Names, Series, Country" />
             <DirectoryList data={data} />
           </>
         ) : (
