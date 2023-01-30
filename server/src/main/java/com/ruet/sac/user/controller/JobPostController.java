@@ -18,14 +18,11 @@ public class JobPostController {
             @RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,
             @RequestParam(name ="searchText" ,required = false, defaultValue = "") String searchText,
             @RequestParam(name ="placementType" ,required = false, defaultValue = "") String placementType,
-            @RequestParam(name ="durationType" ,required = false, defaultValue = "") String durationType,
-            @RequestParam(name ="deadline" ,required = false, defaultValue = "") String deadline){
+            @RequestParam(name ="durationType" ,required = false, defaultValue = "") String durationType){
         HashMap<String,Object> returnObj = new HashMap<>();
 
-        //System.out.println(durationType);
-
         try {
-            HashMap<String,Object> results = jobPostService.getJobPosts(pageNumber,searchText,durationType,placementType,deadline);
+            HashMap<String,Object> results = jobPostService.getJobPosts(pageNumber,searchText,durationType,placementType);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");

@@ -1,6 +1,5 @@
 package com.ruet.sac.user.controller;
 
-import com.ruet.sac.user.service.AlumniService;
 import com.ruet.sac.user.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ public class EventController {
     @Autowired
     EventService eventService;
 
-    @PostMapping("/getAllRunningRegistrationEvents")
+    @GetMapping("/events/running")
     public HashMap<String,Object> getAllRunningRegistrationEvents(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -34,7 +33,7 @@ public class EventController {
         return returnObj;
     }
 
-    @PostMapping("/getEventDetails")
+    @GetMapping("/events/running/details")
     public HashMap<String,Object> getEventDetails(@RequestParam(name ="eventId" ,required = true) Integer eventId){
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -54,7 +53,7 @@ public class EventController {
     }
 
 
-    @PostMapping("/applyForEvent")
+    @PostMapping("/events/registration")
     public HashMap<String,Object> applyForAlumni(@RequestHeader("Authorization") String bearerToken ,
                                                  @RequestParam(name ="eventId")Integer eventId,
                                                  @RequestParam(name ="transactionId")String transactionId,

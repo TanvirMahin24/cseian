@@ -13,7 +13,7 @@ public class ForumController {
     @Autowired
     ForumService forumService;
 
-    @PostMapping("/faqsWithAnswer")
+    @GetMapping("/faqs/answererd")
     public HashMap<String,Object> getAllFaqsWithAnswer(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -32,7 +32,7 @@ public class ForumController {
         return returnObj;
     }
 
-    @PostMapping("/unansweredFaqs")
+    @GetMapping("/faqs/unanswererd")
     public HashMap<String,Object> getPosts(
             @RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
         HashMap<String,Object> returnObj = new HashMap<>();
@@ -52,7 +52,7 @@ public class ForumController {
         return returnObj;
     }
 
-    @PostMapping("/askQuestion")
+    @PostMapping("/faqs/question")
     public HashMap<String,Object> askQuestion(@RequestHeader("Authorization") String bearerToken ,
                                            @RequestParam(name ="question")String question )
     {
@@ -75,7 +75,7 @@ public class ForumController {
         return returnObj;
     }
 
-    @PostMapping("/answeringQuestion")
+    @PostMapping("/faqs/answer")
     public HashMap<String,Object> answeringQuestion(@RequestHeader("Authorization") String bearerToken ,
                                                     @RequestParam(name ="faqId" ,required=true)Integer faqId ,
                                                      @RequestParam(name ="answer")String answer )
@@ -101,7 +101,7 @@ public class ForumController {
 
 
 
-    @PostMapping("/deleteFaq")
+    @DeleteMapping("/faqs")
     public HashMap<String,Object> deletePost(@RequestHeader("Authorization") String bearerToken ,
                                              @RequestParam(name ="faqId" ,required=true)Integer faqId)
     {
