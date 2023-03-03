@@ -1,8 +1,8 @@
 import React from "react";
 import { Navbar as BootstrapNavbar, Nav } from "react-bootstrap";
 import styles from "./Navbar.module.css";
-import logoImg from "../../Assets/Logo.svg";
-import companyLogo from "../../Assets/SignUpForm/topLogo.png";
+import logoImg from "../../Assets/logo.png";
+import companyLogo from "../../Assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ logo, auth, login, landing, signup }) => {

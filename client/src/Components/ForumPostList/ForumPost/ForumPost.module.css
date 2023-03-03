@@ -62,6 +62,7 @@
   font-weight: 500;
   font-family: "Poppins";
   color: #666666;
+  text-transform: capitalize;
 }
 
 .text {
