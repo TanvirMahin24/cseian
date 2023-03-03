@@ -16,3 +16,14 @@ export const GET_JOB_LIST = "GET_JOB_LIST";
 export const SEARCH_JOB_LIST = "SEARCH_JOB_LIST";
 export const EDIT_JOB = "EDIT_JOB";
 export const DELETE_JOB = "DELETE_JOB";
+
+// FORUM
+export const CREATE_POST = "CREATE_POST";
+export const UPDATE_POST = "UPDATE_POST";
+export const GET_POST_LIST = "GET_POST_LIST";
+export const GET_POST_DETAILS = "GET_POST_DETAILS";
+
+export const CREATE_COMMENT = "CREATE_COMMENT";
+export const UPDATE_COMMENT = "UPDATE_COMMENT";
+export const GET_COMMENT = "GET_COMMENT";
+export const DELETE_COMMENT = "DELETE_COMMENT";
