@@ -10,6 +10,8 @@ const JobModal = ({
   durationType,
   placementType,
   postDate,
+  postWonerName,
+  postWonerId,
 }) => {
   return (
     <div>
@@ -47,6 +49,16 @@ const JobModal = ({
               <Moment format="MMM DD, YYYY">{deadline}</Moment>
             </td>
           </tr>
+          {postWonerName ? (
+            <tr>
+              <td className="fw-bold">Posted by</td>
+              <td>
+                {postWonerName} ({postWonerId})
+              </td>
+            </tr>
+          ) : (
+            <></>
+          )}
         </tbody>
       </Table>
     </div>

@@ -17,6 +17,8 @@ const JobItem = ({
   location,
   deadline,
   applicationlink,
+  postWonerName,
+  postWonerId,
 }) => {
   const modal = useModals();
   const viewDetailsHandeler = () => {
@@ -34,6 +36,8 @@ const JobItem = ({
           postDate={postDate}
           location={location}
           deadline={deadline}
+          postWonerName={postWonerName}
+          postWonerId={postWonerId}
         />
       ),
     });
