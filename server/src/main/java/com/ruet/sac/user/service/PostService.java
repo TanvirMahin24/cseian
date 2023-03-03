@@ -112,6 +112,7 @@ public class PostService {
         }
         LocalDate postDate =LocalDate.now();
         post.setPostDate(postDate);
+        post.setPostType(0);
 
         postRepository.save(post);
 
@@ -122,7 +123,8 @@ public class PostService {
     {
         Integer postWonerId = parseInt(jwtUtil.extractUsername(jwt));
         Post post = postRepository.getReferenceById(postId);
-        if(post.getPostWoner().getId()!=postWonerId) return false;
+        Integer originalPostWonerId = post.getPostWoner().getId();
+        if(!originalPostWonerId.equals(postWonerId)) return false;
         if(postDescription!=null && postDescription.length()!=0) post.setPostDescription(postDescription);
         if(postImage!=null)
         {
@@ -140,7 +142,7 @@ public class PostService {
         Integer postWonerId = parseInt(jwtUtil.extractUsername(jwt));
         Post post = postRepository.getReferenceById(postId);
 
-        if(post.getPostWoner().getId()!=postWonerId) return false;
+        if(!post.getPostWoner().getId().equals(postWonerId)) return false;
 
         commentRepository.deleteCommentByPostId(postId);
         postRepository.deleteById(postId);

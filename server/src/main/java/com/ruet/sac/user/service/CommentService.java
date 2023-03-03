@@ -42,11 +42,11 @@ public class CommentService {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
             resultsObj.put("commentId",(Integer) ob[0]);
-            resultsObj.put("postDescription",(String) ob[1]);
-            resultsObj.put("postWonerId",(String) ob[2]);
-            resultsObj.put("postWonerName",(String) ob[3]);
-            resultsObj.put("postWonerPicture",(Integer) ob[4]);
-            resultsObj.put("postDate",(String) ob[5]);
+            resultsObj.put("commentDescription",(String) ob[1]);
+            resultsObj.put("commentWonerId",(Integer) ob[2]);
+            resultsObj.put("commentWonerName",(String) ob[3]);
+            resultsObj.put("commentWonerPicture",(String) ob[4]);
+
             resultsArray.add(resultsObj);
         }
         return resultsArray;
@@ -76,7 +76,7 @@ public class CommentService {
     public boolean editComment(String jwt, Integer commentId, String commentDescription) {
         Integer commentWonerId = parseInt(jwtUtil.extractUsername(jwt));
         Comment comment = commentRepository.getReferenceById(commentId);
-        if(comment.getCommentWoner().getId()!=commentWonerId) return false;
+        if(!comment.getCommentWoner().getId().equals(commentWonerId)) return false;
 
         comment.setCommentDescription(commentDescription);
         commentRepository.save(comment);
@@ -85,8 +85,8 @@ public class CommentService {
 
     public boolean deleteComment(String jwt, Integer commentId) {
         Integer commentWonerId = parseInt(jwtUtil.extractUsername(jwt));
-        if(commentRepository.getReferenceById(commentId).getCommentWoner().getId()!=commentWonerId) return false;
-        commentRepository.deleteCommentById(commentId);
+        if(!commentRepository.getReferenceById(commentId).getCommentWoner().getId().equals(commentWonerId)) return false;
+        commentRepository.deleteById(commentId);
         return true;
     }
 }
