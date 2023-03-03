@@ -543,7 +543,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/verifyEmail?varificationCode=1hq6hb&userId=1803034",
+							"raw": "http://localhost:8080/verifyEmail?varificationCode=6qR4Su&userId=1803034",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -555,7 +555,7 @@
 							"query": [
 								{
 									"key": "varificationCode",
-									"value": "1hq6hb"
+									"value": "6qR4Su"
 								},
 								{
 									"key": "userId",
@@ -989,7 +989,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/register?firstName=Nazmul Hossain&lastName=Nahid&studentId=1803034&email=nazm.nahid@gmail.com&contactNo=01797975508&country=Bangladesh&city=Rajshahi&linkedin&availableTimeToContact=7 am to 11 pm&jobField&jobTitle&jobOrganization&jobBrunch&password=12345",
+							"raw": "http://localhost:8080/register?firstName=Dibbo&lastName=Borua&studentId=1603036&email=bariksadikruetabc@gmail.com&contactNo=01797975508&country=Bangladesh&city=Rajshahi&linkedin&availableTimeToContact=7 am to 11 pm&jobTitle=Software Engineer&jobOrganization=Enosis Solution&jobBrunch=Gulsan , Dhaka&password=12345&jobField=Software Engineering",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1001,19 +1001,19 @@
 							"query": [
 								{
 									"key": "firstName",
-									"value": "Nazmul Hossain"
+									"value": "Dibbo"
 								},
 								{
 									"key": "lastName",
-									"value": "Nahid"
+									"value": "Borua"
 								},
 								{
 									"key": "studentId",
-									"value": "1803034"
+									"value": "1603036"
 								},
 								{
 									"key": "email",
-									"value": "nazm.nahid@gmail.com"
+									"value": "bariksadikruetabc@gmail.com"
 								},
 								{
 									"key": "contactNo",
@@ -1021,46 +1021,40 @@
 								},
 								{
 									"key": "country",
-									"value": "Bangladesh",
-									"description": "optional"
+									"value": "Bangladesh"
 								},
 								{
 									"key": "city",
-									"value": "Rajshahi",
-									"description": "optional"
+									"value": "Rajshahi"
 								},
 								{
 									"key": "linkedin",
-									"value": null,
-									"description": "optional"
+									"value": null
 								},
 								{
 									"key": "availableTimeToContact",
 									"value": "7 am to 11 pm"
 								},
 								{
-									"key": "jobField",
-									"value": null,
-									"description": "optional"
-								},
-								{
 									"key": "jobTitle",
-									"value": null,
-									"description": "optional"
+									"value": "Software Engineer"
 								},
 								{
 									"key": "jobOrganization",
-									"value": null,
-									"description": "optional"
+									"value": "Enosis Solution"
 								},
 								{
 									"key": "jobBrunch",
-									"value": null,
-									"description": "optional"
+									"value": "Gulsan , Dhaka"
 								},
 								{
 									"key": "password",
 									"value": "12345"
+								},
+								{
+									"key": "jobField",
+									"value": "Software Engineering",
+									"description": "optional"
 								}
 							]
 						}
@@ -1818,22 +1812,22 @@
 			"name": "Posts",
 			"item": [
 				{
-					"name": "Posts",
+					"name": "viewPosts",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOrgdDAzMDE1IiwiZXhwIjoxNjY5OTE0MTkzLCJpYXQiOjE2Njk4NzgxOTN9.Vjy0KE8_erTV6cMqnqJdfGimm34s1h8nH-KrRIrUKTc",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5MTM1LCJpYXQiOjE2Nzc4MjMxMzV9.p641Wi1jyCWBBm4LKSv8AsNL7UaJUfNFdFmCNwEgyGE",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/posts",
+							"raw": "http://localhost:8080/posts?searchText",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1841,6 +1835,12 @@
 							"port": "8080",
 							"path": [
 								"posts"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": null
+								}
 							]
 						}
 					},
@@ -2089,6 +2089,178 @@
 							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"3\",\n    \"ResponseData\": \"Invalid JWT Token\"\n}"
 						}
 					]
+				},
+				{
+					"name": "addPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5MTM1LCJpYXQiOjE2Nzc4MjMxMzV9.p641Wi1jyCWBBm4LKSv8AsNL7UaJUfNFdFmCNwEgyGE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Capture.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/post?postDescription=aefuawgeiufgcqpwiuegfip&postTitle=Mahid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "postDescription",
+									"value": "aefuawgeiufgcqpwiuegfip"
+								},
+								{
+									"key": "postTitle",
+									"value": "Mahid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/post?postDescription=nahiddaa&postId=79&postTitle=Mahin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "postDescription",
+									"value": "nahiddaa"
+								},
+								{
+									"key": "postId",
+									"value": "79"
+								},
+								{
+									"key": "postTitle",
+									"value": "Mahin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/post?postId=78",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "78"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewPostDetails",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/post?postId=79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "79"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -2111,7 +2283,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/seriesWiseList?series=18",
+							"raw": "http://localhost:8080/seriesWiseList?series=16",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2123,7 +2295,7 @@
 							"query": [
 								{
 									"key": "series",
-									"value": "18"
+									"value": "16"
 								}
 							]
 						}
@@ -2146,7 +2318,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/searchSeriesInfo?searchText=nahid",
+							"raw": "http://localhost:8080/searchSeriesInfo?searchText=1603035",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2158,9 +2330,591 @@
 							"query": [
 								{
 									"key": "searchText",
+									"value": "1603035"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profiles",
+			"item": [
+				{
+					"name": "getProfileInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMTk3NjgzLCJpYXQiOjE2NzAxNjE2ODN9.owdsQq90jDKkMF6PMOksZxhgkBImAmfu4iLirBtcKpw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/profileInfo?studentId=1803034",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profileInfo"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "1803034"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editProfileInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMTk3NjgzLCJpYXQiOjE2NzAxNjE2ODN9.owdsQq90jDKkMF6PMOksZxhgkBImAmfu4iLirBtcKpw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/editProfileInfo?firstName&lastName&contactNo&country&city&linkedin&availableTimeToContact",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"editProfileInfo"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": null
+								},
+								{
+									"key": "lastName",
+									"value": null
+								},
+								{
+									"key": "contactNo",
+									"value": null
+								},
+								{
+									"key": "country",
+									"value": null
+								},
+								{
+									"key": "city",
+									"value": null
+								},
+								{
+									"key": "linkedin",
+									"value": null
+								},
+								{
+									"key": "availableTimeToContact",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addJob",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMTk3NjgzLCJpYXQiOjE2NzAxNjE2ODN9.owdsQq90jDKkMF6PMOksZxhgkBImAmfu4iLirBtcKpw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/addJob?jobField=Software Engineering&jobTitle=Software Engineer&jobOrganization=Samsang&jobBrunch=Dhaka, Bangladesh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addJob"
+							],
+							"query": [
+								{
+									"key": "jobField",
+									"value": "Software Engineering"
+								},
+								{
+									"key": "jobTitle",
+									"value": "Software Engineer"
+								},
+								{
+									"key": "jobOrganization",
+									"value": "Samsang"
+								},
+								{
+									"key": "jobBrunch",
+									"value": "Dhaka, Bangladesh"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "leftJob",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMTk3NjgzLCJpYXQiOjE2NzAxNjE2ODN9.owdsQq90jDKkMF6PMOksZxhgkBImAmfu4iLirBtcKpw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/leftJob?jobId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"leftJob"
+							],
+							"query": [
+								{
+									"key": "jobId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "jobPosts",
+			"item": [
+				{
+					"name": "add Jobs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc1MDkzMzEzLCJpYXQiOjE2NzUwNTczMTN9.fG_3e184SomQckH-CcQfW0hCnn4rsGMXCiQiTmAdLXE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "postTitle",
+									"value": "babaji",
+									"type": "text"
+								},
+								{
+									"key": "companyName",
+									"value": "fagwr",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "sdfawe",
+									"type": "text"
+								},
+								{
+									"key": "deadline",
+									"value": "2023-01-31T14:31:33.1Z",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/jobPosts?placementType=Remote&description=dsajklhdl%20hsal&applicationlink=dasdas&durationType=asegaer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobPosts"
+							],
+							"query": [
+								{
+									"key": "postTitle",
+									"value": "title",
+									"disabled": true
+								},
+								{
+									"key": "companyName",
+									"value": "Q",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "Rangpur,%20BD",
+									"disabled": true
+								},
+								{
+									"key": "deadline",
+									"value": "2023-01-06T03:02",
+									"disabled": true
+								},
+								{
+									"key": "placementType",
+									"value": "Remote"
+								},
+								{
+									"key": "description",
+									"value": "dsajklhdl%20hsal"
+								},
+								{
+									"key": "applicationlink",
+									"value": "dasdas"
+								},
+								{
+									"key": "durationType",
+									"value": "asegaer"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add Jobs",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/jobPosts?postTitle=tanvir's job&companyName=tanvir&location=habijabi&deadline=2019-01-21&durationType=partTime&placementType=remote",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"jobPosts"
+									],
+									"query": [
+										{
+											"key": "postTitle",
+											"value": "tanvir's job"
+										},
+										{
+											"key": "companyName",
+											"value": "tanvir"
+										},
+										{
+											"key": "location",
+											"value": "habijabi"
+										},
+										{
+											"key": "deadline",
+											"value": "2019-01-21"
+										},
+										{
+											"key": "durationType",
+											"value": "partTime"
+										},
+										{
+											"key": "placementType",
+											"value": "remote"
+										},
+										{
+											"key": "description",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "applicationlink",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Dec 2022 15:52:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": \"Successfully Added Your Job Post\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get Jobs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc1MDkzMzEzLCJpYXQiOjE2NzUwNTczMTN9.fG_3e184SomQckH-CcQfW0hCnn4rsGMXCiQiTmAdLXE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jobPosts?searchText=&pageNumber=0&durationType=&placementType=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobPosts"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": ""
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "durationType",
+									"value": ""
+								},
+								{
+									"key": "placementType",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "viewComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comments?postId=77",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comments"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "77"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comment?postId=77&commentDescription=agwwrga",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "77"
+								},
+								{
+									"key": "commentDescription",
+									"value": "agwwrga"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comment?commentId=3&commentDescription=nahid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment"
+							],
+							"query": [
+								{
+									"key": "commentId",
+									"value": "3"
+								},
+								{
+									"key": "commentDescription",
 									"value": "nahid"
 								}
 							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
 						}
 					},
 					"response": []

@@ -34,10 +34,30 @@ public class PostController {
         return returnObj;
     }
 
+    @GetMapping("/post")
+    public HashMap<String,Object> getPostById(@RequestParam(name ="postId" ) Integer postId){
+        HashMap<String,Object> returnObj = new HashMap<>();
+
+        try {
+            HashMap<String,Object> result = postService.getPostById(postId);
+
+            returnObj.put("ResponseCode", "1");
+            returnObj.put("Response", "Successfull");
+            returnObj.put("ResponseData", result);
+        } catch (Exception e)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Failed");
+            returnObj.put("ResponseData", "Something Went Wrong");
+        }
+        return returnObj;
+    }
+
     @PostMapping("/post")
     public HashMap<String,Object> savePost(@RequestHeader("Authorization") String bearerToken ,                                           @RequestParam(name ="description" ,required=false)String description ,
                                            @RequestPart (name="image", required = false) MultipartFile image,
-                                           @RequestParam(name ="postDescription")String postDescription )
+                                           @RequestParam(name ="postDescription")String postDescription,
+                                           @RequestParam(name ="postTitle")String postTitle)
     {
         String jwt = bearerToken.substring(7);
         HashMap<String,Object> returnObj = new HashMap<>();
@@ -45,7 +65,7 @@ public class PostController {
 
         try
         {
-            postService.savePost(jwt,postDescription,image);
+            postService.savePost(jwt,postDescription,image,postTitle);
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
             returnObj.put("ResponseData", "Successfully Added Your Post");
@@ -62,6 +82,7 @@ public class PostController {
     public HashMap<String,Object> editPost(@RequestHeader("Authorization") String bearerToken ,
                                            @RequestParam(name ="postId" ,required=true)Integer postId ,
                                            @RequestPart (name="image", required = false) MultipartFile image,
+                                           @RequestParam(name ="postTitle")String postTitle,
                                            @RequestParam(name ="postDescription" , required = false)String postDescription )
     {
         String jwt = bearerToken.substring(7);
@@ -70,7 +91,7 @@ public class PostController {
 
         try
         {
-            if(postService.editPost(jwt,postId,postDescription,image))
+            if(postService.editPost(jwt,postId,postDescription,image,postTitle))
             {
                 returnObj.put("ResponseCode", "1");
                 returnObj.put("Response", "Successfull");

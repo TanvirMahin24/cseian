@@ -12,9 +12,7 @@ public interface CommentRepository extends JpaRepository<Comment, Integer> {
 
     @Query("Select c.id,c.commentDescription,cw.id,cw.name,cw.picture from Comment c join c.commentWoner cw join c.post p where p.id=:postId order by c.id desc")
     List<Object[]> getAllCommentsByPostId(Integer postId);
-//    @Modifying
-//    @Query(value="delete from comment where id = :commentId ", nativeQuery=true)
-//    public void deleteCommentById(@Param("commentId")Integer commentId);
+
     @Modifying
     @Query(value="delete from comment where post_id = :postId ", nativeQuery=true)
     public void deleteCommentByPostId(@Param("postId")Integer postId);

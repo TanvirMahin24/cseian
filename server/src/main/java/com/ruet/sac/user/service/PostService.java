@@ -46,25 +46,21 @@ public class PostService {
         @Autowired
         public JwtUtil jwtUtil;
 
-        public List<HashMap<String,Object>> getAllPosts(Integer pageNumber) {
+        public HashMap<String,Object> getPostById(Integer postId) {
 
-            List<HashMap<String,Object>> resultsArray = new ArrayList<>();
-
-            List<Object[]> list= postRepository.getAllPost(PageRequest.of(pageNumber,10)); //
-            for (Object[] ob : list) {
-
+                Post post= postRepository.getReferenceById(postId);
                 HashMap<String,Object> resultsObj = new HashMap<>();
-                resultsObj.put("postId",(Integer) ob[0]);
-                resultsObj.put("postTitle",(String) ob[1]);
-                resultsObj.put("postDescription",(String) ob[2]);
-                resultsObj.put("postImage",(String) ob[3]);
-                resultsObj.put("postWonerId",(Integer) ob[4]);
-                resultsObj.put("postWonerName",(String) ob[5]);
-                resultsObj.put("postWonerPicture",(String) ob[6]);
-                resultsObj.put("postDate",(LocalDate) ob[7]);
-                resultsArray.add(resultsObj);
-        }
-        return resultsArray;
+
+                resultsObj.put("postId",(Integer) post.getId());
+                resultsObj.put("postTitle",(String) post.getPostTitle());
+                resultsObj.put("postDescription",(String) post.getPostDescription());
+                resultsObj.put("postImage",(String) post.getPostAtachmentLink());
+                resultsObj.put("postWonerId",(Integer) post.getPostWoner().getId());
+                resultsObj.put("postWonerName",(String) post.getPostWoner().getName());
+                resultsObj.put("postWonerPicture",(String) post.getPostWoner().getPicture());
+                resultsObj.put("postDate",(LocalDate) post.getPostDate());
+
+            return resultsObj;
     }
 
 
@@ -90,7 +86,7 @@ public class PostService {
     }
 
     @Transactional
-    public void savePost( String jwt,String postDescription , MultipartFile postImage )
+    public void savePost( String jwt,String postDescription , MultipartFile postImage,String postTitle )
     {
         Integer postWonerId = parseInt(jwtUtil.extractUsername(jwt));
         Post post = new Post();
@@ -105,6 +101,7 @@ public class PostService {
         post.setId(id);
         post.setPostWoner(postWoner);
         post.setPostDescription(postDescription);
+        post.setPostTitle(postTitle);
         if(postImage!=null)
         {
             String imageName = fileUploadService.saveFile(postImage ,"postImage"+id);
@@ -119,13 +116,14 @@ public class PostService {
     }
 
     @Transactional
-    public boolean editPost(String jwt,Integer postId,String postDescription , MultipartFile postImage )
+    public boolean editPost(String jwt,Integer postId,String postDescription , MultipartFile postImage ,String postTitle)
     {
         Integer postWonerId = parseInt(jwtUtil.extractUsername(jwt));
         Post post = postRepository.getReferenceById(postId);
         Integer originalPostWonerId = post.getPostWoner().getId();
         if(!originalPostWonerId.equals(postWonerId)) return false;
         if(postDescription!=null && postDescription.length()!=0) post.setPostDescription(postDescription);
+        if(postTitle!=null && postTitle.length()!=0) post.setPostTitle(postTitle);
         if(postImage!=null)
         {
             String imageName = fileUploadService.saveFile(postImage ,"postImage"+postId);
