@@ -16,26 +16,7 @@ public class PostController {
     PostService postService;
 
     @GetMapping("/posts")
-    public HashMap<String,Object> getPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
-        HashMap<String,Object> returnObj = new HashMap<>();
-
-        try {
-            List<HashMap<String,Object>> resultsArray = postService.getAllPosts(pageNumber);
-
-            returnObj.put("ResponseCode", "1");
-            returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
-        } catch (Exception e)
-        {
-            returnObj.put("ResponseCode", "0");
-            returnObj.put("Response", "Failed");
-            returnObj.put("ResponseData", "Something Went Wrong");
-        }
-        return returnObj;
-    }
-
-    @GetMapping("/searchPosts")
-    public HashMap<String,Object> getFilteredPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,@RequestParam(name ="searchText" ) String searchText){
+    public HashMap<String,Object> getFilteredPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,@RequestParam(name ="searchText" ,required = false, defaultValue = "" ) String searchText){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
@@ -53,7 +34,7 @@ public class PostController {
         return returnObj;
     }
 
-    @PostMapping("/addPost")
+    @PostMapping("/post")
     public HashMap<String,Object> savePost(@RequestHeader("Authorization") String bearerToken ,                                           @RequestParam(name ="description" ,required=false)String description ,
                                            @RequestPart (name="image", required = false) MultipartFile image,
                                            @RequestParam(name ="postDescription")String postDescription )
@@ -77,7 +58,7 @@ public class PostController {
         return returnObj;
     }
 
-    @PatchMapping("/editPost")
+    @PatchMapping("/post")
     public HashMap<String,Object> editPost(@RequestHeader("Authorization") String bearerToken ,
                                            @RequestParam(name ="postId" ,required=true)Integer postId ,
                                            @RequestPart (name="image", required = false) MultipartFile image,
@@ -111,7 +92,7 @@ public class PostController {
         return returnObj;
     }
 
-    @DeleteMapping("/deletePost")
+    @DeleteMapping("/post")
     public HashMap<String,Object> deletePost(@RequestHeader("Authorization") String bearerToken ,
                                            @RequestParam(name ="postId" ,required=true)Integer postId)
     {

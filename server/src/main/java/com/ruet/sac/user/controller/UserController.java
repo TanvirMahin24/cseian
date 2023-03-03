@@ -35,6 +35,20 @@ public class UserController {
 
     @Autowired
     EmailService emailService;
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtUtil jwtTokenUtil;
+
+    @Autowired
+    UserDetailsService userDetailsService;
+
+    @Autowired
+    MemberRepository alumnusRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
     public HashMap<String,Object> registration(@RequestParam("firstName") String firstName ,
@@ -190,20 +204,6 @@ public class UserController {
         return returnObj;
     }
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private JwtUtil jwtTokenUtil;
-
-    @Autowired
-    UserDetailsService userDetailsService;
-
-    @Autowired
-    MemberRepository alumnusRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {

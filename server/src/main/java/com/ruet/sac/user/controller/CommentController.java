@@ -13,7 +13,7 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
-    @PostMapping("/comments")
+    @GetMapping("/comments")
     public HashMap<String,Object> getPosts(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber,@RequestParam(name ="postId") Integer postId){
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -33,7 +33,7 @@ public class CommentController {
     }
 
 
-    @PostMapping("/addComment")
+    @PostMapping("/comment")
     public HashMap<String,Object> savePost(@RequestHeader("Authorization") String bearerToken ,
                                            @RequestParam(name ="postId")Integer postId,
                                            @RequestParam(name ="commentDescription")String commentDescription )
@@ -57,7 +57,7 @@ public class CommentController {
         return returnObj;
     }
 
-    @PostMapping("/editComment")
+    @PatchMapping("/comment")
     public HashMap<String,Object> editPost(@RequestHeader("Authorization") String bearerToken ,
                                            @RequestPart (name="commentId", required = false) Integer commentId,
                                            @RequestParam(name ="commentDescription" , required = false)String commentDescription )
@@ -90,7 +90,7 @@ public class CommentController {
         return returnObj;
     }
 
-    @PostMapping("/deleteComment")
+    @DeleteMapping("/comment")
     public HashMap<String,Object> deletePost(@RequestHeader("Authorization") String bearerToken ,
                                              @RequestParam(name ="commentId" ,required=true)Integer commentId)
     {

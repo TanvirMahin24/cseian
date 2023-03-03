@@ -34,7 +34,7 @@ public class ResourceController {
         StreamUtils.copy(file,response.getOutputStream());
     }
 
-    @PostMapping(value = "flags/lastGraduatedSeries")
+    @GetMapping(value = "flags/lastGraduatedSeries")
     public Integer getLastGraduatedSeries() throws IOException {
         return  flagRepository.getReferenceById(1).getFlagValue();
     }
