@@ -57,7 +57,10 @@
   padding-right: 5px;
   font-family: "Poppins";
   font-size: 14px;
+  border: none;
+  outline: none;
   font-weight: 600;
+  background: none;
   text-decoration: none;
   color: var(--color_danger);
   transition: 0.3s all ease-in-out;

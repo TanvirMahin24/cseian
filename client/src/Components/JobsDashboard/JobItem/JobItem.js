@@ -4,9 +4,11 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import { BsFillCaretRightFill } from "react-icons/bs";
 import styles from "./JobItem.module.css";
+import { useModals } from "@mantine/modals";
+import JobModal from "../JobModal/JobModal";
 
 const JobItem = ({
-  id,
+  postId,
   postTitle,
   companyName,
   durationType,
@@ -16,6 +18,26 @@ const JobItem = ({
   deadline,
   applicationlink,
 }) => {
+  const modal = useModals();
+  const viewDetailsHandeler = () => {
+    modal.openModal({
+      centered: true,
+      closeOnClickOutside: false,
+      title: postTitle,
+      children: (
+        <JobModal
+          postId={postId}
+          postTitle={postTitle}
+          companyName={companyName}
+          durationType={durationType}
+          placementType={placementType}
+          postDate={postDate}
+          location={location}
+          deadline={deadline}
+        />
+      ),
+    });
+  };
   return (
     <div className={styles.wrapper}>
       <Row
@@ -67,9 +89,9 @@ const JobItem = ({
             <></>
           )}
 
-          <Link to={`/job/${id}`} className={styles.link}>
+          <button className={styles.link} onClick={viewDetailsHandeler}>
             Read More <BsFillCaretRightFill />
-          </Link>
+          </button>
         </Col>
       </Row>
     </div>
