@@ -1,7 +1,8 @@
 import React from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import styles from "./TopbarDashboard.module.css";
-import logo from "../../Assets/SignUpForm/topLogo.png";
+
+import logo from "../../Assets/logo.png";
 //import notificationIcon from "../../Assets/Navbar/NotificationIcon.svg";
 //import blankImg from "../../Assets/SignUpForm/defaultImg.png";
 import { Link } from "react-router-dom";

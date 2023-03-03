@@ -11,8 +11,8 @@ export const postCreate = (values, img) => async (dispatch) => {
     },
   };
   const data = new FormData();
-  if (values.postDescription) {
-    data.append("postDescription", values.postDescription);
+  if (values.description) {
+    data.append("postDescription", values.description);
   }
   if (img) {
     data.append("image", img);
@@ -31,6 +31,7 @@ export const postCreate = (values, img) => async (dispatch) => {
     dispatch({
       type: CREATE_POST,
     });
+    dispatch(getPosts(""));
     return true;
   } catch (err) {
     console.log(err);
@@ -44,7 +45,9 @@ export const postCreate = (values, img) => async (dispatch) => {
 export const getPosts = (text, page) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `${BASE_URL}/posts?searchText=${text}&pageNumber=${page}`
+      `${BASE_URL}/posts?searchText=${text ? text : ""}${
+        page ? `&pageNumber=${page}` : ""
+      }`
     );
 
     if (res.data.Response !== "Successfull") {

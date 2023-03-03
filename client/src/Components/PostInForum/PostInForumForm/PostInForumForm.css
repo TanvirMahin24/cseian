@@ -1,10 +1,10 @@
-#post__in__forum__form .form-control {
+/* #post__in__forum__form .form-control {
   border: 1px solid #2699fb !important;
   background: rgba(102, 102, 102, 0.1) !important;
   border-radius: 5px !important;
-}
+} */
 
-#post__in__forum__form .form-control.is-invalid {
+/* #post__in__forum__form .form-control.is-invalid {
   border: 1px solid #ff7d7d !important;
   background: #ffe4e4 !important;
 }
@@ -12,4 +12,4 @@
 #post__in__forum__form {
   font-family: "Poppins" !important;
   color: #333333 !important;
-}
+} */
