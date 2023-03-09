@@ -129,7 +129,7 @@ public class UserService {
             emailDetails.setSubject("Email Verification for RUET CSE Alumni");
             emailDetails.setTemplate("emailVarificationTemplate.html");
             emailDetails.setProperties(properties);
-            //emailService.sendConfirmationMessage(emailDetails);
+            emailService.sendConfirmationMessage(emailDetails);
 
     }
 
@@ -138,7 +138,7 @@ public class UserService {
     {
         String randomCode = RandomString.make(30);
         Member alumni = alumnusRepository.getReferenceById(studentId);
-        alumni.setPassword(randomCode);
+        alumni.setPassword(passwordEncoder.encode(randomCode));
 
         alumnusRepository.save(alumni);
 

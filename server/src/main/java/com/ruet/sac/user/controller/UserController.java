@@ -74,14 +74,14 @@ public class UserController {
 
         HashMap<String,Object> returnObj = new HashMap<>();
 
-        if(userStatus==1)
+        if(userStatus>0)
         {
             returnObj.put("ResponseCode", "0");
             returnObj.put("Response", "Feiled ");
             returnObj.put("ResponseData", "You already have an account");
             return returnObj;
         }
-        if(emailService.isAddressValid(email)==false)
+        if(!emailService.isAddressValid(email))
         {
             returnObj.put("ResponseCode", "0");
             returnObj.put("Response", "Feiled ");
@@ -228,7 +228,7 @@ public class UserController {
                 return ResponseEntity.ok(returnObj);
             }
 
-            System.out.println(passwordEncoder.encode(authenticationRequest.getPassword()));
+            //System.out.println(passwordEncoder.encode(authenticationRequest.getPassword()));
             try
             {
 

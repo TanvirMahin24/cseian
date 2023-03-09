@@ -98,8 +98,8 @@ public class CommentController {
         HashMap<String,Object> returnObj = new HashMap<>();
 
 
-//        try
-//        {
+        try
+        {
             if(commentService.deleteComment(jwt,commentId))
             {
                 returnObj.put("ResponseCode", "1");
@@ -113,12 +113,12 @@ public class CommentController {
                 returnObj.put("ResponseData", "illigal action!!");
             }
 
-//        } catch (Exception e)
-//        {
-//            returnObj.put("ResponseCode", "0");
-//            returnObj.put("Response", "Failed");
-//            returnObj.put("ResponseData", "Something Went Wrong");
-//        }
+        } catch (Exception e)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Failed");
+            returnObj.put("ResponseData", "Something Went Wrong");
+        }
         return returnObj;
     }
 }

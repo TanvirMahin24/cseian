@@ -150,7 +150,7 @@ public class ProfileService {
     {
         Integer studentId = parseInt(jwtUtil.extractUsername(jwt));
         Jobhistory jobhistory = jobhistoryRepository.getReferenceById(jobId);
-        if(jobhistory.getAlumniStudent().getId()==studentId)
+        if(jobhistory.getAlumniStudent().getId().equals(studentId))
         {
             jobhistory.setJobStatus(0);
             jobhistoryRepository.save(jobhistory);

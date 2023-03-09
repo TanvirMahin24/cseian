@@ -101,7 +101,7 @@ public class ForumController {
 
 
 
-    @DeleteMapping("/faqs")
+    @DeleteMapping("/faq")
     public HashMap<String,Object> deletePost(@RequestHeader("Authorization") String bearerToken ,
                                              @RequestParam(name ="faqId" ,required=true)Integer faqId)
     {

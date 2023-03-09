@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"1803015\",\r\n    \"password\" : \"12345\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -306,6 +306,96 @@
 							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Incorrect username or password\"\n}"
 						},
 						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803015\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 11:06:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account Activation Request is pending\"\n}"
+						},
+						{
 							"name": "login- account not active",
 							"originalRequest": {
 								"method": "POST",
@@ -412,7 +502,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/resendVerifyEmail?studentId=1803034",
+							"raw": "http://localhost:8080/resendVerifyEmail?studentId=1803015",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -424,7 +514,7 @@
 							"query": [
 								{
 									"key": "studentId",
-									"value": "1803034"
+									"value": "1803015"
 								}
 							]
 						}
@@ -543,7 +633,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/verifyEmail?varificationCode=6qR4Su&userId=1803034",
+							"raw": "http://localhost:8080/verifyEmail?varificationCode=qTIQXy&userId=1803015",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -555,11 +645,11 @@
 							"query": [
 								{
 									"key": "varificationCode",
-									"value": "6qR4Su"
+									"value": "qTIQXy"
 								},
 								{
 									"key": "userId",
-									"value": "1803034"
+									"value": "1803015"
 								}
 							]
 						}
@@ -976,10 +1066,15 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "image",
-									"description": "optional",
+									"key": "documentImage",
 									"type": "file",
 									"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+								},
+								{
+									"key": "memberImage",
+									"value": "",
+									"description": "optional",
+									"type": "text"
 								}
 							],
 							"options": {
@@ -989,7 +1084,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/register?firstName=Dibbo&lastName=Borua&studentId=1603036&email=bariksadikruetabc@gmail.com&contactNo=01797975508&country=Bangladesh&city=Rajshahi&linkedin&availableTimeToContact=7 am to 11 pm&jobTitle=Software Engineer&jobOrganization=Enosis Solution&jobBrunch=Gulsan , Dhaka&password=12345&jobField=Software Engineering",
+							"raw": "http://localhost:8080/register?firstName=Khan&lastName=Shammo&studentId=1803015&email=abcshammo@gmail.com&contactNo=01797975508&country=Bangladesh&city=Rajshahi&linkedin&availableTimeToContact=7 am to 11 pm&jobTitle=Software Engineer&jobOrganization=Enosis Solution&jobBrunch=Gulsan , Dhaka&password=12345&jobField=Software Engineering",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1001,19 +1096,19 @@
 							"query": [
 								{
 									"key": "firstName",
-									"value": "Dibbo"
+									"value": "Khan"
 								},
 								{
 									"key": "lastName",
-									"value": "Borua"
+									"value": "Shammo"
 								},
 								{
 									"key": "studentId",
-									"value": "1603036"
+									"value": "1803015"
 								},
 								{
 									"key": "email",
-									"value": "bariksadikruetabc@gmail.com"
+									"value": "abcshammo@gmail.com"
 								},
 								{
 									"key": "contactNo",
@@ -1021,31 +1116,38 @@
 								},
 								{
 									"key": "country",
-									"value": "Bangladesh"
+									"value": "Bangladesh",
+									"description": "optional"
 								},
 								{
 									"key": "city",
-									"value": "Rajshahi"
+									"value": "Rajshahi",
+									"description": "optional"
 								},
 								{
 									"key": "linkedin",
-									"value": null
+									"value": null,
+									"description": "optional"
 								},
 								{
 									"key": "availableTimeToContact",
-									"value": "7 am to 11 pm"
+									"value": "7 am to 11 pm",
+									"description": "optional"
 								},
 								{
 									"key": "jobTitle",
-									"value": "Software Engineer"
+									"value": "Software Engineer",
+									"description": "optional"
 								},
 								{
 									"key": "jobOrganization",
-									"value": "Enosis Solution"
+									"value": "Enosis Solution",
+									"description": "optional"
 								},
 								{
 									"key": "jobBrunch",
-									"value": "Gulsan , Dhaka"
+									"value": "Gulsan , Dhaka",
+									"description": "optional"
 								},
 								{
 									"key": "password",
@@ -1592,7 +1694,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjY5OTkyOTAzLCJpYXQiOjE2Njk5NTY5MDN9.wQvloCdGVDCnGjsvofIk-gbtUrnoWhDzWs3uWcfQKGI",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzExMzg3LCJpYXQiOjE2NzgyNzUzODd9.wQszUCsvVOsh6BfYjbKRiTADeNJHdiecyDGTHyY95Bc",
 									"type": "string"
 								}
 							]
@@ -1600,7 +1702,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/changePassword?oldPassword=12345&newPassword=asdf",
+							"raw": "http://localhost:8080/changePassword?oldPassword=c3Td5pYctETcHlbvENvEu4ilm9gWhM&newPassword=12345",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1612,11 +1714,11 @@
 							"query": [
 								{
 									"key": "oldPassword",
-									"value": "12345"
+									"value": "c3Td5pYctETcHlbvENvEu4ilm9gWhM"
 								},
 								{
 									"key": "newPassword",
-									"value": "asdf"
+									"value": "12345"
 								}
 							]
 						}
@@ -1805,6 +1907,31 @@
 							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Wrong Password\"\n}"
 						}
 					]
+				},
+				{
+					"name": "forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/forgotPassword?studentId=1803015",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"forgotPassword"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "1803015"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1819,7 +1946,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5MTM1LCJpYXQiOjE2Nzc4MjMxMzV9.p641Wi1jyCWBBm4LKSv8AsNL7UaJUfNFdFmCNwEgyGE",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2098,7 +2225,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5MTM1LCJpYXQiOjE2Nzc4MjMxMzV9.p641Wi1jyCWBBm4LKSv8AsNL7UaJUfNFdFmCNwEgyGE",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2116,7 +2243,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/post?postDescription=aefuawgeiufgcqpwiuegfip&postTitle=Mahid",
+							"raw": "http://localhost:8080/post?postDescription=abc&postTitle=Mahid",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2128,7 +2255,7 @@
 							"query": [
 								{
 									"key": "postDescription",
-									"value": "aefuawgeiufgcqpwiuegfip"
+									"value": "abc"
 								},
 								{
 									"key": "postTitle",
@@ -2147,7 +2274,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2165,7 +2292,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/post?postDescription=nahiddaa&postId=79&postTitle=Mahin",
+							"raw": "http://localhost:8080/post?postDescription=nahiddaa&postId=80&postTitle=Mahin",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2181,7 +2308,7 @@
 								},
 								{
 									"key": "postId",
-									"value": "79"
+									"value": "80"
 								},
 								{
 									"key": "postTitle",
@@ -2200,7 +2327,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2208,7 +2335,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/post?postId=78",
+							"raw": "http://localhost:8080/post?postId=79",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2220,7 +2347,7 @@
 							"query": [
 								{
 									"key": "postId",
-									"value": "78"
+									"value": "79"
 								}
 							]
 						}
@@ -2235,7 +2362,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2275,62 +2402,27 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMDk4MTg5LCJpYXQiOjE2NzAwNjIxODl9.a0N8tbQ7DDfJorqhTyVrxh-pnf0so34ZlE5zpnbEj9c",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/seriesWiseList?series=16",
+							"raw": "http://localhost:8080/users?searchText=",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"seriesWiseList"
-							],
-							"query": [
-								{
-									"key": "series",
-									"value": "16"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "search in series wise list",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMDk4MTg5LCJpYXQiOjE2NzAwNjIxODl9.a0N8tbQ7DDfJorqhTyVrxh-pnf0so34ZlE5zpnbEj9c",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/searchSeriesInfo?searchText=1603035",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"searchSeriesInfo"
+								"users"
 							],
 							"query": [
 								{
 									"key": "searchText",
-									"value": "1603035"
+									"value": ""
 								}
 							]
 						}
@@ -2350,15 +2442,15 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMTk3NjgzLCJpYXQiOjE2NzAxNjE2ODN9.owdsQq90jDKkMF6PMOksZxhgkBImAmfu4iLirBtcKpw",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/profileInfo?studentId=1803034",
+							"raw": "http://localhost:8080/profileInfo",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2370,12 +2462,189 @@
 							"query": [
 								{
 									"key": "studentId",
-									"value": "1803034"
+									"value": "1803034",
+									"disabled": true
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "getMyProfileInfo By JWT token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/profileInfo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profileInfo"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803034",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Mar 2023 04:54:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": {\n        \"memberAvailableContactHour\": \"7 am to 11 pm\",\n        \"memberPictureLink\": null,\n        \"memberCity\": \"Rajshahi\",\n        \"memberStudentId\": 1803015,\n        \"memberContact\": \"01797975508\",\n        \"memberPreviousJobs\": [],\n        \"memberName\": \"Khan Shammo\",\n        \"memberCurrentJobs\": [\n            {\n                \"alumniJobId\": 45,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            },\n            {\n                \"alumniJobId\": 46,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            },\n            {\n                \"alumniJobId\": 47,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            },\n            {\n                \"alumniJobId\": 48,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            },\n            {\n                \"alumniJobId\": 49,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            }\n        ],\n        \"memberLinkedin\": \"\",\n        \"memberRole\": \"STUDENT\",\n        \"memberEmail\": \"abcshammo@gmail.com\",\n        \"memberCountry\": \"Bangladesh\"\n    }\n}"
+						},
+						{
+							"name": "getProfileInfo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/profileInfo?studentId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profileInfo"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Mar 2023 04:53:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": {\n        \"memberAvailableContactHour\": \"7 am to 11 pm\",\n        \"memberPictureLink\": \"http://localhost:8080/resource/images?imageName=memberImage1603037.jpg\",\n        \"memberCity\": \"Rajshahi\",\n        \"memberStudentId\": 1803034,\n        \"memberContact\": \"01797975508\",\n        \"memberPreviousJobs\": [],\n        \"memberName\": \" Nahid\",\n        \"memberCurrentJobs\": [\n            {\n                \"alumniJobId\": 1,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            }\n        ],\n        \"memberLinkedin\": \"\",\n        \"memberEmail\": \"nazm.nahid@gmail.com\",\n        \"memberCountry\": \"Bangladesh\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "editProfileInfo",
@@ -2385,12 +2654,12 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMTk3NjgzLCJpYXQiOjE2NzAxNjE2ODN9.owdsQq90jDKkMF6PMOksZxhgkBImAmfu4iLirBtcKpw",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
+						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "formdata",
@@ -2403,7 +2672,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/editProfileInfo?firstName&lastName&contactNo&country&city&linkedin&availableTimeToContact",
+							"raw": "http://localhost:8080/editProfileInfo?firstName&lastName=Mohammad Barkatullah Shammo&contactNo&country&city&linkedin&availableTimeToContact",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2419,7 +2688,7 @@
 								},
 								{
 									"key": "lastName",
-									"value": null
+									"value": "Mohammad Barkatullah Shammo"
 								},
 								{
 									"key": "contactNo",
@@ -2454,7 +2723,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMTk3NjgzLCJpYXQiOjE2NzAxNjE2ODN9.owdsQq90jDKkMF6PMOksZxhgkBImAmfu4iLirBtcKpw",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2462,7 +2731,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/addJob?jobField=Software Engineering&jobTitle=Software Engineer&jobOrganization=Samsang&jobBrunch=Dhaka, Bangladesh",
+							"raw": "http://localhost:8080/addJob?jobField=Academic&jobTitle=Lecterure&jobOrganization=BUET&jobBrunch=Dhaka, Bangladesh",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2474,15 +2743,15 @@
 							"query": [
 								{
 									"key": "jobField",
-									"value": "Software Engineering"
+									"value": "Academic"
 								},
 								{
 									"key": "jobTitle",
-									"value": "Software Engineer"
+									"value": "Lecterure"
 								},
 								{
 									"key": "jobOrganization",
-									"value": "Samsang"
+									"value": "BUET"
 								},
 								{
 									"key": "jobBrunch",
@@ -2501,7 +2770,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjcwMTk3NjgzLCJpYXQiOjE2NzAxNjE2ODN9.owdsQq90jDKkMF6PMOksZxhgkBImAmfu4iLirBtcKpw",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2509,7 +2778,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/leftJob?jobId=2",
+							"raw": "http://localhost:8080/leftJob?jobId=45",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2521,7 +2790,7 @@
 							"query": [
 								{
 									"key": "jobId",
-									"value": "2"
+									"value": "45"
 								}
 							]
 						}
@@ -2574,7 +2843,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/jobPosts?placementType=Remote&description=dsajklhdl%20hsal&applicationlink=dasdas&durationType=asegaer",
+							"raw": "http://localhost:8080/jobPosts?postTitle=title&companyName=Q&location=Rangpur,%20BD&deadline=2023-01-06T03:02&placementType=Remote&description=dsajklhdl%20hsal&applicationlink=dasdas&durationType=asegaer",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2586,23 +2855,19 @@
 							"query": [
 								{
 									"key": "postTitle",
-									"value": "title",
-									"disabled": true
+									"value": "title"
 								},
 								{
 									"key": "companyName",
-									"value": "Q",
-									"disabled": true
+									"value": "Q"
 								},
 								{
 									"key": "location",
-									"value": "Rangpur,%20BD",
-									"disabled": true
+									"value": "Rangpur,%20BD"
 								},
 								{
 									"key": "deadline",
-									"value": "2023-01-06T03:02",
-									"disabled": true
+									"value": "2023-01-06T03:02"
 								},
 								{
 									"key": "placementType",
@@ -2789,6 +3054,31 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "delete Jobs",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jobPosts?jobPostId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobPosts"
+							],
+							"query": [
+								{
+									"key": "jobPostId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -2803,7 +3093,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2838,7 +3128,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2877,7 +3167,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc3ODU5OTMwLCJpYXQiOjE2Nzc4MjM5MzB9.dPsVmfmHCYzkcvwOM2ji4vAweNWE8E8w7HBH4LeFgi4",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
 									"type": "string"
 								}
 							]
@@ -2885,7 +3175,7 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/comment?commentId=3&commentDescription=nahid",
+							"raw": "http://localhost:8080/comment?commentId=5&commentDescription=nahid",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2897,7 +3187,7 @@
 							"query": [
 								{
 									"key": "commentId",
-									"value": "3"
+									"value": "5"
 								},
 								{
 									"key": "commentDescription",
@@ -2911,10 +3201,510 @@
 				{
 					"name": "deleteComment",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comment?commentId=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment"
+							],
+							"query": [
+								{
+									"key": "commentId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteComment illigal action",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/comment?commentId=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"comment"
+									],
+									"query": [
+										{
+											"key": "commentId",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Mar 2023 05:17:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"illigal action!!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Alumni Control",
+			"item": [
+				{
+					"name": "apply For Alumni",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bankRecieptImage",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/applyForAlumni?transactionId=AEFQEWF&recepientBankAccountNo=Fwewee&bankName=fwaeawefw",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"applyForAlumni"
+							],
+							"query": [
+								{
+									"key": "transactionId",
+									"value": "AEFQEWF"
+								},
+								{
+									"key": "recepientBankAccountNo",
+									"value": "Fwewee"
+								},
+								{
+									"key": "bankName",
+									"value": "fwaeawefw"
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event Control",
+			"item": [
+				{
+					"name": "get Running Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:8080/events/running",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"events",
+								"running"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Event Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/events/running/details?eventId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"events",
+								"running",
+								"details"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event Registration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bankRecieptImage",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/events/registration?eventId&transactionId&recepientBankAccountNo&bankName",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"events",
+								"registration"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": null
+								},
+								{
+									"key": "transactionId",
+									"value": null
+								},
+								{
+									"key": "recepientBankAccountNo",
+									"value": null
+								},
+								{
+									"key": "bankName",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Forum Control",
+			"item": [
+				{
+					"name": "get answered faq",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faqs/answererd?pageNumber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faqs",
+								"answererd"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Unanswered faqs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faqs/unanswererd?pageNumber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faqs",
+								"unanswererd"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "answer faq",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faqs/answer?faqId=2&answer=sgfqersgvqerge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faqs",
+								"answer"
+							],
+							"query": [
+								{
+									"key": "faqId",
+									"value": "2"
+								},
+								{
+									"key": "answer",
+									"value": "sgfqersgvqerge"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete faq",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faq?faqId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faq"
+							],
+							"query": [
+								{
+									"key": "faqId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add faq",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faqs/question?question=awrgqwrgqwwgfwrfqwrfqwer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faqs",
+								"question"
+							],
+							"query": [
+								{
+									"key": "question",
+									"value": "awrgqwrgqwwgfwrfqwrfqwer"
+								}
+							]
 						}
 					},
 					"response": []

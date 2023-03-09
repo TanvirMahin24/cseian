@@ -41,11 +41,11 @@ public class ForumService {
             resultsObj.put("faqId",(Integer) ob[0]);
             resultsObj.put("question",(String) ob[1]);
             resultsObj.put("answer",(String) ob[2]);
-            resultsObj.put("questionWonerId",(String) ob[3]);
-            resultsObj.put("questionWonerName",(Integer) ob[4]);
+            resultsObj.put("questionWonerId",(Integer) ob[3]);
+            resultsObj.put("questionWonerName",(String) ob[4]);
             resultsObj.put("postWonerPicture",(String) ob[5]);
-            resultsObj.put("replyerId",(String) ob[6]);
-            resultsObj.put("replyerName",(Integer) ob[7]);
+            resultsObj.put("replyerId",(Integer) ob[6]);
+            resultsObj.put("replyerName",(String) ob[7]);
             resultsObj.put("replyerPicture",(String) ob[8]);
             resultsArray.add(resultsObj);
         }
@@ -61,7 +61,7 @@ public class ForumService {
             HashMap<String,Object> resultsObj = new HashMap<>();
             resultsObj.put("faqId",(Integer) ob[0]);
             resultsObj.put("question",(String) ob[1]);
-            resultsObj.put("questionWonerId",(String) ob[2]);
+            resultsObj.put("questionWonerId",(Integer) ob[2]);
             resultsObj.put("postWonerPicture",(String) ob[3]);
             resultsArray.add(resultsObj);
         }
@@ -112,8 +112,8 @@ public class ForumService {
 
     public boolean deleteFaq(String jwt, Integer faqId) {
         Integer faqWonerId = parseInt(jwtUtil.extractUsername(jwt));
-        if(faqRepository.getReferenceById(faqId).getQuestionWoner().getId()!=faqWonerId) return false;
-        faqRepository.deleteFaqById(faqId);
+        if(!faqRepository.getReferenceById(faqId).getQuestionWoner().getId().equals(faqWonerId)) return false;
+        faqRepository.deleteById(faqId);
         return true;
     }
 }
