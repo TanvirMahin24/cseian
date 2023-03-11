@@ -1,20 +1,20 @@
+import MDEditor from "@uiw/react-md-editor";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { BsArrowReturnRight } from "react-icons/bs";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
-import CharLimit from "../../../Utils/CharLimit";
-import styles from "./ForumPost.module.css";
-import MDEditor from "@uiw/react-md-editor";
+import CharLimit from "../../Utils/CharLimit";
+import styles from "./ForumPostDetails.module.css";
 
-const ForumPost = ({
+const ForumPostDetails = ({
   postWonerPicture,
   postDate,
   postDescription,
   postWonerName,
   postWonerId,
   postId,
+  postImage,
   postTitle,
 }) => {
   return (
@@ -44,15 +44,13 @@ const ForumPost = ({
                   Question
                 </span>
               </div>
+
               <div className="">
                 <span className={styles.time}>
                   <Moment fromNow>{postDate}</Moment>
                 </span>
               </div>
             </div>
-            <span className={`d-block ${styles.text} py-3`}>
-              <MDEditor.Markdown source={CharLimit(postDescription, 450)} />
-            </span>
             <div className="d-flex justify-content-between align-items-center">
               <span className={`${styles.author}`}>
                 Posted By{" "}
@@ -63,10 +61,12 @@ const ForumPost = ({
                   {postWonerName}
                 </Link>
               </span>
-              <Link to={`/dashboard/forum/${postId}`} className={styles.link}>
-                <BsArrowReturnRight />
-              </Link>
             </div>
+
+            <div className={`d-block ${styles.text} py-3`}>
+              <MDEditor.Markdown source={postDescription} />
+            </div>
+            <img src={postImage} alt="" className="w-100" />
           </Col>
         </Row>
       </Col>
@@ -74,4 +74,4 @@ const ForumPost = ({
   );
 };
 
-export default ForumPost;
+export default ForumPostDetails;

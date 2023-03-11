@@ -10,11 +10,17 @@ import {
   News as DashboardNews,
   Profile as DashboardProfile,
 } from "../Views/DashboardCategories";
+import Post from "../Views/DashboardCategories/Post/Post";
 
 const ProtectedRoutes = [
   {
     path: "/dashboard",
     component: DashboardHome,
+    exact: true,
+  },
+  {
+    path: "/dashboard/forum/:id",
+    component: Post,
     exact: true,
   },
   {

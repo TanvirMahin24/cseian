@@ -11,7 +11,7 @@ const ForumSidebarBtn = () => {
         className={`${styles.post__btn} btn btn-block btn-dark mb-2`}
         onClick={() => setCreatePost(true)}
       >
-        Post IN forum
+        Post In forum
       </button>
     </div>
   );

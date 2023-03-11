@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 import { logout } from "../../../Actions/AuthActions";
 import { useHistory } from "react-router-dom";
 
-const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
+const SidebarLinks = ({ dashboardSubCatSelect, selected, logout, user }) => {
   const historyObj = useHistory();
   useEffect(() => {
     const activeClass = () => {
@@ -66,7 +66,9 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
         path[path.length - 1] === "profile" &&
         path[path.length - 2] === "dashboard"
       ) {
-        dashboardSubCatSelect("Profile");
+        dashboardSubCatSelect("Admin");
+      } else if (path[path.length - 1] === "admin") {
+        dashboardSubCatSelect("Admin");
       }
     };
     activeClass();
@@ -92,6 +94,19 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
           <Home active={selected === "Home" ? true : false} />
           HOME
         </Link>
+        {user && user.memberRole === "STUDENT" ? (
+          <Link
+            to="/admin"
+            className={`${styles.link} ${
+              selected === "Admin" ? styles.active : ""
+            } pt-3`}
+          >
+            <Home active={selected === "Admin" ? true : false} />
+            Admin
+          </Link>
+        ) : (
+          <></>
+        )}
 
         {/* FORUM LINK */}
         <Link
@@ -201,6 +216,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout }) => {
 };
 const mapStateToProps = (state) => ({
   selected: state.pages.dashboard_category,
+  user: state.auth.user,
 });
 
 export default connect(mapStateToProps, { dashboardSubCatSelect, logout })(

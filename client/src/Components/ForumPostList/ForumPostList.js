@@ -12,7 +12,7 @@ const ForumPostList = ({ getPosts, data }) => {
   return (
     <div className="pt-3">
       {data ? (
-        data.map((post) => <ForumPost key={post.id} {...post} />)
+        data.map((post, i) => <ForumPost key={i} {...post} />)
       ) : (
         <LoaderComponent />
       )}

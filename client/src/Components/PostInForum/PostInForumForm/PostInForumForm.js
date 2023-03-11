@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
-import { Col, Form as BootstrapForm, FormGroup, Row } from "react-bootstrap";
+import { Col, Form as BootstrapForm, Row } from "react-bootstrap";
 import * as Yup from "yup";
 import { connect } from "react-redux";
 import styles from "./PostInForumForm.module.css";
@@ -31,9 +31,11 @@ const PostInForumForm = ({ postCreate }) => {
 
   const initVals = {
     description: "",
+    postTitle: "",
   };
   const PostInForumSchema = Yup.object().shape({
     description: Yup.string().required("Description required!"),
+    postTitle: Yup.string().required("Title is required!"),
   });
   return (
     <Formik
@@ -43,6 +45,31 @@ const PostInForumForm = ({ postCreate }) => {
     >
       {({ errors, touched, values, setFieldValue }) => (
         <Form id="" as={BootstrapForm}>
+          <div className="mb-3 w-100">
+            <Row>
+              <Col xs={12}>
+                <div className="d-flex justify-content-between align-items-center pb-2">
+                  <label htmlFor="postTitle" className="d-block">
+                    Title
+                  </label>
+                  {errors.postTitle && touched.postTitle ? (
+                    <small className="text-danger ">{errors.postTitle}</small>
+                  ) : null}
+                </div>
+              </Col>
+              <Col xs={12}>
+                <Field
+                  as={BootstrapForm.Control}
+                  name="postTitle"
+                  type="text"
+                  placeholder="Title"
+                  className="w-100"
+                  isValid={!errors.postTitle && touched.postTitle}
+                  isInvalid={errors.postTitle && touched.postTitle}
+                />
+              </Col>
+            </Row>
+          </div>
           <span className={`${styles.label} pb-2 d-block`}>Description</span>
           <div className={styles.editor__wrapper}>
             <MDEditor
@@ -51,27 +78,15 @@ const PostInForumForm = ({ postCreate }) => {
               className={styles.md}
             />
           </div>
-          {/* <span className={`${styles.label} pb-2 pt-4 d-block`}>
-            Select Image
-          </span>
-          <input
-            type="file"
-            name="image"
-            onChange={onChangeHandeler}
-            className="form-control"
-            value={img}
-          /> */}
 
           <div className=" mt-4">
+            <span className="d-block pb-2">Select image (optional)</span>
             <input
               name="image"
               onChange={onChangeHandeler}
               type="file"
               id="customFileLangHTML"
             />
-            <label class="custom-file-label" for="customFileLangHTML">
-              Select Image
-            </label>
           </div>
 
           <div className="text-center">

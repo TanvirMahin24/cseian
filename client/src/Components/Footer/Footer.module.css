@@ -1,27 +1,73 @@
-.footer {
-  background: var(--color_dark);
-  font-family: "Poppins";
-  font-size: 15px;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  padding-bottom: 30px;
+  background: var(--light) !important;
+  min-height: 400px;
+  position: relative;
+  box-shadow: 10px 10px 20px 10px #00000071;
 }
 
-.icon {
-  height: 20px;
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 900px;
+  height: 250px;
+  background: var(--primary);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.company__name {
-  color: #4797d9;
+.link {
+  text-decoration: none;
+  color: var(--heading) !important;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 0;
+  margin: 0 20px;
+  display: inline-block;
+  transition: 0.3s all ease-in-out;
 }
 
-.social__section {
-  display: flex !important;
-  justify-content: flex-end !important;
-  align-items: center !important;
+.link:hover {
+  color: var(--primary) !important;
+  transition: 0.3s all ease-in-out;
 }
 
-@media screen and (max-width: 991px) {
-  .social__section {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+.copy {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  transition: 0.3s all ease-in-out;
+}
+
+.copy:hover {
+  color: var(--dark) !important;
+  transition: 0.3s all ease-in-out;
+}
+
+@media screen and (max-width: 668px) {
+  .wrapper {
+    padding-top: 0;
+  }
+  .pt {
+    padding-top: 0;
+  }
+
+  .content {
+    padding: 15px;
+    height: auto;
+  }
+
+  .w100 {
+    width: 100% !important;
+  }
+
+  .input,
+  .input::placeholder {
+    font-size: 16px !important;
   }
 }
