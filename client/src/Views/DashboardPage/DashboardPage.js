@@ -4,6 +4,7 @@ import styles from "./DashboardPage.module.css";
 import { SidebarDashboard } from "../../Components/SidebarDashboard";
 import { TopbarDashboard } from "../../Components/TopbarDashboard";
 import { Footer } from "../../Components/Footer";
+import ProfileModal from "../../Components/Shared/ProfileModal/ProfileModal";
 
 const DashboardPage = ({ children }) => {
   return (
@@ -19,6 +20,7 @@ const DashboardPage = ({ children }) => {
           {children}
         </Col>
       </Row>
+      <ProfileModal />
       <Footer />
     </div>
   );

@@ -8,6 +8,8 @@ export const GET_AUTH_USER = "GET_AUTH_USER";
 
 // DIRECTORY
 export const GET_SEARCH_RESULT_DIRECTORY = "GET_SEARCH_RESULT_DIRECTORY";
+export const GET_PROFILE = "GET_PROFILE";
+export const CLOSE_MODAL = "CLOSE_MODAL";
 
 // JOB
 export const CREATE_JOB = "CREATE_JOB";

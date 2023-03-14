@@ -1,6 +1,10 @@
 import axios from "axios";
 import { toastr } from "react-redux-toastr";
-import { GET_SEARCH_RESULT_DIRECTORY } from "../Constants/Types";
+import {
+  CLOSE_MODAL,
+  GET_PROFILE,
+  GET_SEARCH_RESULT_DIRECTORY,
+} from "../Constants/Types";
 import { BASE_URL } from "../Constants/url";
 
 //Sign up
@@ -21,4 +25,30 @@ export const searchDirectory = (text) => async (dispatch) => {
   } catch (err) {
     return false;
   }
+};
+
+export const getProfile = (id) => async (dispatch) => {
+  //console.log("Token login");
+
+  try {
+    const res = await axios.get(`${BASE_URL}/profileInfo?studentId=${id}`);
+    console.log(res);
+
+    if (res.data.Response === "Successfull") {
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data.ResponseData,
+      });
+      return true;
+    }
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+};
+
+export const closeModal = () => (dispatch) => {
+  dispatch({
+    type: CLOSE_MODAL,
+  });
 };

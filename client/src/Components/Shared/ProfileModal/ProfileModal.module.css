@@ -1,0 +1,14 @@
+.img {
+  height: 70px;
+  min-height: 70px;
+  min-width: 70px;
+}
+.img_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 70px;
+  width: 70px;
+}

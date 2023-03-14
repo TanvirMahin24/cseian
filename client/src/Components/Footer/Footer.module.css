@@ -6,7 +6,7 @@
   background: var(--light) !important;
   min-height: 400px;
   position: relative;
-  box-shadow: 10px 10px 20px 10px #00000071;
+  box-shadow: 5px 5px 10px 5px #0000003d;
 }
 
 .content {
