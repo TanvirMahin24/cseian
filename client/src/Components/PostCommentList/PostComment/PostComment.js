@@ -3,6 +3,7 @@ import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { getProfile } from "../../../Actions/Directory.action";
 import { commentDelete } from "../../../Actions/Forum.action";
 import styles from "./PostComment.module.css";
 
@@ -14,6 +15,7 @@ const PostComment = ({
   commentId,
   userId,
   commentDelete,
+  getProfile,
 }) => {
   return (
     <Row className={`py-3`}>
@@ -32,12 +34,12 @@ const PostComment = ({
               className={`d-flex justify-content-between align-items-center ${styles.content__wrapper}`}
             >
               <span className={`${styles.author}`}>
-                <Link
-                  to={`/profile/${commentWonerId}`}
+                <span
+                  onClick={() => getProfile(commentWonerId)}
                   className={styles.text_primary}
                 >
                   {commentWonerName}
-                </Link>
+                </span>
               </span>
 
               <div className="d-flex align-items-center">
@@ -67,4 +69,4 @@ const PostComment = ({
   );
 };
 
-export default connect(null, { commentDelete })(PostComment);
+export default connect(null, { commentDelete, getProfile })(PostComment);

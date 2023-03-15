@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import CharLimit from "../../../Utils/CharLimit";
 import styles from "./ForumPost.module.css";
 import MDEditor from "@uiw/react-md-editor";
+import { getProfile } from "../../../Actions/Directory.action";
+import { connect } from "react-redux";
 
 const ForumPost = ({
   postWonerPicture,
@@ -16,6 +18,7 @@ const ForumPost = ({
   postWonerId,
   postId,
   postTitle,
+  getProfile,
 }) => {
   return (
     <Row className={`py-3`}>
@@ -56,12 +59,12 @@ const ForumPost = ({
             <div className="d-flex justify-content-between align-items-center">
               <span className={`${styles.author}`}>
                 Posted By{" "}
-                <Link
-                  to={`/profile/${postWonerId}`}
+                <span
+                  onClick={() => getProfile(postWonerId)}
                   className={styles.text_primary}
                 >
                   {postWonerName}
-                </Link>
+                </span>
               </span>
               <Link to={`/dashboard/forum/${postId}`} className={styles.link}>
                 <BsArrowReturnRight />
@@ -74,4 +77,4 @@ const ForumPost = ({
   );
 };
 
-export default ForumPost;
+export default connect(null, { getProfile })(ForumPost);

@@ -86,6 +86,7 @@
 }
 
 .text_primary:hover {
+  cursor: pointer;
   text-decoration: none;
   color: var(--color_danger) !important;
   transition: 0.3s all ease-in-out;

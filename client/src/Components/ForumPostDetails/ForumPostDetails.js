@@ -1,9 +1,11 @@
 import MDEditor from "@uiw/react-md-editor";
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import { BsArrowReturnRight } from "react-icons/bs";
 import Moment from "react-moment";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { getProfile } from "../../Actions/Directory.action";
 import CharLimit from "../../Utils/CharLimit";
 import styles from "./ForumPostDetails.module.css";
 
@@ -16,6 +18,7 @@ const ForumPostDetails = ({
   postId,
   postImage,
   postTitle,
+  getProfile,
 }) => {
   return (
     <Row className={`py-3`}>
@@ -54,12 +57,12 @@ const ForumPostDetails = ({
             <div className="d-flex justify-content-between align-items-center">
               <span className={`${styles.author}`}>
                 Posted By{" "}
-                <Link
-                  to={`/profile/${postWonerId}`}
+                <span
+                  onClick={() => getProfile(postWonerId)}
                   className={styles.text_primary}
                 >
                   {postWonerName}
-                </Link>
+                </span>
               </span>
             </div>
 
@@ -74,4 +77,4 @@ const ForumPostDetails = ({
   );
 };
 
-export default ForumPostDetails;
+export default connect(null, { getProfile })(ForumPostDetails);

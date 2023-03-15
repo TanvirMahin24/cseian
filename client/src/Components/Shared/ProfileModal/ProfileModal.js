@@ -55,47 +55,52 @@ const ProfileModal = ({ open, closeModal, profile }) => {
               </Accordion.Panel>
             </Accordion.Item>
           </Accordion>
+          {profile?.memberCurrentJobs?.length > 0 ? (
+            <>
+              <h4 className="text-center d-block h4 pt-4">Current Jobs</h4>
+              <Accordion>
+                {profile?.memberCurrentJobs.map((job, i) => (
+                  <Accordion.Item key={i} value={`${i}`}>
+                    <Accordion.Control>
+                      {job.alumniJobOrganization}
+                    </Accordion.Control>
+                    <Accordion.Panel>
+                      <span className="d-block text-center">
+                        <b>Organization : </b> {job.alumniJobOrganization}
+                      </span>
+                      {job.alumniJobOrganizationBrunch ? (
+                        <span className="d-block text-center">
+                          <b>Branch : </b> {job.alumniJobOrganizationBrunch}
+                        </span>
+                      ) : (
+                        <></>
+                      )}
+                      {job.alumniJobTitle ? (
+                        <span className="d-block text-center">
+                          <b>Title : </b> {job.alumniJobTitle}
+                        </span>
+                      ) : (
+                        <></>
+                      )}
+                      {job.alumniJobField ? (
+                        <span className="d-block text-center">
+                          <b>Field : </b> {job.alumniJobField}
+                        </span>
+                      ) : (
+                        <></>
+                      )}
 
-          <h4 className="text-center d-block h4 pt-4">Current Jobs</h4>
-          <Accordion>
-            {profile.memberCurrentJobs.map((job, i) => (
-              <Accordion.Item key={i} value={`${i}`}>
-                <Accordion.Control>
-                  {job.alumniJobOrganization}
-                </Accordion.Control>
-                <Accordion.Panel>
-                  <span className="d-block text-center">
-                    <b>Organization : </b> {job.alumniJobOrganization}
-                  </span>
-                  {job.alumniJobOrganizationBrunch ? (
-                    <span className="d-block text-center">
-                      <b>Branch : </b> {job.alumniJobOrganizationBrunch}
-                    </span>
-                  ) : (
-                    <></>
-                  )}
-                  {job.alumniJobTitle ? (
-                    <span className="d-block text-center">
-                      <b>Title : </b> {job.alumniJobTitle}
-                    </span>
-                  ) : (
-                    <></>
-                  )}
-                  {job.alumniJobField ? (
-                    <span className="d-block text-center">
-                      <b>Field : </b> {job.alumniJobField}
-                    </span>
-                  ) : (
-                    <></>
-                  )}
-
-                  <span className="d-block text-center">
-                    <b>Organization : </b> {job.alumniJobOrganization}
-                  </span>
-                </Accordion.Panel>
-              </Accordion.Item>
-            ))}
-          </Accordion>
+                      <span className="d-block text-center">
+                        <b>Organization : </b> {job.alumniJobOrganization}
+                      </span>
+                    </Accordion.Panel>
+                  </Accordion.Item>
+                ))}
+              </Accordion>
+            </>
+          ) : (
+            <></>
+          )}
         </>
       ) : (
         <>
