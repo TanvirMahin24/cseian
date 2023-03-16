@@ -1,6 +1,6 @@
 import { useModals } from "@mantine/modals";
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, ListGroup } from "react-bootstrap";
 import { AiOutlinePlus } from "react-icons/ai";
 import { connect } from "react-redux";
 import AddJobModal from "./AddJobModal/AddJobModal";
@@ -13,7 +13,7 @@ const SettingsJobList = ({ user }) => {
       title: "Add Job",
       children: (
         <>
-          <AddJobModal user={user} />
+          <AddJobModal user={user} modals={modals} />
         </>
       ),
       closeOnClickOutside: false,
@@ -36,6 +36,28 @@ const SettingsJobList = ({ user }) => {
             </Button>
           </div>
           <hr />
+          <ListGroup>
+            {user?.memberCurrentJobs.map((job) => (
+              <ListGroup.Item key={job.alumniJobId}>
+                <span className="d-block">
+                  <span className="fw-bold">{job.alumniJobTitle}</span> at{" "}
+                  <span className="fw-bold">{job.alumniJobOrganization}</span>
+                </span>
+                {job.alumniJobOrganizationBrunch ? (
+                  <span className="d-block">
+                    <span className="fw-bold">Branch:</span>{" "}
+                    {job.alumniJobOrganizationBrunch}
+                  </span>
+                ) : (
+                  <></>
+                )}
+
+                <span className="d-block">
+                  <span className="fw-bold">Field:</span> {job.alumniJobField}
+                </span>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
         </Card.Body>
       </Card>
     </div>

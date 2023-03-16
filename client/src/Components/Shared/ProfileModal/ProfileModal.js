@@ -89,10 +89,6 @@ const ProfileModal = ({ open, closeModal, profile }) => {
                       ) : (
                         <></>
                       )}
-
-                      <span className="d-block text-center">
-                        <b>Organization : </b> {job.alumniJobOrganization}
-                      </span>
                     </Accordion.Panel>
                   </Accordion.Item>
                 ))}

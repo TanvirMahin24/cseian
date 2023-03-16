@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { addJobProfile } from "../../../Actions/AuthActions";
 import styles from "../SettingsJobList.module.css";
 
-const AddJobModal = ({ user, addJobProfile }) => {
+const AddJobModal = ({ user, addJobProfile, modals }) => {
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmitHandeler = async (values) => {
@@ -17,6 +17,7 @@ const AddJobModal = ({ user, addJobProfile }) => {
     if (check === true) {
       toastr.success("Job Added Successfully");
       setSubmitting(false);
+      modals?.closeAll();
     }
     setSubmitting(false);
   };

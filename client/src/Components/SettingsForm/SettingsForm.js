@@ -87,7 +87,7 @@ const SettingsForm = ({ user, editProfile, getProfile }) => {
     <Card className={styles.card}>
       <Card.Body>
         <div className="d-flex justify-content-between align-items-center">
-          <h2>Settings</h2>
+          <h2>Profile</h2>
           <Button onClick={() => getProfile(user?.memberStudentId)}>
             <span className="my-auto mr-2">
               <BiLinkExternal />
