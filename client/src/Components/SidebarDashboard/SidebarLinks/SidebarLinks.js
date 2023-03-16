@@ -94,14 +94,14 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout, user }) => {
           <Home active={selected === "Home" ? true : false} />
           HOME
         </Link>
-        {user && user.memberRole === "STUDENT" ? (
+        {user && user.memberRole === "ADMIN" ? (
           <Link
             to="/admin"
             className={`${styles.link} ${
               selected === "Admin" ? styles.active : ""
             } pt-3`}
           >
-            <Home active={selected === "Admin" ? true : false} />
+            <Mentoring active={selected === "Admin" ? true : false} />
             Admin
           </Link>
         ) : (

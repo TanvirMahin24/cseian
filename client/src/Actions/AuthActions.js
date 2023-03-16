@@ -1,4 +1,6 @@
 import {
+  ADD_JOB_PROFILE,
+  EDIT_PROFILE,
   GET_AUTH_USER,
   LOGIN_ERROR,
   LOGIN_SUCCESS,
@@ -42,6 +44,91 @@ export const signupAction = (values, selectedFile) => async (dispatch) => {
     dispatch({
       type: SIGN_UP_ERROR,
     });
+    return false;
+  }
+};
+
+export const getProfileAuthUser = () => async (dispatch) => {
+  //console.log("Token login");
+
+  try {
+    const res = await axios.get(`${BASE_URL}/profileInfo`);
+    console.log(res);
+
+    if (res.data.Response === "Successfull") {
+      dispatch({
+        type: GET_AUTH_USER,
+        payload: { admin: res.data.ResponseData },
+      });
+      return true;
+    }
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+};
+export const editProfile = (values, img) => async (dispatch) => {
+  try {
+    const data = new FormData();
+    data.append("firstName", values.fname);
+    data.append("lastName", "");
+    data.append("contactNo", values.phone);
+    data.append("availableTimeToContact", values.availableTimeToContact);
+    data.append("country", values.country);
+    data.append("city", values.city);
+    data.append("linkedin", values.linkedin);
+
+    if (img) {
+      data.append("image", img);
+    }
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
+    const res = await axios.patch(`${BASE_URL}/editProfileInfo`, data, config);
+    console.log(res);
+
+    if (res.data.Response === "Successfull") {
+      dispatch({
+        type: EDIT_PROFILE,
+      });
+      dispatch(getProfileAuthUser());
+      return true;
+    }
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+};
+export const addJobProfile = (values) => async (dispatch) => {
+  try {
+    const data = new FormData();
+    data.append("jobField", values.jobField);
+    data.append("jobTitle", values.jobTitle);
+    data.append("jobOrganization", values.jobOrganization);
+    data.append("jobBrunch", values.jobBrunch);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
+    const res = await axios.post(`${BASE_URL}/addJob`, data, config);
+    console.log(res);
+
+    if (res.data.Response === "Successfull") {
+      dispatch({
+        type: ADD_JOB_PROFILE,
+      });
+      dispatch(getProfileAuthUser());
+      return true;
+    }
+  } catch (err) {
+    console.log(err);
     return false;
   }
 };

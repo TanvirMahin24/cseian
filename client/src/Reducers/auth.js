@@ -32,12 +32,16 @@ const Pages = (state = initialState, action) => {
         token: "",
       };
     case GET_AUTH_USER:
+      return {
+        ...state,
+        user: { ...payload.admin },
+        loading: false,
+      };
     case LOGIN_SUCCESS:
       localStorage.setItem("token_cseian", payload.token);
       return {
         ...state,
         token: payload.token,
-        user: { ...payload.admin },
         isAuthenticated: true,
         loading: false,
       };

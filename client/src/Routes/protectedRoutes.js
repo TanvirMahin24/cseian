@@ -1,6 +1,7 @@
 // ADMINS
 import {
   Home as DashboardHome,
+  Admin as DashboardAdmin,
   Forum as DashboardForum,
   Directory as DashboardDirectory,
   Job as DashboardJob,
@@ -16,6 +17,11 @@ const ProtectedRoutes = [
   {
     path: "/dashboard",
     component: DashboardHome,
+    exact: true,
+  },
+  {
+    path: "/admin",
+    component: DashboardAdmin,
     exact: true,
   },
   {
