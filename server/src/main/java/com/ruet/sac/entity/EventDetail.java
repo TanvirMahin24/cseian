@@ -1,6 +1,7 @@
 package com.ruet.sac.entity;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -21,10 +22,10 @@ public class EventDetail {
     private String eventDescription;
 
     @Column(name = "event_date", nullable = false)
-    private LocalDate eventDate;
+    private Instant eventDate;
 
     @Column(name = "registration_deadline", nullable = false)
-    private LocalDate registrationDeadline;
+    private Instant registrationDeadline;
 
     @Lob
     @Column(name = "event_venue", nullable = false)
@@ -72,19 +73,19 @@ public class EventDetail {
         this.eventDescription = eventDescription;
     }
 
-    public LocalDate getEventDate() {
+    public Instant getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(LocalDate eventDate) {
+    public void setEventDate(Instant eventDate) {
         this.eventDate = eventDate;
     }
 
-    public LocalDate getRegistrationDeadline() {
+    public Instant getRegistrationDeadline() {
         return registrationDeadline;
     }
 
-    public void setRegistrationDeadline(LocalDate registrationDeadline) {
+    public void setRegistrationDeadline(Instant registrationDeadline) {
         this.registrationDeadline = registrationDeadline;
     }
 

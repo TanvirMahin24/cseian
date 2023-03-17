@@ -2,10 +2,7 @@ package com.ruet.sac.admin.controller;
 
 import com.ruet.sac.admin.service.AlumniAdminstrativeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +14,7 @@ public class AlumniAdminstrativeController {
     @Autowired
     AlumniAdminstrativeService alumniAdminstrativeService;
 
-    @PostMapping("/getAllPendingAlumniRegistration")
+    @GetMapping("/getAllPendingAlumniRegistration")
     public HashMap<String,Object> getAllPendingAlumniRegistration(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -36,16 +33,16 @@ public class AlumniAdminstrativeController {
         return returnObj;
     }
 
-    @PostMapping("/getAllFilteredPendingAlumniRegistration")
+    @GetMapping("/PendingAlumniRegistrationList")
     public HashMap<String,Object> getAllFilteredPendingAlumniRegistration(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber, @RequestParam(name ="searchText") String searchText){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
-            List<HashMap<String,Object>> resultsArray = alumniAdminstrativeService.getAllFilteredPendingAlumniRegistration(searchText);
+            HashMap<String,Object> results = alumniAdminstrativeService.getAllFilteredPendingAlumniRegistration(pageNumber, searchText);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
+            returnObj.put("ResponseData", results);
         } catch (Exception e)
         {
             returnObj.put("ResponseCode", "0");
@@ -55,7 +52,7 @@ public class AlumniAdminstrativeController {
         return returnObj;
     }
 
-    @PostMapping("/getPendingAlumniRegistrationById")
+    @GetMapping("/PendingAlumniRegistrationFormDetails")
     public HashMap<String,Object> getPendingAlumniRegistrationById(@RequestParam(name ="transactionId" ,required = true) String transactionId){
         HashMap<String,Object> returnObj = new HashMap<>();
 

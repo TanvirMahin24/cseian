@@ -15,16 +15,22 @@ public class EventAdmintrativeController {
     @Autowired
     EventAdminstrativeService eventAdminstrativeService;
 
-    @PostMapping("/getAllPendingEventsRegistration")
-    public HashMap<String,Object> getAllPendingEventsRegistration(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber){
+    @PostMapping("/createEvent")
+    public HashMap<String,Object> createEvent(@RequestParam(name ="eventName") String eventName ,
+                                              @RequestParam(name ="eventDescription") String eventDescription,
+                                              @RequestParam(name ="eventDate") String eventDate,
+                                              @RequestParam(name ="deadline") String deadline,
+                                              @RequestParam(name ="eventVanue") String eventVanue,
+                                              @RequestPart(name ="eventPicture") MultipartFile eventPicture,
+                                              @RequestParam(name ="status") Integer status  ){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
-            List<HashMap<String,Object>> resultsArray = eventAdminstrativeService.getAllPendingEventsRegistration();
+            eventAdminstrativeService.createEvent(eventName,eventDescription,eventDate,deadline,eventVanue,eventPicture,status);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
+            returnObj.put("ResponseData", "SUccessfully event created!!");
         } catch (Exception e)
         {
             returnObj.put("ResponseCode", "0");
@@ -34,7 +40,7 @@ public class EventAdmintrativeController {
         return returnObj;
     }
 
-    @PostMapping("/getAllFilteredPendingEventsRegistration")
+    @GetMapping("/PendingEventsRegistrationList")
     public HashMap<String,Object> getAllFilteredPendingEventsRegistration(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber, @RequestParam(name ="searchText") String searchText){
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -53,7 +59,7 @@ public class EventAdmintrativeController {
         return returnObj;
     }
 
-    @PostMapping("/getPendingEventRegistrationById")
+    @GetMapping("/PendingEventRegistrationDetails")
     public HashMap<String,Object> getPendingEventRegistration(@RequestParam(name ="transactionId" ,required = true) String transactionId){
         HashMap<String,Object> returnObj = new HashMap<>();
 
