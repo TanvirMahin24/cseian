@@ -1,7 +1,13 @@
-import { GET_SEARCH_RESULT_DIRECTORY } from "../Constants/Types";
+import {
+  CLOSE_MODAL,
+  GET_PROFILE,
+  GET_SEARCH_RESULT_DIRECTORY,
+} from "../Constants/Types";
 
 const initialState = {
   result: null,
+  modal: false,
+  profile: null,
 };
 
 const directory = (state = initialState, action) => {
@@ -11,6 +17,19 @@ const directory = (state = initialState, action) => {
       return {
         ...state,
         result: payload,
+      };
+    case GET_PROFILE:
+      return {
+        ...state,
+        profile: payload,
+        modal: true,
+      };
+
+    case CLOSE_MODAL:
+      return {
+        ...state,
+        profile: null,
+        modal: false,
       };
 
     default:

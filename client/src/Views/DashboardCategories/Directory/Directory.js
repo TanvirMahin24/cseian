@@ -27,7 +27,6 @@ const Directory = ({ searchDirectory, data }) => {
           <></>
         )}
       </DashboardPage>
-      <Footer />
     </>
   );
 };

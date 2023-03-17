@@ -4,8 +4,22 @@ import styles from "./DashboardPage.module.css";
 import { SidebarDashboard } from "../../Components/SidebarDashboard";
 import { TopbarDashboard } from "../../Components/TopbarDashboard";
 import { Footer } from "../../Components/Footer";
+import ProfileModal from "../../Components/Shared/ProfileModal/ProfileModal";
+import { connect } from "react-redux";
+import { useEffect } from "react";
+import { getProfileAuthUser } from "../../Actions/AuthActions";
 
-const DashboardPage = ({ children }) => {
+const DashboardPage = ({
+  children,
+  user,
+  getProfileAuthUser,
+  isAuthenticated,
+}) => {
+  useEffect(() => {
+    if (!user && isAuthenticated) {
+      getProfileAuthUser();
+    }
+  }, [isAuthenticated]);
   return (
     <div className="bg-light">
       <Row className={styles.md__fix}>
@@ -19,9 +33,15 @@ const DashboardPage = ({ children }) => {
           {children}
         </Col>
       </Row>
+      <ProfileModal />
       <Footer />
     </div>
   );
 };
 
-export default DashboardPage;
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, {})(DashboardPage);

@@ -5,9 +5,13 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 export const LOGOUT_ADMIN = "LOGOUT_ADMIN";
 export const GET_AUTH_USER = "GET_AUTH_USER";
+export const EDIT_PROFILE = "EDIT_PROFILE";
+export const ADD_JOB_PROFILE = "ADD_JOB_PROFILE";
 
 // DIRECTORY
 export const GET_SEARCH_RESULT_DIRECTORY = "GET_SEARCH_RESULT_DIRECTORY";
+export const GET_PROFILE = "GET_PROFILE";
+export const CLOSE_MODAL = "CLOSE_MODAL";
 
 // JOB
 export const CREATE_JOB = "CREATE_JOB";

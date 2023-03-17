@@ -27,6 +27,17 @@ code {
   color: var(--primary) !important;
 }
 
+.link {
+  color: var(--primary);
+  transition: 0.3s all ease-in-out;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: var(--color_danger);
+  transition: 0.3s all ease-in-out;
+}
+
 #hero__slider .swiper-button-next,
 #hero__slider .swiper-button-prev {
   background-color: white;

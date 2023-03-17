@@ -1,6 +1,8 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import Moment from "react-moment";
+import { connect } from "react-redux";
+import { getProfile } from "../../../Actions/Directory.action";
 
 const JobModal = ({
   postTitle,
@@ -12,6 +14,7 @@ const JobModal = ({
   postDate,
   postWonerName,
   postWonerId,
+  getProfile,
 }) => {
   return (
     <div>
@@ -53,7 +56,9 @@ const JobModal = ({
             <tr>
               <td className="fw-bold">Posted by</td>
               <td>
-                {postWonerName} ({postWonerId})
+                <span onClick={() => getProfile(postWonerId)} className="link">
+                  {postWonerName} ({postWonerId})
+                </span>
               </td>
             </tr>
           ) : (
@@ -65,4 +70,4 @@ const JobModal = ({
   );
 };
 
-export default JobModal;
+export default connect(null, { getProfile })(JobModal);

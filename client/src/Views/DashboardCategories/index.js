@@ -1,4 +1,5 @@
 import { Home } from "./Home";
+import { Admin } from "./Admin";
 import { Forum } from "./Forum";
 import { Directory } from "./Directory";
 import { Job } from "./Job";
@@ -10,6 +11,7 @@ import { Profile } from "./Profile";
 
 export {
   Home,
+  Admin,
   Forum,
   Directory,
   Job,
