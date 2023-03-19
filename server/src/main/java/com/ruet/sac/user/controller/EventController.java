@@ -37,18 +37,18 @@ public class EventController {
     public HashMap<String,Object> getEventDetails(@RequestParam(name ="eventId" ,required = true) Integer eventId){
         HashMap<String,Object> returnObj = new HashMap<>();
 
-//        try {
+        try {
             HashMap<String,Object> result = eventService.getEventDetails(eventId);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
             returnObj.put("ResponseData", result);
-//        } catch (Exception e)
-//        {
-//            returnObj.put("ResponseCode", "0");
-//            returnObj.put("Response", "Failed");
-//            returnObj.put("ResponseData", "Something Went Wrong");
-//        }
+        } catch (Exception e)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Failed");
+            returnObj.put("ResponseData", "Something Went Wrong");
+        }
         return returnObj;
     }
 
