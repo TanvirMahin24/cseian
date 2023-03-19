@@ -12,6 +12,9 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     @Query("Select p.id,p.postTitle,p.postDescription,p.postAtachmentLink,pw.id,pw.name,pw.picture,p.postDate from Post p join p.postWoner pw where p.id =:postId")
     Object[] getPostById(Integer postId);
 
+    @Query("Select count( p.id) from Post p")
+    Integer getPostCount();
+
     @Query("Select p.id,p.postTitle,p.postDescription,p.postAtachmentLink,pw.id,pw.name,pw.picture,p.postDate from Post p join p.postWoner pw where pw.name like %:searchText% or p.postDescription like %:searchText% order by p.id desc")
     List<Object[]> getFilteredPost(Pageable pageable,String searchText);
 }
