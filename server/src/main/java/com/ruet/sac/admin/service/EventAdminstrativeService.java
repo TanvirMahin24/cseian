@@ -125,4 +125,8 @@ public class EventAdminstrativeService {
         Transaction transaction = transactionRepository.getReferenceById(transactionId);
         transaction.setValidity(1);
     }
+
+    public void rejectTransaction(String transactionId) {
+        transactionRepository.deleteById(transactionId);
+    }
 }

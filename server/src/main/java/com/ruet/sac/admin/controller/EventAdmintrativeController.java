@@ -99,4 +99,25 @@ public class EventAdmintrativeController {
         }
         return returnObj;
     }
+
+    @PostMapping("/rejectTransaction")
+    public HashMap<String,Object> rejectTransaction(@RequestParam(name ="transactionId")String transactionId)
+    {
+        HashMap<String,Object> returnObj = new HashMap<>();
+
+
+        try
+        {
+            eventAdminstrativeService.rejectTransaction(transactionId);
+            returnObj.put("ResponseCode", "1");
+            returnObj.put("Response", "Successfull");
+            returnObj.put("ResponseData", "Successfully Approved");
+        } catch (Exception e)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Failed");
+            returnObj.put("ResponseData", "Something Went Wrong");
+        }
+        return returnObj;
+    }
 }
