@@ -20,6 +20,13 @@ export const GET_JOB_LIST = "GET_JOB_LIST";
 export const SEARCH_JOB_LIST = "SEARCH_JOB_LIST";
 export const EDIT_JOB = "EDIT_JOB";
 export const DELETE_JOB = "DELETE_JOB";
+// EVENT
+export const CREATE_EVENT = "CREATE_EVENT";
+export const GET_EVENT = "GET_EVENT";
+export const GET_EVENT_LIST = "GET_EVENT_LIST";
+export const SEARCH_EVENT_LIST = "SEARCH_EVENT_LIST";
+export const EDIT_EVENT = "EDIT_EVENT";
+export const DELETE_EVENT = "DELETE_EVENT";
 
 // FORUM
 export const CREATE_POST = "CREATE_POST";
