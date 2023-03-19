@@ -75,7 +75,7 @@ public class EventAdminstrativeService {
         for (Object[] ob : list) {
 
             HashMap<String,Object> resultsObj = new HashMap<>();
-            resultsObj.put("transactionId",(Integer) ob[0]);
+            resultsObj.put("transactionId",(String) ob[0]);
             resultsObj.put("reciepentBankAccountNo",(String) ob[1]);
             resultsObj.put("bankName",(String) ob[2]);
             if((Integer) ob[3] == 1)
@@ -97,7 +97,7 @@ public class EventAdminstrativeService {
 
         HashMap<String,Object> resultsObj = new HashMap<>();
         for(Object[] ob:list ) {
-            resultsObj.put("transactionId", (Integer) ob[0]);
+            resultsObj.put("transactionId", (String) ob[0]);
             resultsObj.put("reciepentBankAccountNo", (String) ob[1]);
             resultsObj.put("bankName", (String) ob[2]);
             if ((Integer) ob[3] == 1)
