@@ -39,7 +39,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         final String authorizationHeader = request.getHeader("Authorization");
 
-        if(URL.equals("/authenticate") || URL.equals("/resendVerifyEmail")|| URL.equals("/resource/images") || URL.equals("/register") || URL.equals("/verifyEmail") || URL.equals("/forgotPassword"))
+        if(URL.equals("/dashboard")|| URL.equals("/dashboardMembers") || URL.equals("/authenticate") || URL.equals("/resendVerifyEmail")|| URL.equals("/resource/images") || URL.equals("/register") || URL.equals("/verifyEmail") || URL.equals("/forgotPassword"))
         {
             chain.doFilter(request, response);
             return;

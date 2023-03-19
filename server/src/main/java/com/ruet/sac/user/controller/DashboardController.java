@@ -18,17 +18,38 @@ public class DashboardController {
     DashboardSearvice dashboardSearvice;
 
     @GetMapping("/dashboard")
-    public HashMap<String,Object> getComments(@RequestParam(name ="pageNumber" ,required = false, defaultValue = "0") Integer pageNumber, @RequestParam(name ="postId") Integer postId){
+    public HashMap<String,Object> getComments(){
 
         HashMap<String,Object> returnObj = new HashMap<>();
 
 
         try {
-            List<HashMap<String,Object>> resultsArray = dashboardSearvice.getDashboardData();
+            HashMap<String,Object> resultsObj = dashboardSearvice.getDashboardData();
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
+            returnObj.put("ResponseData", resultsObj);
+        } catch (Exception e)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Failed");
+            returnObj.put("ResponseData", "Something Went Wrong");
+        }
+        return returnObj;
+    }
+
+    @GetMapping("/dashboardMembers")
+    public HashMap<String,Object> dashboardMembers(){
+
+        HashMap<String,Object> returnObj = new HashMap<>();
+
+
+        try {
+            List<HashMap<String, Object>> resultsObj = dashboardSearvice.getDashboardMember();
+
+            returnObj.put("ResponseCode", "1");
+            returnObj.put("Response", "Successfull");
+            returnObj.put("ResponseData", resultsObj);
         } catch (Exception e)
         {
             returnObj.put("ResponseCode", "0");

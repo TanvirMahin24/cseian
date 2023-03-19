@@ -16,6 +16,15 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
     @Query("Select m.id,m.name,m.picture,m.contactNo from Member m join m.userRole ur where ur.id=1")
     List<Object[]> getPendingMemberList();
 
+    @Query("Select count( m.id) from Member m join m.userRole ur where ur.id>1")
+    Integer getAllMemberCount();
+
+    @Query("Select count( m.id) from Member m join m.userRole ur where ur.id = :roleId")
+    Integer getAllSpesificMemberCount(Integer roleId);
+
+    @Query("Select count( DISTINCT m.country) from Member m")
+    Integer getAllCountryCount();
+
     @Query("Select m.id,m.name,m.picture,m.contactNo from Member m join m.userRole ur where ur.id=1 and (cast(m.id as string) like %:searchText% or m.name like %:searchText% or m.contactNo like %:searchText%)")
     List<Object[]> getFilteredPendingMemberList(String searchText);
 
@@ -24,6 +33,9 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
 
     @Query("Select m.id,m.name,m.picture,m.contactNo from Member m join m.userRole ur where ur.id>1")
     List<Object[]> getMemberList();
+
+    @Query("Select m.id,m.name,m.picture from Member m join m.userRole ur where ur.id>1 order by rand()")
+    List<Object[]> getRandomMemberList(Pageable pageable);
 
     @Query("Select m.id,m.name,m.picture,m.contactNo from Member m join m.userRole ur where ur.id>1 and (cast(m.id as string) like %:searchText% or m.name like %:searchText% or m.contactNo like %:searchText%)")
     List<Object[]> getFilteredMemberList(String searchText);

@@ -15,4 +15,7 @@ public interface JobPostRepository extends JpaRepository<JobPost, Integer> {
             +" order by CASE  WHEN p.deadline>=NOW() then 1 WHEN p.deadline<NOW() then 2 END,p.deadline")
     Page<Object[]> getJobPosts(Pageable pageable, String searchText,String durationType,String placementType);
 
+    @Query("Select count( p.id ) from JobPost p ")
+    Integer jobPostCount();
+
 }

@@ -1,0 +1,4437 @@
+{
+	"info": {
+		"_postman_id": "9c3bf53d-7bc7-4592-ac22-fe31263bf4ce",
+		"name": "CSE Alumni",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"1803015\",\r\n    \"password\" : \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803034,\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 07:03:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": {\n        \"authToken\": {\n            \"jwt\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjY5OTE0MTkzLCJpYXQiOjE2Njk4NzgxOTN9.Vjy0KE8_erTV6cMqnqJdfGimm34s1h8nH-KrRIrUKTc\"\n        },\n        \"memberName\": \"Khan Mohammad Barkat Ullah Shammo\",\n        \"memberId\": 1803015\n    }\n}"
+						},
+						{
+							"name": "login-parameter name wrong or null parameter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userndgame\" : 1803015,\r\n    \"password\" : \"1345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:50:01 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Check parametername or is it null parameter or not\"\n}"
+						},
+						{
+							"name": "login- incorrect password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803015,\r\n    \"password\" : \"1345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:46:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Incorrect username or password\"\n}"
+						},
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803015\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Mar 2023 11:06:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account Activation Request is pending\"\n}"
+						},
+						{
+							"name": "login- account not active",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803017,\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:45:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account isn't Active\"\n}"
+						}
+					]
+				},
+				{
+					"name": "resend verification code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/resendVerifyEmail?studentId=1803015",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"resendVerifyEmail"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "1803015"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "resend verification code- if user already active",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/resendVerifyEmail?studentId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"resendVerifyEmail"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 04:44:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account is already Active\"\n}"
+						}
+					]
+				},
+				{
+					"name": "verify email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/verifyEmail?varificationCode=1L87w0&userId=1803016",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"verifyEmail"
+							],
+							"query": [
+								{
+									"key": "varificationCode",
+									"value": "1L87w0"
+								},
+								{
+									"key": "userId",
+									"value": "1803016"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "verify email-invalid code",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/verifyEmail?varificationCode=Vblfnc&userId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"verifyEmail"
+									],
+									"query": [
+										{
+											"key": "varificationCode",
+											"value": "Vblfnc"
+										},
+										{
+											"key": "userId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 18:28:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Code is not valid\"\n}"
+						},
+						{
+							"name": "verify email-if already verified",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/verifyEmail?varificationCode=1hq6hb&userId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"verifyEmail"
+									],
+									"query": [
+										{
+											"key": "varificationCode",
+											"value": "1hq6hb"
+										},
+										{
+											"key": "userId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 04:45:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account is already Active\"\n}"
+						},
+						{
+							"name": "verify email-success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/verifyEmail?varificationCode=gmsgTo&userId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"verifyEmail"
+									],
+									"query": [
+										{
+											"key": "varificationCode",
+											"value": "gmsgTo"
+										},
+										{
+											"key": "userId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 18:57:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": \"Your account is activated!!\"\n}"
+						},
+						{
+							"name": "verify email-code expired",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"1803034\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/verifyEmail?varificationCode=VbIfnz&userId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"verifyEmail"
+									],
+									"query": [
+										{
+											"key": "varificationCode",
+											"value": "VbIfnz"
+										},
+										{
+											"key": "userId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 18:43:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Code is Expired\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "documentImage",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+								},
+								{
+									"key": "memberImage",
+									"value": "",
+									"description": "optional",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/register?firstName=Khan&lastName=Shammo&studentId=1803016&email=nazm.nahid@gmail.com&contactNo=01797975508&country=Bangladesh&city=Rajshahi&linkedin&availableTimeToContact=7 am to 11 pm&jobTitle=Software Engineer&jobOrganization=Enosis Solution&jobBrunch=Gulsan , Dhaka&password=12345&jobField=Software Engineering",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Khan"
+								},
+								{
+									"key": "lastName",
+									"value": "Shammo"
+								},
+								{
+									"key": "studentId",
+									"value": "1803016"
+								},
+								{
+									"key": "email",
+									"value": "nazm.nahid@gmail.com"
+								},
+								{
+									"key": "contactNo",
+									"value": "01797975508"
+								},
+								{
+									"key": "country",
+									"value": "Bangladesh",
+									"description": "optional"
+								},
+								{
+									"key": "city",
+									"value": "Rajshahi",
+									"description": "optional"
+								},
+								{
+									"key": "linkedin",
+									"value": null,
+									"description": "optional"
+								},
+								{
+									"key": "availableTimeToContact",
+									"value": "7 am to 11 pm",
+									"description": "optional"
+								},
+								{
+									"key": "jobTitle",
+									"value": "Software Engineer",
+									"description": "optional"
+								},
+								{
+									"key": "jobOrganization",
+									"value": "Enosis Solution",
+									"description": "optional"
+								},
+								{
+									"key": "jobBrunch",
+									"value": "Gulsan , Dhaka",
+									"description": "optional"
+								},
+								{
+									"key": "password",
+									"value": "12345"
+								},
+								{
+									"key": "jobField",
+									"value": "Software Engineering",
+									"description": "optional"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Registration",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"description": "optional",
+											"type": "file",
+											"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/register?firstName=Nazmul Hossain&lastName=Nahid&studentId=1803034&email=nazm.nahid@gmail.com&contactNo=01797975508&country=Bangladesh&city=Rajshahi&linkedin&availableTimeToContact=7 am to 11 pm&jobField&jobTitle&jobOrganization&jobBrunch&password=12345",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"register"
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "Nazmul Hossain"
+										},
+										{
+											"key": "lastName",
+											"value": "Nahid"
+										},
+										{
+											"key": "studentId",
+											"value": "1803034"
+										},
+										{
+											"key": "email",
+											"value": "nazm.nahid@gmail.com"
+										},
+										{
+											"key": "contactNo",
+											"value": "01797975508"
+										},
+										{
+											"key": "country",
+											"value": "Bangladesh",
+											"description": "optional"
+										},
+										{
+											"key": "city",
+											"value": "Rajshahi",
+											"description": "optional"
+										},
+										{
+											"key": "linkedin",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "availableTimeToContact",
+											"value": "7 am to 11 pm"
+										},
+										{
+											"key": "jobField",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "jobTitle",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "jobOrganization",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "jobBrunch",
+											"value": null,
+											"description": "optional"
+										},
+										{
+											"key": "password",
+											"value": "12345"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 18:19:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": \"Registered Successfully\"\n}"
+						},
+						{
+							"name": "login-parameter name wrong or null parameter",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userndgame\" : 1803015,\r\n    \"password\" : \"1345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:50:01 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Check parametername or is it null parameter or not\"\n}"
+						},
+						{
+							"name": "login- account not active",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803017,\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:45:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Your Account isn't Active\"\n}"
+						},
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803015,\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 07:03:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": {\n        \"authToken\": {\n            \"jwt\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjY5OTE0MTkzLCJpYXQiOjE2Njk4NzgxOTN9.Vjy0KE8_erTV6cMqnqJdfGimm34s1h8nH-KrRIrUKTc\"\n        },\n        \"memberName\": \"Khan Mohammad Barkat Ullah Shammo\",\n        \"memberId\": 1803015\n    }\n}"
+						},
+						{
+							"name": "login- incorrect password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : 1803015,\r\n    \"password\" : \"1345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/authenticate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:46:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Feiled \",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Incorrect username or password\"\n}"
+						}
+					]
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzExMzg3LCJpYXQiOjE2NzgyNzUzODd9.wQszUCsvVOsh6BfYjbKRiTADeNJHdiecyDGTHyY95Bc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/changePassword?oldPassword=c3Td5pYctETcHlbvENvEu4ilm9gWhM&newPassword=12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"changePassword"
+							],
+							"query": [
+								{
+									"key": "oldPassword",
+									"value": "c3Td5pYctETcHlbvENvEu4ilm9gWhM"
+								},
+								{
+									"key": "newPassword",
+									"value": "12345"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "changePassword-successfull",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/changePassword?oldPassword=12345&newPassword=asdf",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"changePassword"
+									],
+									"query": [
+										{
+											"key": "oldPassword",
+											"value": "12345"
+										},
+										{
+											"key": "newPassword",
+											"value": "asdf"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 04:58:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull \",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": \"Your Password is changed!\"\n}"
+						},
+						{
+							"name": "changePassword-wrong password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/changePassword?oldPassword=1234&newPassword=asdf",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"changePassword"
+									],
+									"query": [
+										{
+											"key": "oldPassword",
+											"value": "1234"
+										},
+										{
+											"key": "newPassword",
+											"value": "asdf"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Dec 2022 04:55:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"Wrong Password\"\n}"
+						}
+					]
+				},
+				{
+					"name": "forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/forgotPassword?studentId=1803015",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"forgotPassword"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "1803015"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "viewPosts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/posts?searchText",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Posts-successfull ",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:59:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": [\n        {\n            \"postWonerPicture\": null,\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage69.png\",\n            \"postDate\": \"2022-11-26\",\n            \"postTitle\": null,\n            \"postId\": 75,\n            \"postWonerId\": 1803060,\n            \"postWonerName\": \"Ruhan Kabir\",\n            \"postDescription\": \"sdfuqwbtepyqcwpecufqcwp89ey\"\n        },\n        {\n            \"postWonerPicture\": null,\n            \"postImage\": null,\n            \"postDate\": \"2022-10-29\",\n            \"postTitle\": null,\n            \"postId\": 72,\n            \"postWonerId\": 1803034,\n            \"postWonerName\": \"Nazmul Hossain Nahid\",\n            \"postDescription\": \"TUETRIQWOYE98D\"\n        },\n        {\n            \"postWonerPicture\": null,\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage69.png\",\n            \"postDate\": \"2022-10-29\",\n            \"postTitle\": null,\n            \"postId\": 71,\n            \"postWonerId\": 1803034,\n            \"postWonerName\": \"Nazmul Hossain Nahid\",\n            \"postDescription\": \"FEIUAYSPEUFYASOEF\"\n        },\n        {\n            \"postWonerPicture\": \"http://localhost:8080/resource/images?imageName=nazmul.jpg\",\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage68.png\",\n            \"postDate\": \"2022-10-20\",\n            \"postTitle\": null,\n            \"postId\": 68,\n            \"postWonerId\": 1803029,\n            \"postWonerName\": \"Nazmul Islam\",\n            \"postDescription\": \"Md Akhter-Uz-Zaman Ashik is currently working at Pathao as a Software Test Engineer I. He has completed his Bachelorâ€™s degree in Computer Science \"\n        },\n        {\n            \"postWonerPicture\": \"http://localhost:8080/resource/images?imageName=esmay.jpg\",\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage65.PNG\",\n            \"postDate\": \"2022-10-20\",\n            \"postTitle\": null,\n            \"postId\": 65,\n            \"postWonerId\": 1803017,\n            \"postWonerName\": \"Esmay Hasan\",\n            \"postDescription\": \"à¦®à¦¾à¦‡à¦•à§\\u008dà¦°à§‹à¦¸à¦«à¦Ÿà§‡à¦° à¦¸à¦«à¦Ÿà¦“à§Ÿà§\\u008dà¦¯à¦¾à¦° à¦‡à¦žà§\\u008dà¦œà¦¿à¦¨à¦¿à§Ÿà¦¾à¦° à¦¹à¦²à§‡à¦¨ à¦–à§\\u0081à¦¬à¦¿à¦° à¦¸à¦¾à¦¬à§‡à¦• à¦¶à¦¿à¦•à§\\u008dà¦·à¦¾à¦°à§\\u008dà¦¥à§€à¦¬à¦¿à¦¶à§\\u008dà¦¬à§‡à¦° à¦…à¦¨à§\\u008dà¦¯à¦¤à¦® à¦Ÿà§‡à¦• à¦œà¦¾à§Ÿà¦¾à¦¨à§\\u008dà¦Ÿ à¦ªà§\\u008dà¦°à¦¤à¦¿à¦·à§\\u008dà¦ à¦¾à¦¨ à¦®à¦¾à¦‡à¦•à§\\u008dà¦°à§‹à¦¸à¦«à¦Ÿà§‡ à¦šà¦¾à¦•à¦°à¦¿ à¦ªà§‡à§Ÿà§‡à¦›à§‡à¦¨ à¦–à§\\u0081à¦²à¦¨à¦¾ à¦¬à¦¿à¦¶à§\\u008dà¦¬à¦¬à¦¿à¦¦à§\\u008dà¦¯à¦¾à¦²à§Ÿà§‡à¦° (à¦–à§\\u0081à¦¬à¦¿) à¦¸à¦¾à¦¬à§‡à¦• à¦¶à¦¿à¦•à§\\u008dà¦·à¦¾à¦°à§\\u008dà¦¥à§€ à¦¸à¦¿ à¦\\u008fà¦® à¦–à¦¾à¦²à§‡à¦¦ à¦¸à¦¾à¦‡à¦«à§\\u0081à¦²à§\\u008dà¦²à¦¾à¦¹à¥¤ à¦¸à§‹à¦®à¦¬à¦¾à¦° (à§§à§\\u00ad à¦…à¦•à§\\u008dà¦Ÿà§‹à¦¬à¦°) à¦¤à¦¿à¦¨à¦¿ à¦¸à¦«à¦Ÿà¦“à¦¯à¦¼à§\\u008dà¦¯à¦¾à¦° à¦‡à¦žà§\\u008dà¦œà¦¿à¦¨à¦¿à¦¯à¦¼à¦¾à¦° à¦¹à¦¿à¦¸à§‡à¦¬à§‡ à¦®à¦¾à¦‡à¦•à§\\u008dà¦°à§‹à¦¸à¦«à¦Ÿà§‡ à¦¯à§‹à¦—à¦¦à¦¾à¦¨ à¦•à¦°à§‡à¦¨à¥¤ à¦¸à¦¿ à¦\\u008fà¦® à¦–à¦¾à¦²à§‡à¦¦ à¦¸à¦¾à¦‡à¦«à§\\u0081à¦²à§\\u008dà¦²à¦¾à¦¹ à¦–à§\\u0081à¦²à¦¨à¦¾ à¦¬à¦¿à¦¶à§\\u008dà¦¬à¦¬à¦¿à¦¦à§\\u008dà¦¯à¦¾à¦²à¦¯à¦¼à§‡à¦° à¦•à¦®à§\\u008dà¦ªà¦¿à¦‰à¦Ÿà¦¾à¦° à¦¬à¦¿à¦œà§\\u008dà¦žà¦¾à¦¨ à¦“ à¦ªà§\\u008dà¦°à¦•à§Œà¦¶à¦² à¦¡à¦¿à¦¸à¦¿à¦ªà§\\u008dà¦²à¦¿à¦¨à§‡à¦° à§¨à§¦à§§à§§ à¦¬à§\\u008dà¦¯à¦¾à¦šà§‡à¦° à¦¶à¦¿à¦•à§\\u008dà¦·à¦¾à¦°à§\\u008dà¦¥à§€ à¦›à¦¿à¦²à§‡à¦¨à¥¤\"\n        },\n        {\n            \"postWonerPicture\": \"http://localhost:8080/resource/images?imageName=esmay.jpg\",\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage64.png\",\n            \"postDate\": \"2022-10-20\",\n            \"postTitle\": null,\n            \"postId\": 64,\n            \"postWonerId\": 1803017,\n            \"postWonerName\": \"Esmay Hasan\",\n            \"postDescription\": \"à¦¹à¦¾à¦¤à§‡à¦° à¦²à§‡à¦–à¦¾à¦° à¦—à¦¤à¦¿ à¦…à¦¨à§‡à¦• à¦•à¦® à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦°à§‡à¦“ à¦¨à¦¿à§Ÿà¦®à§‡à¦° à¦—à§\\u008dà¦¯à¦¾à¦\\u0081à§œà¦¾à¦•à¦²à§‡ à¦ªà¦¾à¦¹à¦¾à§œà¦¸à¦® à¦²à§‡à¦–à¦¾à¦° à¦šà¦¿à¦¨à§\\u008dà¦¤à¦¾à§Ÿ à¦¬à¦¾à¦‚à¦²à¦¾ à¦ªà¦°à§€à¦•à§\\u008dà¦·à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦¯à¦¤à¦Ÿà¦¾ à¦…à¦ªà¦›à¦¨à§\\u008dà¦¦ à¦•à¦°à§‡à¦›à¦¿, à¦\\u00adà§Ÿ à¦ªà§‡à§Ÿà§‡à¦›à¦¿, à¦ à¦¿à¦• à¦¤à¦¤à¦Ÿà¦¾à¦‡ à¦¬à¦¾à¦‚à¦²à¦¾ à¦¬à¦‡à¦—à§\\u0081à¦²à§‹à¦•à§‡, à¦¬à¦‡à§Ÿà§‡à¦° à¦²à§‡à¦–à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦\\u00adà¦¾à¦²à¦¬à§‡à¦¸à§‡à¦›à¦¿ à¦\\u008fà¦¬à¦‚ à¦\\u00adà¦¬à¦¿à¦·à§\\u008dà¦¯à¦¤à§‡ à¦¯à§‡ à¦\\u008fà¦—à§\\u0081à¦²à§‹à¦° à¦•à¦¥à¦¾ à¦†à¦®à¦¾à¦° à¦®à¦¨à§‡ à¦ªà¦°à¦¬à§‡, à¦¸à§‡à¦Ÿà¦¾ à¦¤à¦–à¦¨à¦‡ à¦†à¦¨à§\\u008dà¦¦à¦¾à¦œ à¦•à¦°à§‡à¦›à¦¿à¦²à¦¾à¦®à¥¤à¦¹à¦¾à¦¤à§‡à¦° à¦²à§‡à¦–à¦¾à¦° à¦—à¦¤à¦¿ à¦…à¦¨à§‡à¦• à¦•à¦® à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦°à§‡à¦“ à¦¨à¦¿à§Ÿà¦®à§‡à¦° à¦—à§\\u008dà¦¯à¦¾à¦\\u0081à§œà¦¾à¦•à¦²à§‡ à¦ªà¦¾à¦¹à¦¾à§œà¦¸à¦® à¦²à§‡à¦–à¦¾à¦° à¦šà¦¿à¦¨à§\\u008dà¦¤à¦¾à§Ÿ à¦¬à¦¾à¦‚à¦²à¦¾ à¦ªà¦°à§€à¦•à§\\u008dà¦·à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦¯à¦¤à¦Ÿà¦¾ à¦…à¦ªà¦›à¦¨à§\\u008dà¦¦ à¦•à¦°à§‡à¦›à¦¿, à¦\\u00adà§Ÿ à¦ªà§‡à§Ÿà§‡à¦›à¦¿, à¦ à¦¿à¦• à¦¤à¦¤à¦Ÿà¦¾à¦‡ à¦¬à¦¾à¦‚à¦²à¦¾ à¦¬à¦‡à¦—à§\\u0081à¦²à§‹à¦•à§‡, à¦¬à¦‡à§Ÿà§‡à¦° à¦²à§‡à¦–à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦\\u00adà¦¾à¦²à¦¬à§‡à¦¸à§‡à¦›à¦¿ à¦\\u008fà¦¬à¦‚ à¦\\u00adà¦¬à¦¿à¦·à§\\u008dà¦¯à¦¤à§‡ à¦¯à§‡ à¦\\u008fà¦—à§\\u0081à¦²à§‹à¦° à¦•à¦¥à¦¾ à¦†à¦®à¦¾à¦° à¦®à¦¨à§‡ à¦ªà¦°à¦¬à§‡, à¦¸à§‡à¦Ÿà¦¾ à¦¤à¦–à¦¨à¦‡ à¦†à¦¨à§\\u008dà¦¦à¦¾à¦œ à¦•à¦°à§‡à¦›à¦¿à¦²à¦¾à¦®à¥¤\"\n        },\n        {\n            \"postWonerPicture\": \"http://localhost:8080/resource/images?imageName=shammo.jpg\",\n            \"postImage\": \"http://localhost:8080/resource/images?imageName=postImage63.png\",\n            \"postDate\": \"2022-10-20\",\n            \"postTitle\": null,\n            \"postId\": 63,\n            \"postWonerId\": 1803015,\n            \"postWonerName\": \"Khan Mohammad Barkat Ullah Shammo\",\n            \"postDescription\": \"à¦¹à¦¾à¦¤à§‡à¦° à¦²à§‡à¦–à¦¾à¦° à¦—à¦¤à¦¿ à¦…à¦¨à§‡à¦• à¦•à¦® à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦°à§‡à¦“ à¦¨à¦¿à§Ÿà¦®à§‡à¦° à¦—à§\\u008dà¦¯à¦¾à¦\\u0081à§œà¦¾à¦•à¦²à§‡ à¦ªà¦¾à¦¹à¦¾à§œà¦¸à¦® à¦²à§‡à¦–à¦¾à¦° à¦šà¦¿à¦¨à§\\u008dà¦¤à¦¾à§Ÿ à¦¬à¦¾à¦‚à¦²à¦¾ à¦ªà¦°à§€à¦•à§\\u008dà¦·à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦¯à¦¤à¦Ÿà¦¾ à¦…à¦ªà¦›à¦¨à§\\u008dà¦¦ à¦•à¦°à§‡à¦›à¦¿, à¦\\u00adà§Ÿ à¦ªà§‡à§Ÿà§‡à¦›à¦¿, à¦ à¦¿à¦• à¦¤à¦¤à¦Ÿà¦¾à¦‡ à¦¬à¦¾à¦‚à¦²à¦¾ à¦¬à¦‡à¦—à§\\u0081à¦²à§‹à¦•à§‡, à¦¬à¦‡à§Ÿà§‡à¦° à¦²à§‡à¦–à¦¾à¦—à§\\u0081à¦²à§‹à¦•à§‡ à¦\\u00adà¦¾à¦²à¦¬à§‡à¦¸à§‡à¦›à¦¿ à¦\\u008fà¦¬à¦‚ à¦\\u00adà¦¬à¦¿à¦·à§\\u008dà¦¯à¦¤à§‡ à¦¯à§‡ à¦\\u008fà¦—à§\\u0081à¦²à§‹à¦° à¦•à¦¥à¦¾ à¦†à¦®à¦¾à¦° à¦®à¦¨à§‡ à¦ªà¦°à¦¬à§‡, à¦¸à§‡à¦Ÿà¦¾ à¦¤à¦–à¦¨à¦‡ à¦†à¦¨à§\\u008dà¦¦à¦¾à¦œ à¦•à¦°à§‡à¦›à¦¿à¦²à¦¾à¦®à¥¤\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Posts-without bareer tocken",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 13:56:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"JWT Token does not begin with Bearer String \"\n}"
+						},
+						{
+							"name": "Posts-invalid jwt",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Dec 2022 14:47:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"3\",\n    \"ResponseData\": \"Invalid JWT Token\"\n}"
+						}
+					]
+				},
+				{
+					"name": "addPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Capture.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/post?postDescription=abc&postTitle=Mahid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "postDescription",
+									"value": "abc"
+								},
+								{
+									"key": "postTitle",
+									"value": "Mahid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/post?postDescription=nahiddaa&postId=80&postTitle=Mahin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "postDescription",
+									"value": "nahiddaa"
+								},
+								{
+									"key": "postId",
+									"value": "80"
+								},
+								{
+									"key": "postTitle",
+									"value": "Mahin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/post?postId=79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "79"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewPostDetails",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/post?postId=79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "79"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "directories",
+			"item": [
+				{
+					"name": "get Series Wise List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users?searchText=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profiles",
+			"item": [
+				{
+					"name": "getProfileInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/profileInfo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profileInfo"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "1803034",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getMyProfileInfo By JWT token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/profileInfo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profileInfo"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803034",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Mar 2023 04:54:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": {\n        \"memberAvailableContactHour\": \"7 am to 11 pm\",\n        \"memberPictureLink\": null,\n        \"memberCity\": \"Rajshahi\",\n        \"memberStudentId\": 1803015,\n        \"memberContact\": \"01797975508\",\n        \"memberPreviousJobs\": [],\n        \"memberName\": \"Khan Shammo\",\n        \"memberCurrentJobs\": [\n            {\n                \"alumniJobId\": 45,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            },\n            {\n                \"alumniJobId\": 46,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            },\n            {\n                \"alumniJobId\": 47,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            },\n            {\n                \"alumniJobId\": 48,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            },\n            {\n                \"alumniJobId\": 49,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            }\n        ],\n        \"memberLinkedin\": \"\",\n        \"memberRole\": \"STUDENT\",\n        \"memberEmail\": \"abcshammo@gmail.com\",\n        \"memberCountry\": \"Bangladesh\"\n    }\n}"
+						},
+						{
+							"name": "getProfileInfo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/profileInfo?studentId=1803034",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"profileInfo"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803034"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Mar 2023 04:53:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": {\n        \"memberAvailableContactHour\": \"7 am to 11 pm\",\n        \"memberPictureLink\": \"http://localhost:8080/resource/images?imageName=memberImage1603037.jpg\",\n        \"memberCity\": \"Rajshahi\",\n        \"memberStudentId\": 1803034,\n        \"memberContact\": \"01797975508\",\n        \"memberPreviousJobs\": [],\n        \"memberName\": \" Nahid\",\n        \"memberCurrentJobs\": [\n            {\n                \"alumniJobId\": 1,\n                \"alumniJobOrganizationBrunch\": \"Gulsan , Dhaka\",\n                \"alumniJobField\": \"Software Engineering\",\n                \"alumniJobOrganization\": \"Enosis Solution\",\n                \"alumniJobTitle\": \"Software Engineer\"\n            }\n        ],\n        \"memberLinkedin\": \"\",\n        \"memberEmail\": \"nazm.nahid@gmail.com\",\n        \"memberCountry\": \"Bangladesh\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "editProfileInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/editProfileInfo?firstName&lastName=Mohammad Barkatullah Shammo&contactNo&country&city&linkedin&availableTimeToContact",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"editProfileInfo"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": null
+								},
+								{
+									"key": "lastName",
+									"value": "Mohammad Barkatullah Shammo"
+								},
+								{
+									"key": "contactNo",
+									"value": null
+								},
+								{
+									"key": "country",
+									"value": null
+								},
+								{
+									"key": "city",
+									"value": null
+								},
+								{
+									"key": "linkedin",
+									"value": null
+								},
+								{
+									"key": "availableTimeToContact",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addJob",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/addJob?jobField=Academic&jobTitle=Lecterure&jobOrganization=BUET&jobBrunch=Dhaka, Bangladesh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addJob"
+							],
+							"query": [
+								{
+									"key": "jobField",
+									"value": "Academic"
+								},
+								{
+									"key": "jobTitle",
+									"value": "Lecterure"
+								},
+								{
+									"key": "jobOrganization",
+									"value": "BUET"
+								},
+								{
+									"key": "jobBrunch",
+									"value": "Dhaka, Bangladesh"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "leftJob",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/leftJob?jobId=45",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"leftJob"
+							],
+							"query": [
+								{
+									"key": "jobId",
+									"value": "45"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "jobPosts",
+			"item": [
+				{
+					"name": "add Jobs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MDY1MzczLCJpYXQiOjE2NzkwMjkzNzN9.6uGXaKkAJmQ2ODb9RmWBjExEtScr7czu22RIKntKtVw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "postTitle",
+									"value": "babaji",
+									"type": "text"
+								},
+								{
+									"key": "companyName",
+									"value": "fagwr",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "sdfawe",
+									"type": "text"
+								},
+								{
+									"key": "deadline",
+									"value": "2023-01-31T14:31:33.1Z",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/jobPosts?postTitle=title&companyName=Q&location=Rangpur,%20BD&deadline=2023-01-06T03:02&placementType=Remote&description=dsajklhdl%20hsal&applicationlink=dasdas&durationType=asegaer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobPosts"
+							],
+							"query": [
+								{
+									"key": "postTitle",
+									"value": "title"
+								},
+								{
+									"key": "companyName",
+									"value": "Q"
+								},
+								{
+									"key": "location",
+									"value": "Rangpur,%20BD"
+								},
+								{
+									"key": "deadline",
+									"value": "2023-01-06T03:02"
+								},
+								{
+									"key": "placementType",
+									"value": "Remote"
+								},
+								{
+									"key": "description",
+									"value": "dsajklhdl%20hsal"
+								},
+								{
+									"key": "applicationlink",
+									"value": "dasdas"
+								},
+								{
+									"key": "durationType",
+									"value": "asegaer"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add Jobs",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/jobPosts?postTitle=tanvir's job&companyName=tanvir&location=habijabi&deadline=2019-01-21&durationType=partTime&placementType=remote",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"jobPosts"
+									],
+									"query": [
+										{
+											"key": "postTitle",
+											"value": "tanvir's job"
+										},
+										{
+											"key": "companyName",
+											"value": "tanvir"
+										},
+										{
+											"key": "location",
+											"value": "habijabi"
+										},
+										{
+											"key": "deadline",
+											"value": "2019-01-21"
+										},
+										{
+											"key": "durationType",
+											"value": "partTime"
+										},
+										{
+											"key": "placementType",
+											"value": "remote"
+										},
+										{
+											"key": "description",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "applicationlink",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Dec 2022 15:52:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Successfull\",\n    \"ResponseCode\": \"1\",\n    \"ResponseData\": \"Successfully Added Your Job Post\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get Jobs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDM0IiwiZXhwIjoxNjc1MDkzMzEzLCJpYXQiOjE2NzUwNTczMTN9.fG_3e184SomQckH-CcQfW0hCnn4rsGMXCiQiTmAdLXE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jobPosts?searchText=&pageNumber=0&durationType=&placementType=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobPosts"
+							],
+							"query": [
+								{
+									"key": "searchText",
+									"value": ""
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "durationType",
+									"value": ""
+								},
+								{
+									"key": "placementType",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Jobs",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jobPosts?jobPostId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jobPosts"
+							],
+							"query": [
+								{
+									"key": "jobPostId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "viewComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comments?postId=77",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comments"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "77"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comment?postId=77&commentDescription=agwwrga",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment"
+							],
+							"query": [
+								{
+									"key": "postId",
+									"value": "77"
+								},
+								{
+									"key": "commentDescription",
+									"value": "agwwrga"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comment?commentId=5&commentDescription=nahid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment"
+							],
+							"query": [
+								{
+									"key": "commentId",
+									"value": "5"
+								},
+								{
+									"key": "commentDescription",
+									"value": "nahid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/comment?commentId=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment"
+							],
+							"query": [
+								{
+									"key": "commentId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteComment illigal action",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/comment?commentId=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"comment"
+									],
+									"query": [
+										{
+											"key": "commentId",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 Mar 2023 05:17:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Response\": \"Failed\",\n    \"ResponseCode\": \"0\",\n    \"ResponseData\": \"illigal action!!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Alumni Control",
+			"item": [
+				{
+					"name": "apply For Alumni",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4OTkxNTQ5LCJpYXQiOjE2Nzg5NTU1NDl9.f91V-n9gnoISz6LZOb1ByJ1D5nSsBfdWeticIdFpS3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bankRecieptImage",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Captureaf.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/applyForAlumni?transactionId=AEFQEWF&recepientBankAccountNo=Fwewee&bankName=fwaeawefw",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"applyForAlumni"
+							],
+							"query": [
+								{
+									"key": "transactionId",
+									"value": "AEFQEWF"
+								},
+								{
+									"key": "recepientBankAccountNo",
+									"value": "Fwewee"
+								},
+								{
+									"key": "bankName",
+									"value": "fwaeawefw"
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event Control",
+			"item": [
+				{
+					"name": "get Running Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUwMzg2LCJpYXQiOjE2NzkyMTQzODZ9.IIBrkR6jbBz-wJS-8j5iThqiAs7KZe2Ju-3EgvtEi18",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/events/running",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"events",
+								"running"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Event Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUwMzg2LCJpYXQiOjE2NzkyMTQzODZ9.IIBrkR6jbBz-wJS-8j5iThqiAs7KZe2Ju-3EgvtEi18",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/events/running/details?eventId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"events",
+								"running",
+								"details"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event Registration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUwMzg2LCJpYXQiOjE2NzkyMTQzODZ9.IIBrkR6jbBz-wJS-8j5iThqiAs7KZe2Ju-3EgvtEi18",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bankRecieptImage",
+									"type": "file",
+									"src": "/C:/Users/gc/Pictures/Capture.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/events/registration?eventId=2&transactionId=sergwerthgwe&recepientBankAccountNo=ergwergqe&bankName=ergqergqer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"events",
+								"registration"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "2"
+								},
+								{
+									"key": "transactionId",
+									"value": "sergwerthgwe"
+								},
+								{
+									"key": "recepientBankAccountNo",
+									"value": "ergwergqe"
+								},
+								{
+									"key": "bankName",
+									"value": "ergqergqer"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Forum Control",
+			"item": [
+				{
+					"name": "get answered faq",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faqs/answererd?pageNumber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faqs",
+								"answererd"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Unanswered faqs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faqs/unanswererd?pageNumber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faqs",
+								"unanswererd"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "answer faq",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faqs/answer?faqId=2&answer=sgfqersgvqerge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faqs",
+								"answer"
+							],
+							"query": [
+								{
+									"key": "faqId",
+									"value": "2"
+								},
+								{
+									"key": "answer",
+									"value": "sgfqersgvqerge"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete faq",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faq?faqId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faq"
+							],
+							"query": [
+								{
+									"key": "faqId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add faq",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc4MzczMjA5LCJpYXQiOjE2NzgzMzcyMDl9.d8_c6OzhIahCKHuds7EXFGeOF4FMECYTZQWgTLXH1Lw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/faqs/question?question=awrgqwrgqwwgfwrfqwrfqwer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faqs",
+								"question"
+							],
+							"query": [
+								{
+									"key": "question",
+									"value": "awrgqwrgqwwgfwrfqwrfqwer"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin Control",
+			"item": [
+				{
+					"name": "Alumni",
+					"item": [
+						{
+							"name": "get All Pending Alumni Registration",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MDY1MzczLCJpYXQiOjE2NzkwMjkzNzN9.6uGXaKkAJmQ2ODb9RmWBjExEtScr7czu22RIKntKtVw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/PendingAlumniRegistrationList?pageNumber=&searchText",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"PendingAlumniRegistrationList"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": ""
+										},
+										{
+											"key": "searchText",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pending Alumni Registration Form Details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MDY1MzczLCJpYXQiOjE2NzkwMjkzNzN9.6uGXaKkAJmQ2ODb9RmWBjExEtScr7czu22RIKntKtVw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/PendingAlumniRegistrationFormDetails?transactionId=sergwerthgwe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"PendingAlumniRegistrationFormDetails"
+									],
+									"query": [
+										{
+											"key": "transactionId",
+											"value": "sergwerthgwe"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Approve Alumni Registration Transaction ",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/approveAlumniRegistrationTransaction?transactionId=sergwerthgwe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"approveAlumniRegistrationTransaction"
+									],
+									"query": [
+										{
+											"key": "transactionId",
+											"value": "sergwerthgwe"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reject Alumni Registration Transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rejectAlumniRegistrationTransaction?transactionId=AEFQEWF",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rejectAlumniRegistrationTransaction"
+									],
+									"query": [
+										{
+											"key": "transactionId",
+											"value": "AEFQEWF"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Event",
+					"item": [
+						{
+							"name": "get All PendingEvent Registration",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUwMzg2LCJpYXQiOjE2NzkyMTQzODZ9.IIBrkR6jbBz-wJS-8j5iThqiAs7KZe2Ju-3EgvtEi18",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/PendingEventsRegistrationList?pageNumber=&searchText",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"PendingEventsRegistrationList"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": ""
+										},
+										{
+											"key": "searchText",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pending EventRegistration Form Details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUwMzg2LCJpYXQiOjE2NzkyMTQzODZ9.IIBrkR6jbBz-wJS-8j5iThqiAs7KZe2Ju-3EgvtEi18",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/PendingAlumniRegistrationFormDetails?transactionId=sergwerthasfgwe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"PendingAlumniRegistrationFormDetails"
+									],
+									"query": [
+										{
+											"key": "transactionId",
+											"value": "sergwerthasfgwe"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Approve EventRegistration Transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUwMzg2LCJpYXQiOjE2NzkyMTQzODZ9.IIBrkR6jbBz-wJS-8j5iThqiAs7KZe2Ju-3EgvtEi18",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/approveAlumniRegistrationTransaction?transactionId=sergwerthasfgwe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"approveAlumniRegistrationTransaction"
+									],
+									"query": [
+										{
+											"key": "transactionId",
+											"value": "sergwerthasfgwe"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reject EventRegistration Transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUwMzg2LCJpYXQiOjE2NzkyMTQzODZ9.IIBrkR6jbBz-wJS-8j5iThqiAs7KZe2Ju-3EgvtEi18",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rejectAlumniRegistrationTransaction?transactionId=sergwerthgwe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rejectAlumniRegistrationTransaction"
+									],
+									"query": [
+										{
+											"key": "transactionId",
+											"value": "sergwerthgwe"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Event",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MDY1MzczLCJpYXQiOjE2NzkwMjkzNzN9.6uGXaKkAJmQ2ODb9RmWBjExEtScr7czu22RIKntKtVw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "eventPicture",
+											"type": "file",
+											"src": "/C:/Users/gc/Pictures/Capture.PNG"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/createEvent?eventName=Reunion&eventDescription=djfyluglyui&eventDate=2023-04-06T03:02&deadline=2023-04-06T03:02&eventVanue=CSE,RUET&status=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"createEvent"
+									],
+									"query": [
+										{
+											"key": "eventName",
+											"value": "Reunion"
+										},
+										{
+											"key": "eventDescription",
+											"value": "djfyluglyui"
+										},
+										{
+											"key": "eventDate",
+											"value": "2023-04-06T03:02"
+										},
+										{
+											"key": "deadline",
+											"value": "2023-04-06T03:02"
+										},
+										{
+											"key": "eventVanue",
+											"value": "CSE,RUET"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"description": " 0 -> Internal , 1-> public , 2-> Alumni"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "General User",
+					"item": [
+						{
+							"name": "pending Member Application ",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/PendingMemberApplicationList?searchText",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"PendingMemberApplicationList"
+									],
+									"query": [
+										{
+											"key": "searchText",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Member List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/MemberList?searchText",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"MemberList"
+									],
+									"query": [
+										{
+											"key": "searchText",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Member Details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/MemberDetails?studentId=1803016",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"MemberDetails"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803016"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pending Member Application Details",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/pendingMemberApplicationDetails?studentId=1803016",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pendingMemberApplicationDetails"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803016"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Approve Member Application",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/activePendingMember?studentId=1803016",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"activePendingMember"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803016"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reject Member Application",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/rejectPendingMember?studentId=1803035",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"rejectPendingMember"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803035"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ban Member",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/banMember?studentId=1803016",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"banMember"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803016"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Assign User Role",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxODAzMDE1IiwiZXhwIjoxNjc5MjUxMTkxLCJpYXQiOjE2NzkyMTUxOTF9.KEnH-05SY-Se5MN3rjTuwkQyT43kPDjNEFgDA0G-QvY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/assignRoleToMember?studentId=1803016&roleId=6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"assignRoleToMember"
+									],
+									"query": [
+										{
+											"key": "studentId",
+											"value": "1803016"
+										},
+										{
+											"key": "roleId",
+											"value": "6",
+											"description": "3-> Student 4->Faculty 5-> Admin 6->Alumni"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "dashboard",
+			"item": [
+				{
+					"name": "dashboard data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dashboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dashboard Random Member data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/dashboardMembers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dashboardMembers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
