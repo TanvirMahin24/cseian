@@ -10,6 +10,6 @@ public interface EventDetailRepository extends JpaRepository<EventDetail, Intege
     @Query("Select e.id,e.eventName,e.eventDate,e.registrationDeadline,e.eventVenue from EventDetail e where e.registrationDeadline>=CURRENT_DATE() and e.status>0  order by e.id desc")
     List<Object[]> getAllRunningRegistrationEvents();
 
-    @Query("Select e.id,e.eventName,e.eventDescription,e.eventDate,e.registrationDeadline,e.eventVenue from EventDetail e where e.id=:eventId and e.registrationDeadline>=CURRENT_DATE() and e.status>0  order by e.id desc")
-    Object[] getEventDetails(Integer eventId);
+    @Query("Select e.id,e.eventName,e.eventDescription,e.eventDate,e.registrationDeadline,e.eventVenue,e.eventPicture from EventDetail e where e.id=:eventId and e.registrationDeadline>=CURRENT_DATE() and e.status>0  order by e.id desc")
+    List<Object[]> getEventDetails(Integer eventId);
 }

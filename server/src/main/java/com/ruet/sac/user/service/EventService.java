@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -75,8 +76,8 @@ public class EventService {
             HashMap<String,Object> resultsObj = new HashMap<>();
             resultsObj.put("eventId",(Integer) ob[0]);
             resultsObj.put("eventName",(String) ob[1]);
-            resultsObj.put("eventDate",(String) ob[2]);
-            resultsObj.put("registrationDeadline",(String) ob[3]);
+            resultsObj.put("eventDate",(Instant) ob[2]);
+            resultsObj.put("registrationDeadline",(Instant) ob[3]);
             resultsObj.put("eventVenue",(String) ob[4]);
             resultsArray.add(resultsObj);
         }
@@ -85,16 +86,19 @@ public class EventService {
 
     public HashMap<String, Object> getEventDetails(Integer eventId)
     {
-        Object[] ob= eventDetailRepository.getEventDetails(eventId);
+        List<Object[]> list= eventDetailRepository.getEventDetails(eventId);
 
         HashMap<String,Object> resultsObj = new HashMap<>();
-            resultsObj.put("eventId",(Integer) ob[0]);
-            resultsObj.put("eventName",(String) ob[1]);
-            resultsObj.put("eventDescription",(String) ob[2]);
-            resultsObj.put("eventDate",(String) ob[3]);
-            resultsObj.put("registrationDeadline",(String) ob[4]);
-            resultsObj.put("eventVenue",(String) ob[5]);
-
+        for(Object[] ob:list) {
+            resultsObj.put("eventId", (Integer) ob[0]);
+            resultsObj.put("eventName", (String) ob[1]);
+            resultsObj.put("eventDescription", (String) ob[2]);
+            resultsObj.put("eventDate", (Instant) ob[3]);
+            resultsObj.put("registrationDeadline", (Instant) ob[4]);
+            resultsObj.put("eventVenue", (String) ob[5]);
+            resultsObj.put("eventPicture", (String) ob[6]);
+            break;
+        }
         return resultsObj;
     }
 }
