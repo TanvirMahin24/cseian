@@ -2,10 +2,7 @@ package com.ruet.sac.admin.controller;
 
 import com.ruet.sac.admin.service.UserAdminstrativeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,27 +14,9 @@ public class UserAdminstrativeController {
     @Autowired
     UserAdminstrativeService userAdminstrativeService;
 
-    @PostMapping("/pendingMemberList")
-    public HashMap<String,Object> getPendingMemberList(){
-        HashMap<String,Object> returnObj = new HashMap<>();
 
-        try {
-            List<HashMap<String,Object>> resultsArray = userAdminstrativeService.getPendingMemberList();
-
-            returnObj.put("ResponseCode", "1");
-            returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
-        } catch (Exception e)
-        {
-            returnObj.put("ResponseCode", "0");
-            returnObj.put("Response", "Failed");
-            returnObj.put("ResponseData", "Something Went Wrong");
-        }
-        return returnObj;
-    }
-
-    @PostMapping("/filteredPendingMemberList")
-    public HashMap<String,Object> getFilteredPendingMemberList(@RequestParam(name ="searchText" ,required = true) String searchText){
+    @GetMapping("/PendingMemberApplicationList")
+    public HashMap<String,Object> getFilteredPendingMemberList(@RequestParam(name ="searchText" ,required = false) String searchText){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
@@ -55,7 +34,7 @@ public class UserAdminstrativeController {
         return returnObj;
     }
 
-    @PostMapping("/pendingMember")
+    @GetMapping("/pendingMemberApplicationDetails")
     public HashMap<String,Object> getPendingMember(@RequestParam(name ="studentId" ,required = true) Integer studentId){
         HashMap<String,Object> returnObj = new HashMap<>();
 
@@ -93,18 +72,16 @@ public class UserAdminstrativeController {
         return returnObj;
     }
 
-
-
-    @PostMapping("/memberList")
-    public HashMap<String,Object> getMemberList(){
+    @PostMapping("/rejectPendingMember")
+    public HashMap<String,Object> rejectPendingMember(@RequestParam(name ="studentId" ,required = true) Integer studentId){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
-            List<HashMap<String,Object>> resultsArray = userAdminstrativeService.getMemberList();
+            userAdminstrativeService.rejectPendingMember(studentId);
 
             returnObj.put("ResponseCode", "1");
             returnObj.put("Response", "Successfull");
-            returnObj.put("ResponseData", resultsArray);
+            returnObj.put("ResponseData", "Successfully Rejected!!");
         } catch (Exception e)
         {
             returnObj.put("ResponseCode", "0");
@@ -114,8 +91,12 @@ public class UserAdminstrativeController {
         return returnObj;
     }
 
-    @PostMapping("/filteredMemberList")
-    public HashMap<String,Object> getFilteredMemberList(@RequestParam(name ="searchText" ,required = true) String searchText){
+
+
+
+
+    @GetMapping("/MemberList")
+    public HashMap<String,Object> getFilteredMemberList(@RequestParam(name ="searchText" ,required = false) String searchText){
         HashMap<String,Object> returnObj = new HashMap<>();
 
         try {
@@ -133,7 +114,7 @@ public class UserAdminstrativeController {
         return returnObj;
     }
 
-    @PostMapping("/getMember")
+    @GetMapping("/MemberDetails")
     public HashMap<String,Object> getMember(@RequestParam(name ="studentId" ,required = true) Integer studentId){
         HashMap<String,Object> returnObj = new HashMap<>();
 

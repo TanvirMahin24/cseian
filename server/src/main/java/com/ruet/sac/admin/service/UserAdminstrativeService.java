@@ -1,6 +1,8 @@
 package com.ruet.sac.admin.service;
 
+import com.ruet.sac.entity.Jobhistory;
 import com.ruet.sac.entity.Member;
+import com.ruet.sac.repository.JobhistoryRepository;
 import com.ruet.sac.repository.MemberRepository;
 import com.ruet.sac.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserAdminstrativeService {
@@ -18,6 +21,9 @@ public class UserAdminstrativeService {
 
     @Autowired
     RoleRepository roleRepository;
+
+    @Autowired
+    JobhistoryRepository jobhistoryRepository;
     public List<HashMap<String,Object>> getPendingMemberList() {
 
         List<HashMap<String,Object>> resultsArray = new ArrayList<>();
@@ -56,18 +62,19 @@ public class UserAdminstrativeService {
 
         HashMap<String,Object> resultsObj = new HashMap<>();
 
-        Object[] ob= memberRepository.getPendingMember(studentId);
-
-        resultsObj.put("StudentId",(Integer) ob[0]);
-        resultsObj.put("studentSeries",(Integer) ob[1]);
-        resultsObj.put("studentName",(String) ob[2]);
-        resultsObj.put("studentPicture",(String) ob[3]);
-        resultsObj.put("studentDocumentPicture",(String) ob[4]);
-        resultsObj.put("studentCountry",(String) ob[5]);
-        resultsObj.put("studentCity",(String) ob[6]);
-        resultsObj.put("studentEmail",(String) ob[7]);
-        resultsObj.put("studentContactNo",(String) ob[8]);
-
+        List<Object[]> list= memberRepository.getPendingMember(studentId);
+        for (Object[] ob : list) {
+            resultsObj.put("StudentId", (Integer) ob[0]);
+            resultsObj.put("studentSeries", (Integer) ob[1]);
+            resultsObj.put("studentName", (String) ob[2]);
+            resultsObj.put("studentPicture", (String) ob[3]);
+            resultsObj.put("studentDocumentPicture", (String) ob[4]);
+            resultsObj.put("studentCountry", (String) ob[5]);
+            resultsObj.put("studentCity", (String) ob[6]);
+            resultsObj.put("studentEmail", (String) ob[7]);
+            resultsObj.put("studentContactNo", (String) ob[8]);
+            break;
+        }
         return resultsObj;
     }
 
@@ -109,18 +116,19 @@ public class UserAdminstrativeService {
 
         HashMap<String,Object> resultsObj = new HashMap<>();
 
-        Object[] ob= memberRepository.getMember(studentId);
-
-        resultsObj.put("StudentId",(Integer) ob[0]);
-        resultsObj.put("studentSeries",(Integer) ob[1]);
-        resultsObj.put("studentName",(String) ob[2]);
-        resultsObj.put("studentPicture",(String) ob[3]);
-        resultsObj.put("studentDocumentPicture",(String) ob[4]);
-        resultsObj.put("studentCountry",(String) ob[5]);
-        resultsObj.put("studentCity",(String) ob[6]);
-        resultsObj.put("studentEmail",(String) ob[7]);
-        resultsObj.put("studentContactNo",(String) ob[8]);
-
+        List<Object[]> list= memberRepository.getMember(studentId);
+        for (Object[] ob : list) {
+            resultsObj.put("StudentId", (Integer) ob[0]);
+            resultsObj.put("studentSeries", (Integer) ob[1]);
+            resultsObj.put("studentName", (String) ob[2]);
+            resultsObj.put("studentPicture", (String) ob[3]);
+            resultsObj.put("studentDocumentPicture", (String) ob[4]);
+            resultsObj.put("studentCountry", (String) ob[5]);
+            resultsObj.put("studentCity", (String) ob[6]);
+            resultsObj.put("studentEmail", (String) ob[7]);
+            resultsObj.put("studentContactNo", (String) ob[8]);
+            break;
+        }
         return resultsObj;
     }
 
@@ -129,6 +137,13 @@ public class UserAdminstrativeService {
         Member member = memberRepository.getReferenceById(studentId);
         member.setUserRole(roleRepository.getReferenceById(3));
         memberRepository.save(member);
+    }
+
+    public void rejectPendingMember(Integer studentId)
+    {
+        Set<Jobhistory> jobhistories = memberRepository.getReferenceById(studentId).getJobhistories();
+        jobhistoryRepository.deleteAllInBatch(jobhistories);
+        memberRepository.deleteById(studentId);
     }
 
     public void banMember(Integer studentId)

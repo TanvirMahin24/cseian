@@ -92,4 +92,25 @@ public class AlumniAdminstrativeController {
         }
         return returnObj;
     }
+
+    @PostMapping("/rejectAlumniRegistrationTransaction")
+    public HashMap<String,Object> rejectAlumniRegistrationTransaction(@RequestParam(name ="transactionId")String transactionId)
+    {
+        HashMap<String,Object> returnObj = new HashMap<>();
+
+
+        try
+        {
+            alumniAdminstrativeService.rejectTransaction(transactionId);
+            returnObj.put("ResponseCode", "1");
+            returnObj.put("Response", "Successfull");
+            returnObj.put("ResponseData", "Successfully Rejected");
+        } catch (Exception e)
+        {
+            returnObj.put("ResponseCode", "0");
+            returnObj.put("Response", "Failed");
+            returnObj.put("ResponseData", "Something Went Wrong");
+        }
+        return returnObj;
+    }
 }
