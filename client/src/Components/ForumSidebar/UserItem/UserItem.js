@@ -1,10 +1,10 @@
 import React from "react";
 import { AiOutlineArrowUp } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import kFormatter from "../../../Utils/kFormatter";
+import { connect } from "react-redux";
+import { getProfile } from "../../../Actions/Directory.action";
 import styles from "./UserItem.module.css";
 
-const UserItem = ({ name, image, points }) => {
+const UserItem = ({ name, image, id, getProfile }) => {
   return (
     <div className={`${styles.wrapper} py-2`}>
       <div className="">
@@ -13,13 +13,12 @@ const UserItem = ({ name, image, points }) => {
           className={`${styles.image} bordered-circle`}
           alt={name}
         />
-        <Link to={`/profile/${name}`} className={styles.name}>
+        <span onClick={() => getProfile(id)} className={styles.name}>
           {name}
-        </Link>
+        </span>
       </div>
       <div className="">
-        <span className={styles.point}>{kFormatter(points)}</span>
-        <span className={styles.arrow}>
+        <span className={styles.arrow} onClick={() => getProfile(id)}>
           <AiOutlineArrowUp />
         </span>
       </div>
@@ -27,4 +26,4 @@ const UserItem = ({ name, image, points }) => {
   );
 };
 
-export default UserItem;
+export default connect(null, { getProfile })(UserItem);

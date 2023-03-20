@@ -16,10 +16,10 @@ const DashboardPage = ({
   isAuthenticated,
 }) => {
   useEffect(() => {
-    if (!user && isAuthenticated) {
+    if (!user) {
       getProfileAuthUser();
     }
-  }, [isAuthenticated]);
+  }, []);
   return (
     <div className="bg-light">
       <Row className={styles.md__fix}>

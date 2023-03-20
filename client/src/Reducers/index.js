@@ -5,6 +5,7 @@ import auth from "./auth";
 import directory from "./directory";
 import job from "./job";
 import forum from "./forum";
+import event from "./event";
 
 const reducers = combineReducers({
   pages: Pages,
@@ -13,5 +14,6 @@ const reducers = combineReducers({
   directory,
   job,
   forum,
+  event,
 });
 export default reducers;

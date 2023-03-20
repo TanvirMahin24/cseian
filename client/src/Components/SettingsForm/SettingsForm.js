@@ -17,6 +17,7 @@ import { toastr } from "react-redux-toastr";
 import { BiLinkExternal } from "react-icons/bi";
 import { editProfile } from "../../Actions/AuthActions";
 import { getProfile } from "../../Actions/Directory.action";
+import { AlumniRegForm } from "../AlumniRegForm";
 
 const SettingsForm = ({ user, editProfile, getProfile }) => {
   const [submitting, setSubmitting] = useState(false);
@@ -39,6 +40,15 @@ const SettingsForm = ({ user, editProfile, getProfile }) => {
     } else {
       setImg(null);
     }
+  };
+
+  const handleAlumniReg = () => {
+    console.log("alumni");
+    modals.openModal({
+      title: "Alumni Registration Form",
+      closeOnClickOutside: false,
+      children: <AlumniRegForm />,
+    });
   };
 
   const handleUploadAvatar = () => {
@@ -95,6 +105,14 @@ const SettingsForm = ({ user, editProfile, getProfile }) => {
             View Your Profile
           </Button>
         </div>
+        {user?.memberPictureLink ? (
+          <div className="text-center">
+            <img src={user?.memberPictureLink} alt="" style={{ width: 90 }} />
+          </div>
+        ) : (
+          <></>
+        )}
+
         <div className={styles.form}>
           <Formik
             initialValues={initVals}
@@ -306,6 +324,29 @@ const SettingsForm = ({ user, editProfile, getProfile }) => {
               </Form>
             )}
           </Formik>
+        </div>
+
+        <hr />
+        <div className={styles.alumni}>
+          <h3>Become an Alumni</h3>
+          <span className="d-block h4">Note:</span>
+          <span className="d-block">
+            {" "}
+            Before becoming alumni member you need to pay the fee of 300TK. You
+            must provide the bank recept image in the Alumni registration form
+          </span>
+          <span className="d-block">
+            <b>Bank:</b> Rupali Bank
+          </span>
+          <span className="d-block">
+            <b>Account:</b> 123456789
+          </span>
+          <span className="d-block pb-3">
+            <b>Title:</b> CSE Alumni
+          </span>
+          <Button variant="danger" size="lg" onClick={() => handleAlumniReg()}>
+            Become Alumni
+          </Button>
         </div>
       </Card.Body>
     </Card>

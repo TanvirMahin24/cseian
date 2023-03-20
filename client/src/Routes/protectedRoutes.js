@@ -65,7 +65,7 @@ const ProtectedRoutes = [
     exact: true,
   },
   {
-    path: "/dashboard/news",
+    path: "/dashboard/events",
     component: DashboardNews,
     exact: true,
   },

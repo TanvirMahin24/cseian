@@ -15,7 +15,7 @@ const Forum = () => {
             <ForumSidebarBtn />
           </Col>
           <Col md={7} lg={8}>
-            <SearchComponent placeholder="Search Forums" />
+            {/* <SearchComponent placeholder="Search Forums" /> */}
             <ForumPostList />
           </Col>
           <Col md={5} lg={4}>

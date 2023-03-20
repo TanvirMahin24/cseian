@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { getAlumni } from "../../Actions/DashboardActions";
 import { PostInForum } from "../PostInForum";
 import styles from "./ForumSidebar.module.css";
 import data from "./UserData/UserData";
 import UserItem from "./UserItem/UserItem";
 
-const ForumSidebar = () => {
+const ForumSidebar = ({ getAlumni, data }) => {
+  useEffect(() => {
+    if (!data) {
+      getAlumni();
+    }
+  }, []);
   const [createPost, setCreatePost] = useState(false);
   return (
     <>
@@ -17,20 +24,23 @@ const ForumSidebar = () => {
           Post In forum
         </button>
         <div className={styles.wrapper}>
-          <span className={`${styles.title} d-block`}>Top Users</span>
+          <span className={`${styles.title} d-block`}>Alumni</span>
           <div className="py-2">
-            {data.top_user.map((user) => (
-              <UserItem key={user.id} {...user} />
+            {data.map((user) => (
+              <UserItem
+                key={user.id}
+                image={user.memberPicture}
+                name={user.memberName}
+                id={user.memberId}
+              />
             ))}
-          </div>
-          <div className="pt-2">
-            <div className="border-top mb-2"></div>
-            <UserItem name="You" {...data.current_user} />
           </div>
         </div>
       </div>
     </>
   );
 };
-
-export default ForumSidebar;
+const mapStateToProps = (state) => ({
+  data: state.auth.alumni,
+});
+export default connect(mapStateToProps, { getAlumni })(ForumSidebar);

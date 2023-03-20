@@ -20,6 +20,7 @@
   background: rgb(226, 226, 226) !important;
   border: 2px solid #fff !important;
 }
+
 @media screen and (max-width: 768px) {
   .form {
     width: 100%;

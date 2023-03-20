@@ -16,10 +16,11 @@ const SignUpForm = ({ signupAction }) => {
   const [selectedFile, setSelectedFile] = useState();
   const [loading, setLoading] = useState(false);
   const [files, setFiles] = useState(defaultImg);
+  const [doc, setDoc] = useState(null);
   const onSubmitHandeler = async (values) => {
     setLoading(true);
     //LOGIN POST ACTION CALL
-    let check = await signupAction(values, selectedFile);
+    let check = await signupAction(values, selectedFile, doc);
     console.log(check);
     if (check === true) {
       setLoading(false);
@@ -45,6 +46,14 @@ const SignUpForm = ({ signupAction }) => {
     }
     //console.log(selectedFile);
     setSelectedFile(file);
+  };
+
+  const onSelectDoc = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setDoc(undefined);
+      return;
+    }
+    setDoc(e.target.files[0]);
   };
 
   const initVals = {
@@ -358,6 +367,15 @@ const SignUpForm = ({ signupAction }) => {
             </Col>
           </Row>
 
+          <div className="pb-4">
+            <span className="d-block">Upload Student ID card Image</span>
+            <input
+              type="file"
+              name="documentImage"
+              onChange={onSelectDoc}
+              id="file"
+            />
+          </div>
           <button
             className={`btn btn-danger px-5 mt-3 ${styles.submit}`}
             type="submit"

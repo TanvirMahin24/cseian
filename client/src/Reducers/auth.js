@@ -4,6 +4,11 @@ import {
   SIGN_UP_SUCCESS,
   LOGIN_SUCCESS,
   GET_AUTH_USER,
+  GET_ADMIN_USER_LIST,
+  SEARCH_ADMIN_USER_LIST,
+  GET_DASHBOARD_DATA,
+  GET_DASHBOARD_ALUMNI,
+  GET_ADMIN_MEMBER_LIST,
 } from "../Constants/Types";
 
 const initialState = {
@@ -11,11 +16,50 @@ const initialState = {
   user: {},
   isAuthenticated: false,
   loading: true,
+  admin_users: null,
+  dashboard: null,
+  alumni: null,
+  member: null,
 };
 
 const Pages = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case GET_DASHBOARD_DATA:
+      return {
+        ...state,
+        dashboard: payload,
+      };
+    case GET_ADMIN_MEMBER_LIST:
+      return {
+        ...state,
+        member: payload,
+      };
+    case GET_DASHBOARD_ALUMNI:
+      return {
+        ...state,
+        alumni: payload,
+      };
+    case GET_ADMIN_USER_LIST:
+      return {
+        ...state,
+        admin_users:
+          state.admin_users === null
+            ? payload
+            : {
+                ...payload,
+                pageContent: [
+                  ...state.admin_users.pageContent,
+                  ...payload.pageContent,
+                ],
+              },
+      };
+
+    case SEARCH_ADMIN_USER_LIST:
+      return {
+        ...state,
+        admin_users: payload,
+      };
     case SIGN_UP_SUCCESS:
       return {
         ...state,
@@ -36,6 +80,7 @@ const Pages = (state = initialState, action) => {
         ...state,
         user: { ...payload.admin },
         loading: false,
+        isAuthenticated: true,
       };
     case LOGIN_SUCCESS:
       localStorage.setItem("token_cseian", payload.token);

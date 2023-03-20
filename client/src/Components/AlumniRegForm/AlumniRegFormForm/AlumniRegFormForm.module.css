@@ -1,0 +1,16 @@
+.submit {
+  font-weight: 600 !important;
+  font-family: "Poppins";
+  font-size: 16px !important;
+  background: var(--color_dark) !important;
+  border-color: var(--color_dark) !important;
+}
+.submit:hover {
+  background: var(--color_danger) !important;
+  border-color: var(--color_danger) !important;
+}
+@media screen and (max-width: 800px) {
+  .label {
+    font-size: 12px !important;
+  }
+}

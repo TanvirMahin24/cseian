@@ -1,0 +1,11 @@
+.submit {
+  background: #d74261 !important;
+}
+.submit:hover {
+  background: #a8344b !important;
+}
+@media screen and (max-width: 800px) {
+  .label {
+    font-size: 12px !important;
+  }
+}

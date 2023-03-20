@@ -5,6 +5,7 @@ import {
   LOGIN_ERROR,
   LOGIN_SUCCESS,
   LOGOUT_ADMIN,
+  REQUEST_ALUMNI,
   SIGN_UP_ERROR,
   SIGN_UP_SUCCESS,
 } from "../Constants/Types";
@@ -14,20 +15,32 @@ import { toastr } from "react-redux-toastr";
 import setAuthToken from "../Utils/setAuthToken";
 
 //Sign up
-export const signupAction = (values, selectedFile) => async (dispatch) => {
+export const signupAction = (values, selectedFile, doc) => async (dispatch) => {
   let formData = new FormData();
   formData.append("image", selectedFile);
+  formData.append("firstName", values.first_name);
+  formData.append("lastName", values.last_name);
+  formData.append("studentId", values.id);
+  formData.append("email", values.email);
+  formData.append("contactNo", values.phone);
+  formData.append("country", values.country);
+  formData.append("city", values.city);
+  formData.append("linkedin", values.linkedin);
+  formData.append("availableTimeToContact", values.availableTimeToContact);
+  formData.append("jobOrganization", values.jobOrganization);
+  formData.append("jobTitle", values.jobTitle);
+  formData.append("jobBrunch", values.jobBrunch);
+  formData.append("jobField", values.jobField);
+  formData.append("password", values.password);
+  formData.append("documentImage", doc);
+
   const config = {
     headers: {
       "Content-Type": "multipart/form-data",
     },
   };
   try {
-    const res = await axios.post(
-      `${BASE_URL}/register?firstName=${values.first_name}&lastName=${values.last_name}&studentId=${values.id}&email=${values.email}&contactNo=${values.phone}&country=${values.country}&city=${values.city}&linkedin=${values.linkedin}&availableTimeToContact=${values.availableTimeToContact}&jobTitle=${values.jobTitle}&jobOrganization=${values.jobOrganization}&jobField=${values.jobField}&jobBrunch=${values.jobBrunch}&password=${values.password}`,
-      formData,
-      config
-    );
+    const res = await axios.post(`${BASE_URL}/register`, formData, config);
     if (res.data.Response !== "Successfull") {
       toastr.error("Register Failed", res.data.ResponseData);
       return false;
@@ -132,6 +145,36 @@ export const addJobProfile = (values) => async (dispatch) => {
     return false;
   }
 };
+export const requestAlumni = (values, image) => async (dispatch) => {
+  try {
+    const data = new FormData();
+    data.append("transactionId", values.transactionId);
+    data.append("recepientBankAccountNo", values.recepientBankAccountNo);
+    data.append("bankName", values.bankName);
+    if (image) {
+      data.append("bankRecieptImage", image);
+    }
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
+    const res = await axios.post(`${BASE_URL}/applyForAlumni`, data, config);
+
+    if (res.data.Response === "Successfull") {
+      dispatch({
+        type: REQUEST_ALUMNI,
+      });
+      toastr.success("Success", "Request sent!");
+      return true;
+    }
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+};
 
 //Login User
 export const login = (email, password) => async (dispatch) => {
@@ -172,6 +215,68 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({
       type: LOGIN_ERROR,
     });
+    return false;
+  }
+};
+
+//Login User
+export const verify = (values) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  };
+
+  const data = new FormData();
+  data.append("varificationCode", values.varificationCode);
+  data.append("userId", values.userId);
+  try {
+    const res = await axios.post(`${BASE_URL}/verifyEmail`, data, config);
+
+    if (res.data.Response !== "Successfull") {
+      toastr.error("Verification Fail", res.data.ResponseData);
+
+      return false;
+    }
+    toastr.success(
+      "Verification Success",
+      "Your email have been verified in successfully"
+    );
+
+    return true;
+  } catch (err) {
+    console.log(err);
+    toastr.error("Verification Fail", err.message);
+
+    return false;
+  }
+};
+
+//Login User
+export const resendCode = (values) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  };
+
+  const data = new FormData();
+  data.append("studentId", values);
+  try {
+    const res = await axios.post(`${BASE_URL}/resendVerifyEmail`, data, config);
+
+    if (res.data.Response !== "Successfull") {
+      toastr.error("Resend Fail", res.data.ResponseData);
+
+      return false;
+    }
+    toastr.success("Email Sent", "Verification code is sent in successfully");
+
+    return true;
+  } catch (err) {
+    console.log(err);
+    toastr.error("Resend Fail", err.message);
+
     return false;
   }
 };

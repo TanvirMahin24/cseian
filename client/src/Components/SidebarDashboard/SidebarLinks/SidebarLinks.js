@@ -58,15 +58,15 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout, user }) => {
       ) {
         dashboardSubCatSelect("Thesis");
       } else if (
-        path[path.length - 1] === "news" &&
+        path[path.length - 1] === "events" &&
         path[path.length - 2] === "dashboard"
       ) {
-        dashboardSubCatSelect("News");
+        dashboardSubCatSelect("Events");
       } else if (
         path[path.length - 1] === "profile" &&
         path[path.length - 2] === "dashboard"
       ) {
-        dashboardSubCatSelect("Admin");
+        dashboardSubCatSelect("Profile");
       } else if (path[path.length - 1] === "admin") {
         dashboardSubCatSelect("Admin");
       }
@@ -154,7 +154,7 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout, user }) => {
         </Link> */}
 
         {/* RESEARCH ARCHIVE LINK */}
-        <Link
+        {/* <Link
           to="/dashboard/research"
           className={`${styles.link} ${
             selected === "Research" ? styles.active : ""
@@ -164,7 +164,6 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout, user }) => {
           RESEARCH ARCHIVE
         </Link>
 
-        {/*THESIS ARCHIVE LINK */}
         <Link
           to="/dashboard/thesis"
           className={`${styles.link} ${
@@ -173,17 +172,17 @@ const SidebarLinks = ({ dashboardSubCatSelect, selected, logout, user }) => {
         >
           <Thesis active={selected === "Thesis" ? true : false} />
           THESIS ARCHIVE
-        </Link>
+        </Link> */}
 
         {/* NEWS LINK */}
         <Link
-          to="/dashboard/news"
+          to="/dashboard/events"
           className={`${styles.link} ${
-            selected === "News" ? styles.active : ""
+            selected === "Events" ? styles.active : ""
           } pt-3`}
         >
-          <News active={selected === "News" ? true : false} />
-          NEWS
+          <News active={selected === "Events" ? true : false} />
+          Events
         </Link>
       </div>
       <div className={`${styles.line} my-4`}></div>
