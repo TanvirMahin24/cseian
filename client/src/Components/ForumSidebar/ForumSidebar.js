@@ -26,14 +26,18 @@ const ForumSidebar = ({ getAlumni, data }) => {
         <div className={styles.wrapper}>
           <span className={`${styles.title} d-block`}>Alumni</span>
           <div className="py-2">
-            {data.map((user) => (
-              <UserItem
-                key={user.id}
-                image={user.memberPicture}
-                name={user.memberName}
-                id={user.memberId}
-              />
-            ))}
+            {data ? (
+              data.map((user) => (
+                <UserItem
+                  key={user.id}
+                  image={user.memberPicture}
+                  name={user.memberName}
+                  id={user.memberId}
+                />
+              ))
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

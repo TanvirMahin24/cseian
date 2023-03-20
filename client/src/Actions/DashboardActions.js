@@ -6,6 +6,7 @@ import {
   GET_ADMIN_EVENT_LIST,
   GET_ADMIN_MEMBER_LIST,
   GET_ADMIN_USER_LIST,
+  GET_ALL_USERS,
   GET_DASHBOARD_ALUMNI,
   GET_DASHBOARD_DATA,
   GET_JOB_LIST,
@@ -104,7 +105,41 @@ export const getDashboardData = () => async (dispatch) => {
     return false;
   }
 };
+export const getUserListAll = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`${BASE_URL}/MemberList`);
 
+    if (res.data.Response !== "Successfull") {
+      toastr.error("Error", res.data.ResponseData);
+      return false;
+    }
+    dispatch({
+      type: GET_ALL_USERS,
+      payload: res.data.ResponseData,
+    });
+
+    return true;
+  } catch (err) {
+    return false;
+  }
+};
+
+export const banUserAction = (id) => async (dispatch) => {
+  try {
+    const res = await axios.post(`${BASE_URL}/banMember?studentId=${id}`);
+
+    if (res.data.Response !== "Successfull") {
+      toastr.error("Error", res.data.ResponseData);
+      return false;
+    }
+
+    dispatch(getUserListAll());
+    toastr.success("Banned", "User banned!");
+    return true;
+  } catch (err) {
+    return false;
+  }
+};
 export const approveAlumni = (id) => async (dispatch) => {
   try {
     const res = await axios.post(

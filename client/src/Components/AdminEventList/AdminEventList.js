@@ -1,3 +1,5 @@
+import { Text } from "@mantine/core";
+import { useModals } from "@mantine/modals";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Table } from "react-bootstrap";
 import { connect } from "react-redux";
@@ -18,6 +20,20 @@ const AdminEventList = ({
       getAdminEventList("", 0);
     }
   }, []);
+  const modals = useModals();
+  const rejectHandeler = (id) => {
+    modals.openConfirmModal({
+      title: "Please confirm your action",
+      centered: true,
+      children: (
+        <Text size="sm">
+          Are you sure you want to <b>Reject</b> this event transaction?
+        </Text>
+      ),
+      labels: { confirm: "Reject", cancel: "Cancel" },
+      onConfirm: () => rejectEventAdmin(id),
+    });
+  };
 
   return (
     <div className="pt-3">
@@ -58,7 +74,7 @@ const AdminEventList = ({
                           size="sm"
                           variant="danger"
                           className="ml-2"
-                          onClick={() => rejectEventAdmin(item.transactionId)}
+                          onClick={() => rejectHandeler(item.transactionId)}
                         >
                           Reject
                         </Button>

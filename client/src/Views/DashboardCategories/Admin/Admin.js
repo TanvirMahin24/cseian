@@ -3,6 +3,7 @@ import React from "react";
 import AdminEventList from "../../../Components/AdminEventList/AdminEventList";
 import AdminMemberList from "../../../Components/AdminMemberList/AdminMemberList";
 import AdminUserList from "../../../Components/AdminUserList/AdminUserList";
+import UserList from "../../../Components/UserList/UserList";
 import { DashboardPage } from "../../DashboardPage";
 //import { NewsDashboard } from "../../../Components/NewsDashboard";
 
@@ -35,7 +36,7 @@ const Admin = () => {
             <AdminMemberList />
           </Tabs.Panel>
           <Tabs.Panel value="users" pt="xs">
-            USER LIST
+            <UserList />
           </Tabs.Panel>
         </Tabs>
       </div>

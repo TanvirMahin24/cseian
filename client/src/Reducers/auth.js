@@ -9,6 +9,7 @@ import {
   GET_DASHBOARD_DATA,
   GET_DASHBOARD_ALUMNI,
   GET_ADMIN_MEMBER_LIST,
+  GET_ALL_USERS,
 } from "../Constants/Types";
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
   dashboard: null,
   alumni: null,
   member: null,
+  users: null,
 };
 
 const Pages = (state = initialState, action) => {
@@ -29,6 +31,11 @@ const Pages = (state = initialState, action) => {
       return {
         ...state,
         dashboard: payload,
+      };
+    case GET_ALL_USERS:
+      return {
+        ...state,
+        users: payload,
       };
     case GET_ADMIN_MEMBER_LIST:
       return {

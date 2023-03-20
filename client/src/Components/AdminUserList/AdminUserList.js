@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { Text } from "@mantine/core";
+import { useModals } from "@mantine/modals";
+import React, { useEffect } from "react";
 import { Button, Card, Table } from "react-bootstrap";
 import { connect } from "react-redux";
 import {
@@ -13,12 +15,25 @@ const AdminUserList = ({
   approveAlumni,
   rejectAlumni,
 }) => {
-  const [page, setPage] = useState(0);
   useEffect(() => {
     if (!data) {
       getAdminUserList("", 0);
     }
   }, []);
+  const modals = useModals();
+  const rejectHandeler = (id) => {
+    modals.openConfirmModal({
+      title: "Please confirm your action",
+      centered: true,
+      children: (
+        <Text size="sm">
+          Are you sure you want to <b>Reject</b> this alumni transaction?
+        </Text>
+      ),
+      labels: { confirm: "Reject", cancel: "Cancel" },
+      onConfirm: () => rejectAlumni(id),
+    });
+  };
 
   return (
     <div className="pt-3">
@@ -59,7 +74,7 @@ const AdminUserList = ({
                           variant="danger"
                           size="sm"
                           className="ml-2"
-                          onClick={() => rejectAlumni(item.transactionId)}
+                          onClick={() => rejectHandeler(item.transactionId)}
                         >
                           Reject
                         </Button>
