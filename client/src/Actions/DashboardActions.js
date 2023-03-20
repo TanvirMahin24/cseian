@@ -71,7 +71,9 @@ export const getAlumni = () => async (dispatch) => {
 };
 export const getPendingMember = () => async (dispatch) => {
   try {
-    const res = await axios.get(`${BASE_URL}/PendingMemberApplicationList`);
+    const res = await axios.get(
+      `${BASE_URL}/PendingMemberApplicationList?searchText=`
+    );
 
     if (res.data.Response !== "Successfull") {
       toastr.error("Error", res.data.ResponseData);
@@ -107,7 +109,7 @@ export const getDashboardData = () => async (dispatch) => {
 };
 export const getUserListAll = () => async (dispatch) => {
   try {
-    const res = await axios.get(`${BASE_URL}/MemberList`);
+    const res = await axios.get(`${BASE_URL}/MemberList?searchText=`);
 
     if (res.data.Response !== "Successfull") {
       toastr.error("Error", res.data.ResponseData);

@@ -107,7 +107,11 @@ const SettingsForm = ({ user, editProfile, getProfile }) => {
         </div>
         {user?.memberPictureLink ? (
           <div className="text-center">
-            <img src={user?.memberPictureLink} alt="" style={{ width: 90 }} />
+            <img
+              src={user?.memberPictureLink}
+              alt=""
+              style={{ width: 90, aspectRatio: "1/1", borderRadius: "50%" }}
+            />
           </div>
         ) : (
           <></>

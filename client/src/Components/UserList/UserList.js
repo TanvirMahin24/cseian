@@ -34,36 +34,30 @@ const UserList = ({ data, getUserListAll, banUserAction }) => {
 
   return (
     <div className="pt-3">
-      {data && data.pageContent.length > 0 ? (
+      {data && data?.length > 0 ? (
         <Card className="shadow">
           <h3 className="text-center pt-3">Users</h3>
           <Card.Body>
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>ID</th>
                   <th>Name</th>
-                  <th>Bank Name</th>
-                  <th>Transaction Status</th>
-                  <th>transaction Id</th>
-                  <th>Acount No.</th>
+                  <th>Contact</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {data.pageContent.map((item, i) => (
+                {data?.map((item, i) => (
                   <tr key={i}>
-                    <td>{item.studentId}</td>
+                    <td>{item.StudentId}</td>
                     <td>{item.studentName}</td>
-                    <td>{item.bankName}</td>
-                    <td>{item.transactionStatus}</td>
-                    <td>{item.transactionId}</td>
-                    <td>{item.reciepentBankAccountNo}</td>
+                    <td>{item.studentContactNo}</td>
                     <td>
                       <div className="d-flex">
                         <Button
                           size="sm"
-                          onClick={() => banHandeler(item.transactionId)}
+                          onClick={() => banHandeler(item.StudentId)}
                         >
                           BAN
                         </Button>
@@ -82,7 +76,7 @@ const UserList = ({ data, getUserListAll, banUserAction }) => {
   );
 };
 const mapStateToProps = (state) => ({
-  data: state.auth.admin_users,
+  data: state.auth.users,
 });
 export default connect(mapStateToProps, {
   getUserListAll,
