@@ -21,10 +21,10 @@ const SignUpForm = ({ signupAction }) => {
     setLoading(true);
     //LOGIN POST ACTION CALL
     let check = await signupAction(values, selectedFile, doc);
-    console.log(check);
+    // console.log(check);
     if (check === true) {
       setLoading(false);
-      history.push("/login");
+      history.push(`/verify/${values.id}`);
     } else {
       setLoading(false);
     }
