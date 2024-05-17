@@ -1,5 +1,5 @@
 ## -
-#  RUET CSE ALUMNI (Updated)
+#  RUET CSE ALUMNI (Documentation)
 - [API Documentation](#api-documentation)
 - [Project Structure](#project-structure)
 - [Datbabase Structure](#datbabase-structure)
