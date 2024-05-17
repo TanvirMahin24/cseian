@@ -1,6 +1,5 @@
 ## -
 #  RUET CSE ALUMNI (Updated)
-> Updated repo is private
 - [API Documentation](#api-documentation)
 - [Project Structure](#project-structure)
 - [Datbabase Structure](#datbabase-structure)
